@@ -1,0 +1,601 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+@font-face {
+  font-family: 'futura_std_bold';
+  src: url("../assets/fonts/FuturaStd-Bold.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'futura_std_heavy';
+  src: url("../assets/fonts/FuturaStd-Heavy.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'Pill_Bold';
+  src: url("../assets/fonts/PillGothic300mg-Bold.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'Pill_Light';
+  src: url("../assets/fonts/PillGothic300mg-Light.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'Pill_Regular';
+  src: url("../assets/fonts/PillGothic300mg-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'Pill_Semibd';
+  src: url("../assets/fonts/PillGothic300mg-Semibd.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal; }
+/*....................................SCSS VARIABLES..................................*/
+/*....................................................................................*/
+/*.................................................................................*/
+/*$break-large-desktop: 2500px;*/
+/*$break-infinite: 500000px;*/
+/*....................................SCSS MIXINS..................................*/
+@-webkit-keyframes rotating /* Safari and Chrome */ {
+  from {
+    -ms-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    -webkit-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    transform: rotateY(0deg); }
+  to {
+    -ms-transform: rotateY(360deg);
+    -moz-transform: rotateY(360deg);
+    -webkit-transform: rotateY(360deg);
+    -ms-transform: rotateY(360deg);
+    transform: rotateY(360deg); } }
+@keyframes rotating {
+  from {
+    -ms-transform: rotateY(0deg);
+    -moz-transform: rotateY(0deg);
+    -webkit-transform: rotateY(0deg);
+    -ms-transform: rotateY(0deg);
+    transform: rotateY(0deg); }
+  to {
+    -ms-transform: rotateY(360deg);
+    -moz-transform: rotateY(360deg);
+    -webkit-transform: rotateY(360deg);
+    -ms-transform: rotateY(360deg);
+    transform: rotateY(360deg); } }
+/*....................................General settings..................................*/
+/*.....................TEXT MARK STYLES......................*/
+::-moz-selection {
+  background: transparent;
+  text-shadow: none; }
+
+::selection {
+  background: transparent;
+  text-shadow: none; }
+
+/*.....................ACTIVE CLASSES......................*/
+.active {
+  opacity: 0.1; }
+
+/*....................HIDING SCROLLBAR.....................*/
+::-webkit-scrollbar {
+  display: none; }
+
+* {
+  -webkit-overflow-scrolling: touch; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+/*.....................GENERAL STYLES......................*/
+html {
+  font-family: helvetica;
+  width: 100%;
+  margin: 0, 0;
+  padding: 0, 0;
+  box-sizing: border-box;
+  background-color: #000000; }
+
+body {
+  width: 100vw;
+  height: 100%;
+  margin: 0, 0;
+  padding: 0, 0;
+  display: block;
+  position: relative; }
+
+p, a, li {
+  font-size: 20px;
+  list-style-type: none;
+  letter-spacing: 2px;
+  color: #000000;
+  font-family: helvetica; }
+
+input, textarea, select, a, li {
+  text-decoration: none; }
+
+a {
+  cursor: pointer;
+  font-size: 25px;
+  line-height: 30px;
+  font-family: "futura_std_bold";
+  letter-spacing: 2px;
+  /*  @if $media == large-desktop {
+      @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+    }*/
+  text-transform: uppercase;
+  color: #000000;
+  transition: color 0.4s ease;
+  -webkit-transition: color 0.4s ease;
+  -moz-transition: color 0.4s ease;
+  -ms-transition: color 0.4s ease;
+  -o-transition: color 0.4s ease; }
+  @media only screen and (min-width: 0px) and (max-width: 767px) {
+    a {
+      font-size: 20px;
+      line-height: 30px; } }
+  a:hover {
+    color: #e2e2e2;
+    /*  @if $media == large-desktop {
+        @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+      }*/
+    /*  @if $media == large-desktop {
+        @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+      }*/
+    /*  @if $media == large-desktop {
+        @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+      }*/ }
+    @media only screen and (min-width: 0px) and (max-device-width: 767px) {
+      a:hover {
+        color: #000000 !important; } }
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1022px) and (orientation: portrait) {
+      a:hover {
+        color: #000000 !important; } }
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1022px) and (orientation: landscape) {
+      a:hover {
+        color: #000000 !important; } }
+
+p {
+  font-size: 20px;
+  line-height: 24px;
+  font-family: "Pill_Light";
+  font-weight: 300;
+  letter-spacing: 2px;
+  /*  @if $media == large-desktop {
+      @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+    }*/ }
+  @media only screen and (min-width: 0px) and (max-width: 767px) {
+    p {
+      font-size: 12px;
+      line-height: 17px; } }
+
+h1 {
+  font-size: 50px;
+  line-height: 50px;
+  font-family: "futura_std_heavy";
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  /*  @if $media == large-desktop {
+      @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+    }*/ }
+  @media only screen and (min-width: 0px) and (max-width: 767px) {
+    h1 {
+      font-size: 25px; } }
+
+h2 {
+  font-size: 25px;
+  line-height: 30px;
+  font-family: "futura_std_bold";
+  letter-spacing: 2px;
+  /*  @if $media == large-desktop {
+      @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+    }*/ }
+  @media only screen and (min-width: 0px) and (max-width: 767px) {
+    h2 {
+      font-size: 20px;
+      line-height: 30px; } }
+
+/*.........................MAIN............................*/
+main {
+  width: 100vw;
+  position: relative;
+  display: block;
+  list-style-type: none;
+  display: block; }
+
+table {
+  width: 100%;
+  height: 100%; }
+  table tr td {
+    vertical-align: middle; }
+
+@keyframes pageenter {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+@-webkit-keyframes pageenter {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+@-moz-keyframes pageenter {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+@-ms-keyframes pageenter {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+@-o-keyframes pageenter {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+/*.................................NG ENTER/LEAVE..................................*/
+.page.ng-enter {
+  animation: pageenter 1s both ease 0s;
+  -webkit-animation: pageenter 1s both ease 0s;
+  -moz-animation: pageenter 1s both ease 0s;
+  -ms-animation: pageenter 1s both ease 0s;
+  -o-animation: pageenter 1s both ease 0s; }
+
+.page.page-home.ng-leave {
+  animation: pageleave 0s ease;
+  -webkit-animation: pageleave 0s ease;
+  -moz-animation: pageleave 0s ease;
+  -ms-animation: pageleave 0s ease;
+  -o-animation: pageleave 0s ease; }
+
+.ng-enter {
+  z-index: 8888; }
+
+.ng-leave {
+  z-index: 9999; }
+
+.page.ng-enter {
+  opacity: 1;
+  -webkit-transition: opacity 1s ease;
+  -moz-transition: opacity 1s ease;
+  -ms-transition: opacity 1s ease;
+  -o-transition: opacity 1s ease;
+  transition: opacity 1s ease; }
+
+/*.............................NG-CLOAK............................*/
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important; }
+
+[ng-click],
+[data-ng-click],
+[x-ng-click] {
+  cursor: pointer; }
+
+.nav {
+  position: fixed;
+  left: 15px;
+  top: 15px;
+  z-index: 5;
+  width: auto; }
+
+.nav-content {
+  width: auto; }
+
+.nav-logo {
+  width: 50px;
+  height: auto;
+  display: block; }
+  .nav-logo img {
+    width: 50px; }
+
+.home {
+  position: relative;
+  margin: 0;
+  display: block;
+  width: 100vw; }
+
+.open {
+  width: 100vw;
+  height: 300vh;
+  background-color: #000000; }
+
+.open-video {
+  width: 100vw;
+  height: 100vh;
+  position: fixed; }
+
+.quote {
+  display: block;
+  height: auto;
+  width: 100vw; }
+
+.quote-content {
+  width: 100%;
+  height: auto; }
+
+.quote_1 {
+  display: block;
+  height: 100vh;
+  width: 100vw;
+  position: relative; }
+  .quote_1 #quote_1_manfalling {
+    position: absolute;
+    right: 0;
+    width: 50vw;
+    height: 100vh; }
+  .quote_1 #quote_1_diveshort {
+    position: absolute;
+    left: 0;
+    width: 50vw;
+    height: 100vh;
+    background-size: auto 130vh; }
+  .quote_1 #quote_1_benny {
+    position: absolute;
+    left: 35vw;
+    top: 50vh;
+    width: 300px; }
+
+.quote_2 {
+  display: block;
+  height: 100vh;
+  position: relative;
+  overflow: hidden; }
+  .quote_2 #quote_2_190 {
+    position: absolute;
+    width: 100vw;
+    height: 100vh; }
+  .quote_2 #quote_2_buddyledge {
+    position: absolute;
+    left: 50px;
+    top: 50px;
+    width: 300px; }
+
+.background {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+.trailer {
+  width: 100vw;
+  height: 100vh;
+  position: relative; }
+
+.trailer-filter {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-color: #49136f;
+  opacity: 0.9;
+  z-index: 1; }
+
+.trailer-iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  z-index: 2;
+  width: 600px;
+  height: 350px;
+  margin-left: -300px;
+  margin-top: -225px; }
+
+.synopsis {
+  position: relative;
+  width: 100vw;
+  height: 100vh; }
+
+.synopsis-image {
+  position: absolute;
+  top: 100px;
+  right: 200px;
+  width: 300px;
+  display: block; }
+
+.snippets {
+  width: 100vw;
+  height: 100vh; }
+
+.snippets-ul {
+  width: 100%;
+  height: 100%; }
+  .snippets-ul .snippets-li {
+    width: 14.28vw;
+    height: 100%;
+    display: inline-block;
+    position: relative; }
+    .snippets-ul .snippets-li .snippets-li-img {
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 100%; }
+    .snippets-ul .snippets-li .snippets-li-gif {
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 100vh; }
+
+.close {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  background-size: auto 200vh;
+  position: relative; }
+
+.close-text {
+  width: 70vw;
+  display: block;
+  margin: auto;
+  z-index: 2;
+  position: relative; }
+  .close-text p {
+    font-size: 20px;
+    line-height: 24px;
+    font-family: "Pill_Light";
+    font-weight: 300;
+    letter-spacing: 2px;
+    /*  @if $media == large-desktop {
+        @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+      }*/
+    color: #FF0000;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase; }
+    @media only screen and (min-width: 0px) and (max-width: 767px) {
+      .close-text p {
+        font-size: 12px;
+        line-height: 17px; } }
+    .close-text p b {
+      font-family: 'Pill_Semibd'; }
+
+.close-branding {
+  display: block;
+  margin: auto;
+  width: 210px;
+  height: 70px;
+  white-space: nowrap;
+  margin-top: 100px;
+  position: relative;
+  z-index: 2; }
+  .close-branding .close-branding-logo {
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    vertical-align: top;
+    overflow: hidden; }
+    .close-branding .close-branding-logo svg {
+      height: 100%;
+      width: 100%;
+      display: block; }
+
+.close-image {
+  position: absolute;
+  right: 200px;
+  top: 50vh;
+  z-index: 1; }
+  .close-image img {
+    width: 250px;
+    height: auto;
+    display: block; }
+
+.about {
+  width: 100vw;
+  height: 100vh; }
+
+.about-video {
+  position: absolute;
+  width: 30vw;
+  height: 80vh;
+  top: 50%;
+  left: 50%;
+  margin-top: -40vh;
+  margin-left: -15vw;
+  background-color: #000000;
+  /*  @if $media == large-desktop {
+      @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+    }*/ }
+  @media only screen and (min-width: 0px) and (max-width: 767px) {
+    .about-video {
+      position: relative;
+      width: 80vw;
+      margin-left: -40vw;
+      top: 40%; } }
+  .about-video video {
+    width: 90%;
+    height: 100%;
+    margin: auto;
+    display: block; }
+
+.about-text {
+  position: fixed;
+  right: 15px;
+  top: 50%;
+  height: 100px;
+  margin-top: -50px;
+  width: 27vw;
+  /*  @if $media == large-desktop {
+      @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+    }*/ }
+  @media only screen and (min-width: 0px) and (max-width: 767px) {
+    .about-text {
+      position: relative;
+      width: 80vw;
+      margin-left: -40vw;
+      left: 50%;
+      right: auto; } }
+  .about-text p {
+    width: 100%;
+    height: 100%; }
+
+.contact {
+  width: 100vw;
+  height: 100vh; }
+
+.contact-a {
+  width: 200px;
+  margin: auto;
+  display: block;
+  text-align: center;
+  font-size: 20px;
+  line-height: 24px;
+  font-family: "Pill_Light";
+  font-weight: 300;
+  letter-spacing: 2px;
+  /*  @if $media == large-desktop {
+      @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+    }*/
+  /*  @if $media == large-desktop {
+      @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
+    }*/ }
+  @media only screen and (min-width: 0px) and (max-width: 767px) {
+    .contact-a {
+      font-size: 12px;
+      line-height: 17px; } }
+  @media only screen and (min-width: 0px) and (max-width: 767px) {
+    .contact-a {
+      width: 100vw;
+      text-align: center; } }

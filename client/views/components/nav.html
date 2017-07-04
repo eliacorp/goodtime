@@ -1,0 +1,37 @@
+<nav class="nav" ng-controller="navCtrl" ng-init="showNav=false">
+  <!-- ng-show="isNav" -->
+  <table>
+    <tr>
+      <td>
+
+      <div class="nav-content">
+        <div class="nav-logo" ng-click="showNav=!showNav">
+          <img src="https://s3-us-west-2.amazonaws.com/asset.goodtime/image/Pepe_AcidDrop.png" alt="goodtime" />
+        </div>
+        <div class="nav-list" ng-show="!isMobile && showNav">
+          <a href="/synopsis" class="nav-a" ng-class="{'active': isActive('/synopsis')}">synopsis</a>
+          <a href="/trailer" class="nav-a" ng-class="{'active': isActive('/trailer')}">trailer</a>
+          <a href="/release" class="nav-a" ng-class="{'active': isActive('/release')}">release</a>
+          <a href="/legal" class="nav-a" ng-class="{'active': isActive('/legal')}">legal</a>
+
+        </div>
+      </div>
+    </td>
+  </tr>
+</table>
+
+
+
+  <div class="nav-mobile-list" ng-show="isMobile && showNav">
+    <table>
+      <tr>
+        <td>
+          <a href="/trailer" class="nav-a" ng-class="{'active': isActive('/trailer')}" ng-click="showNavMobile=false">trailer</a>
+
+        </td>
+      </tr>
+    </table>
+  </div>
+
+
+</nav>

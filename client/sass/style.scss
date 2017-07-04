@@ -1,0 +1,23 @@
+
+
+// IMPORT PARTIALS
+@import "base/reset";
+@import "base/fonts";
+@import "base/variables";
+@import "base/mixins";
+@import "base/keyframes";
+@import "base/general";
+@import "base/nav";
+
+
+@import "partial/home";
+@import "partial/section/open";
+@import "partial/section/quote";
+@import "partial/section/trailer";
+@import "partial/section/synopsis";
+@import "partial/section/snippets";
+@import "partial/section/close";
+
+
+@import "partial/about";
+@import "partial/contact";

@@ -1,0 +1,27 @@
+.snippets{
+  width: 100vw;
+  height: 100vh;
+}
+
+.snippets-ul{
+  width: 100%;
+  height: 100%;
+  .snippets-li{
+    width: 14.28vw;
+    height: 100%;
+    display: inline-block;
+    position: relative;
+    .snippets-li-img{
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+    .snippets-li-gif{
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 100vh;
+    }
+  }
+}

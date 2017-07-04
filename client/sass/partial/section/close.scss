@@ -1,0 +1,64 @@
+.close{
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  background-size: auto 200vh;
+  position: relative;
+}
+
+.close-text{
+  width: 70vw;
+  display: block;
+  margin: auto;
+  z-index:2;
+  position: relative;
+  p{
+    @include p();
+    color: $red;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    b{
+      font-family: 'Pill_Semibd';
+    }
+  }
+}
+
+
+
+.close-branding{
+  display: block;
+  margin: auto;
+  width: 210px;
+  height: 70px;
+  white-space: nowrap;
+  margin-top: $margin-top-block;
+  position: relative;
+  z-index:2;
+  .close-branding-logo{
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    vertical-align: top;
+    overflow: hidden;
+    svg{
+      height: 100%;
+      width: 100%;
+      display: block;
+    }
+  }
+}
+
+
+
+.close-image{
+  position: absolute;
+  right:200px;
+  top:50vh;
+  z-index:1;
+  img{
+    width: 250px;
+    height: auto;
+    display: block;
+  }
+}

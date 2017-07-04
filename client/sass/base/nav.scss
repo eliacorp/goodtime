@@ -1,0 +1,28 @@
+
+
+.nav{
+  position: fixed;
+  left:$margin-sides;
+  top:$margin-sides;
+  z-index:$z-nav;
+  width: auto;
+}
+
+
+.nav-content{
+  width: auto;
+}
+
+.nav-logo{
+  width: 50px;
+  height: auto;
+  display: block;
+  img{
+    width:50px;
+  }
+}
+
+
+.nav-mobile-list{
+
+}

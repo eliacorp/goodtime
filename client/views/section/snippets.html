@@ -1,0 +1,11 @@
+<div class="snippets" id="anchor_snippets" ng-controller="snippetsCtrl">
+
+
+  <ul class="snippets-ul">
+    <li class="snippets-li" ng-repeat="s in Snippets" ng-mouseenter="showGif=true" ng-mouseleave="showGif=false">
+      <div class="snippets-li-img background" style="background-image: url('{{s.image}}')" ng-hide="showGif"></div>
+      <div class="snippets-li-gif background" style="background-image: url('{{s.gif}}')" ng-show="showGif"></div>
+    </li>
+  </ul>
+
+</div>
