@@ -2,6 +2,7 @@
   display: block;
   height:auto;
   width: 100vw;
+  position: relative;
 }
 
 .quote-content{
@@ -17,14 +18,14 @@
   #quote_1_manfalling{
     position: absolute;
     right:0;
-    width: 50vw;
+    width: 100vw;
     height: 100vh;
   }
   #quote_1_diveshort{
     position: absolute;
-    left:0;
+    left:5vw;
     width: 50vw;
-    height:100vh;
+    height:90vh;
     background-size: auto 130vh;
   }
   #quote_1_benny{
@@ -60,4 +61,14 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+
+
+.ghost-img{
+  position: absolute;
+  width: 200px;
+  height: auto;
+  display: block;
+  z-index:4;
 }

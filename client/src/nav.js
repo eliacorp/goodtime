@@ -61,6 +61,42 @@ angular.module('myApp')
   }
 
 
+
+
+
+
+
+
+
+  var animTime = 4, // time for the animation in seconds
+      hueChange = 6, // the hue change from one span element to the next
+      prefixes = ["", "-webkit-", "-moz-", "-o-"],
+      numPrefixes = prefixes.length;
+
+  $('.unicorn').find('b').each(function (i) {
+      for (var j = 0; j < numPrefixes; j++) {
+          $(this).css(prefixes[j] + 'animation-delay', (animTime * ((i * hueChange) % 360) / 360) - animTime + 's');
+      }
+  });
+
+  // needed to avoid Chrome bug:
+  $('.unicorn').one('mouseover',function(){
+      $(this).addClass('animate');
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 })
 
 

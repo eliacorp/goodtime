@@ -1,4 +1,6 @@
-<div class="quote">
+<div class="quote" id="anchor_quote" ng-controller="quoteCtrl" ng-click="addImage($event)" ng-mousemove="addImage($event)">
+  <img class="ghost-img gost-img-{{$index}}" id="gost-img-{{$index}}" ng-repeat="i in imageArray track by $index" ng-src="{{i.src}}" style="top:{{i.y}}px;left:{{i.x}}px"/>
+
   <div class="quote-content">
 
     <div class="quote_1">

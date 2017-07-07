@@ -3,9 +3,18 @@ angular.module('myApp')
 
 
 
+$rootScope.anchorScroll=(id)=>{
+  console.log(id);
+  anchorSmoothScroll.scrollTo(id);
+}
 
 
 
+
+
+  setTimeout(function(){
+    $( ".synopsis-image" ).draggable({ containment: "parent" });
+  },900);
 
 })
 
@@ -48,6 +57,39 @@ angular.module('myApp')
     replace: true
   };
 })
+
+
+// .directive('imageDirective', function($rootScope, $location, $window, $timeout) {
+//   return {
+//     restrict: 'A',
+//     templateUrl: 'views/section/open.html',
+//     link:function(){
+//       console.log(event);
+//       var IEWIN = true;
+//       var x = event.clientX;     // Get the horizontal coordinate
+//       var y = event.clientY;
+//       var src= 'https://s3-us-west-2.amazonaws.com/asset.goodtime/image/images_for_array/Small/'+$scope.imageN+'.jpg';
+//       var alt = 'goodtime ghost image '+$scope.imageN;
+//       var title = 'goodtime ghost image '+$scope.imageN;
+//       console.log(x, y);
+//       var img = document.createElement('img');
+//      img.src = src;
+//      img.width='300px';
+//      var imagestyle = img.style;
+//     imagestyle.position = "absolute";
+//     imagestyle.top = y;
+//     imagestyle.left = x;
+//      if ( alt != null ) img.alt = alt;
+//      if ( title != null ) img.title = title;
+//      // document.getElementById('#'+parent);
+//      console.log(this);
+//
+//      // .appendChild(img);
+//      // return img;
+//      imageN++
+//     }
+//   };
+// })
 
 .directive('closeDirective', function($rootScope, $location, $window, $timeout) {
   return {

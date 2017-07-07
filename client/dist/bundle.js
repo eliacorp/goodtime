@@ -284,7 +284,17 @@ var about = require("./about.js");
 },{"./about.js":1,"./home.js":3,"./nav.js":4,"./section/open.js":5,"./section/quote.js":6,"./section/snippets.js":7,"./service.js":8,"./vendor/jquery-ui.min.js":9,"angular":17,"angular-animate":11,"angular-resource":13,"angular-route":15,"jquery":30,"prismic.io":38}],3:[function(require,module,exports){
 'use strict';
 
-angular.module('myApp').controller('homeCtrl', function ($rootScope, $location, $window, $timeout, $http, anchorSmoothScroll, $scope, $anchorScroll, $interval, check, transformRequestAsFormPost) {}).directive('openDirective', function ($rootScope, $location, $window, $timeout) {
+angular.module('myApp').controller('homeCtrl', function ($rootScope, $location, $window, $timeout, $http, anchorSmoothScroll, $scope, $anchorScroll, $interval, check, transformRequestAsFormPost) {
+
+  $rootScope.anchorScroll = function (id) {
+    console.log(id);
+    anchorSmoothScroll.scrollTo(id);
+  };
+
+  setTimeout(function () {
+    $(".synopsis-image").draggable({ containment: "parent" });
+  }, 900);
+}).directive('openDirective', function ($rootScope, $location, $window, $timeout) {
   return {
     restrict: 'E',
     templateUrl: 'views/section/open.html',
@@ -314,7 +324,41 @@ angular.module('myApp').controller('homeCtrl', function ($rootScope, $location, 
     templateUrl: 'views/section/snippets.html',
     replace: true
   };
-}).directive('closeDirective', function ($rootScope, $location, $window, $timeout) {
+})
+
+// .directive('imageDirective', function($rootScope, $location, $window, $timeout) {
+//   return {
+//     restrict: 'A',
+//     templateUrl: 'views/section/open.html',
+//     link:function(){
+//       console.log(event);
+//       var IEWIN = true;
+//       var x = event.clientX;     // Get the horizontal coordinate
+//       var y = event.clientY;
+//       var src= 'https://s3-us-west-2.amazonaws.com/asset.goodtime/image/images_for_array/Small/'+$scope.imageN+'.jpg';
+//       var alt = 'goodtime ghost image '+$scope.imageN;
+//       var title = 'goodtime ghost image '+$scope.imageN;
+//       console.log(x, y);
+//       var img = document.createElement('img');
+//      img.src = src;
+//      img.width='300px';
+//      var imagestyle = img.style;
+//     imagestyle.position = "absolute";
+//     imagestyle.top = y;
+//     imagestyle.left = x;
+//      if ( alt != null ) img.alt = alt;
+//      if ( title != null ) img.title = title;
+//      // document.getElementById('#'+parent);
+//      console.log(this);
+//
+//      // .appendChild(img);
+//      // return img;
+//      imageN++
+//     }
+//   };
+// })
+
+.directive('closeDirective', function ($rootScope, $location, $window, $timeout) {
   return {
     restrict: 'E',
     templateUrl: 'views/section/close.html',
@@ -382,6 +426,24 @@ angular.module('myApp').controller('navCtrl', function ($scope, $location, $root
     first = first.split("/")[3];
     return first;
   };
+
+  var animTime = 4,
+      // time for the animation in seconds
+  hueChange = 6,
+      // the hue change from one span element to the next
+  prefixes = ["", "-webkit-", "-moz-", "-o-"],
+      numPrefixes = prefixes.length;
+
+  $('.unicorn').find('b').each(function (i) {
+    for (var j = 0; j < numPrefixes; j++) {
+      $(this).css(prefixes[j] + 'animation-delay', animTime * (i * hueChange % 360) / 360 - animTime + 's');
+    }
+  });
+
+  // needed to avoid Chrome bug:
+  $('.unicorn').one('mouseover', function () {
+    $(this).addClass('animate');
+  });
 }).directive('navDirective', function ($rootScope, $location, $window, $routeParams, $timeout) {
   return {
     restrict: 'E',
@@ -403,7 +465,7 @@ angular.module('myApp').controller('openCtrl', function ($rootScope, $location, 
     $rootScope.videoslide();
     // var vid = document.getElementById("open-video");
     // vid.volume = 0.0;
-  }, 1000);
+  }, 100);
 
   // })
 
@@ -446,19 +508,22 @@ angular.module('myApp').controller('openCtrl', function ($rootScope, $location, 
 
     window.requestAnimationFrame(scrollPlay);
 
+    var lastScrollPosition = window.pageYOffset;
+
     angular.element($window).bind("scroll", function () {
+      var goingDown = window.pageYOffset - lastScrollPosition > 0;
+      var maximumScrollReached = window.pageYOffset > window.innerHeight;
+
       var windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
       var body = document.body,
           html = document.documentElement;
       var docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
       var windowBottom = windowHeight + window.pageYOffset;
-      var element = $rootScope.retrieveElement("open");
+      var element = $rootScope.retrieveElement("anchor_open");
       var openHeight = element[0].clientHeight;
       var requestId = "swjhs";
 
-      console.log(openHeight, windowBottom, docHeight);
-
-      if (windowBottom < openHeight) {
+      if (window.pageYOffset < openHeight) {
         // scrollPlay();
         // $rootScope.$apply();
         $rootScope.isOpener = true;
@@ -469,9 +534,15 @@ angular.module('myApp').controller('openCtrl', function ($rootScope, $location, 
         // $window.cancelAnimationFrame();
       }
 
+      if (!goingDown && !maximumScrollReached) {
+        // window.pageYOffset = lastScrollPosition; // Or whatever maximum you want to allow
+      }
+
+      lastScrollPosition = window.pageYOffset;
+
       $rootScope.$apply();
     });
-  };
+  }; //end video function
 });
 
 },{}],6:[function(require,module,exports){
@@ -479,18 +550,49 @@ angular.module('myApp').controller('openCtrl', function ($rootScope, $location, 
 
 angular.module('myApp').controller('quoteCtrl', function ($rootScope, $location, $window, $timeout, $http, anchorSmoothScroll, $scope, $anchorScroll, $interval, check, transformRequestAsFormPost) {
 
-    angular.element($window).bind("scroll.quote", function () {
-        var windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
-        var body = document.body,
-            html = document.documentElement;
-        var docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
-        var windowBottom = windowHeight + window.pageYOffset;
-        var element = $rootScope.retrieveElement("open");
-        var openHeight = element[0].clientHeight;
-        var requestId = "swjhs";
+  angular.element($window).bind("scroll.quote", function () {
+    var windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
+    var body = document.body,
+        html = document.documentElement;
+    var docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+    var windowBottom = windowHeight + window.pageYOffset;
+    var element = $rootScope.retrieveElement("anchor_open");
+    var quoteHeight = element[0].clientHeight;
+    var requestId = "swjhs";
 
-        $rootScope.$apply();
-    });
+    console.log(windowBottom);
+    if (windowBottom) {}
+
+    $rootScope.$apply();
+  });
+
+  $scope.imageArray = [];
+  $scope.imageN = 1;
+
+  $scope.addImage = function (event) {
+
+    var element = $rootScope.retrieveElement("anchor_quote");
+    var offset = element[0].offsetTop;
+    console.log("offset: ", offset);
+    console.log("window.pageYOffset: ", window.pageYOffset);
+    var difference = window.pageYOffset - offset;
+    console.log("difference", difference);
+
+    var obj = {};
+    obj.x = event.clientX - 150; // Get the horizontal coordinate
+    obj.y = event.clientY + difference;
+    obj.src = 'https://s3-us-west-2.amazonaws.com/asset.goodtime/image/images_for_array/A' + $scope.imageN + '.jpg';
+    $scope.imageArray.push(obj);
+    var imgClass = ".ghost-img";
+    setTimeout(function () {
+      $(imgClass).draggable({ containment: "parent" });
+    }, 500);
+    if ($scope.imageN < 68) {
+      $scope.imageN++;
+    } else {
+      $scope.imageN = 1;
+    }
+  };
 });
 
 },{}],7:[function(require,module,exports){
@@ -500,26 +602,51 @@ angular.module('myApp').controller('snippetsCtrl', ['$rootScope', '$scope', func
 
   $scope.Snippets = [{
     image: "https://s3-us-west-2.amazonaws.com/asset.goodtime/image/CutForWeb/Collage/Collage_01.jpg",
-    gif: "https://s3-us-west-2.amazonaws.com/asset.goodtime/image/Gif/BLONDETV2.gif"
+    gif: "https://s3-us-west-2.amazonaws.com/asset.goodtime/image/Gif/TONGUE.gif",
+    audio: "https://s3-us-west-2.amazonaws.com/asset.goodtime/audio/GT_AUDIO_01.mp3"
   }, {
     image: "https://s3-us-west-2.amazonaws.com/asset.goodtime/image/CutForWeb/Collage/Collage_02.jpg",
-    gif: "https://s3-us-west-2.amazonaws.com/asset.goodtime/image/Gif/BLONDETV2.gif"
+    gif: "https://s3-us-west-2.amazonaws.com/asset.goodtime/image/Gif/MONEY.gif",
+    audio: "https://s3-us-west-2.amazonaws.com/asset.goodtime/audio/GT_AUDIO_02.mp3"
   }, {
     image: "https://s3-us-west-2.amazonaws.com/asset.goodtime/image/CutForWeb/Collage/Collage_03.jpg",
-    gif: "https://s3-us-west-2.amazonaws.com/asset.goodtime/image/Gif/BLONDETV2.gif"
+    gif: "https://s3-us-west-2.amazonaws.com/asset.goodtime/image/Gif/RED.gif",
+    audio: "https://s3-us-west-2.amazonaws.com/asset.goodtime/audio/GT_AUDIO_03.mp3"
   }, {
     image: "https://s3-us-west-2.amazonaws.com/asset.goodtime/image/CutForWeb/Collage/Collage_04.jpg",
-    gif: "https://s3-us-west-2.amazonaws.com/asset.goodtime/image/Gif/BLONDETV2.gif"
+    gif: "https://s3-us-west-2.amazonaws.com/asset.goodtime/image/Gif/MOUTH.gif",
+    audio: "https://s3-us-west-2.amazonaws.com/asset.goodtime/audio/GT_AUDIO_04.mp3"
   }, {
     image: "https://s3-us-west-2.amazonaws.com/asset.goodtime/image/CutForWeb/Collage/Collage_05.jpg",
-    gif: "https://s3-us-west-2.amazonaws.com/asset.goodtime/image/Gif/BLONDETV2.gif"
+    gif: "https://s3-us-west-2.amazonaws.com/asset.goodtime/image/Gif/KICK.gif",
+    audio: "https://s3-us-west-2.amazonaws.com/asset.goodtime/audio/GT_AUDIO_05.mp3"
   }, {
     image: "https://s3-us-west-2.amazonaws.com/asset.goodtime/image/CutForWeb/Collage/Collage_06.jpg",
-    gif: "https://s3-us-west-2.amazonaws.com/asset.goodtime/image/Gif/BLONDETV2.gif"
+    gif: "https://s3-us-west-2.amazonaws.com/asset.goodtime/image/Gif/KICK.gif",
+    audio: "https://s3-us-west-2.amazonaws.com/asset.goodtime/audio/GT_AUDIO_06.mp3"
   }, {
     image: "https://s3-us-west-2.amazonaws.com/asset.goodtime/image/CutForWeb/Collage/Collage_07.jpg",
-    gif: "https://s3-us-west-2.amazonaws.com/asset.goodtime/image/Gif/BLONDETV2.gif"
+    gif: "https://s3-us-west-2.amazonaws.com/asset.goodtime/image/Gif/KISS.gif",
+    audio: "https://s3-us-west-2.amazonaws.com/asset.goodtime/audio/GT_AUDIO_07.mp3"
   }];
+
+  $rootScope.audio_snippets = "";
+  // $scope.Snippets[0].audio;
+
+  setTimeout(function () {
+    var sound = $('.snippets-audio')[0];
+    sound.volume = 0.6;
+  }, 600);
+
+  $scope.thisAudio = function (index) {
+    $rootScope.audio_snippets = $scope.Snippets[index].audio;
+    console.log(index);
+  };
+  $scope.pauseAudio = function () {
+    var sound = $('.snippets-audio')[0];
+    sound.pause();
+    sound.currentTime = 0;
+  };
 }]);
 
 },{}],8:[function(require,module,exports){
@@ -609,6 +736,7 @@ Service.service('anchorSmoothScroll', function ($location, $rootScope) {
         function elmYPosition(eID) {
             var elm = document.getElementById(eID);
             var y = elm.offsetTop;
+            console.log(y);
             var node = elm;
             while (node.offsetParent && node.offsetParent != document.body) {
                 node = node.offsetParent;

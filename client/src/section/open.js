@@ -8,7 +8,7 @@ console.log("openCtrl");
       $rootScope.videoslide();
       // var vid = document.getElementById("open-video");
       // vid.volume = 0.0;
-    }, 1000);
+    }, 100);
 
   // })
 
@@ -61,18 +61,22 @@ $rootScope.videoslide=()=>{
 
 
 
+
+var lastScrollPosition = window.pageYOffset;
+
   angular.element($window).bind("scroll", function() {
-      var windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
-      var body = document.body, html = document.documentElement;
-      var docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
-      var windowBottom = windowHeight + window.pageYOffset;
-      var element = $rootScope.retrieveElement("open");
-      var openHeight = element[0].clientHeight;
-      var requestId = "swjhs";
+    var goingDown = (window.pageYOffset - lastScrollPosition) > 0;
+    var maximumScrollReached = (window.pageYOffset > window.innerHeight);
 
-      console.log(openHeight,windowBottom, docHeight);
+    var windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
+    var body = document.body, html = document.documentElement;
+    var docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
+    var windowBottom = windowHeight + window.pageYOffset;
+    var element = $rootScope.retrieveElement("anchor_open");
+    var openHeight = element[0].clientHeight;
+    var requestId = "swjhs";
 
-      if (windowBottom < openHeight) {
+      if (window.pageYOffset < openHeight) {
         // scrollPlay();
         // $rootScope.$apply();
         $rootScope.isOpener = true;
@@ -83,15 +87,20 @@ $rootScope.videoslide=()=>{
         // $window.cancelAnimationFrame();
       }
 
+
+      if (!goingDown && !maximumScrollReached) {
+        // window.pageYOffset = lastScrollPosition; // Or whatever maximum you want to allow
+      }
+
+      lastScrollPosition = window.pageYOffset;
+
+
       $rootScope.$apply();
 
   });
 
+}//end video function
 
-
-
-
-}
 
 
 

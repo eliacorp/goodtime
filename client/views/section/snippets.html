@@ -2,10 +2,15 @@
 
 
   <ul class="snippets-ul">
-    <li class="snippets-li" ng-repeat="s in Snippets" ng-mouseenter="showGif=true" ng-mouseleave="showGif=false">
+    <li class="snippets-li" ng-repeat="s in Snippets" ng-mouseenter="showGif=true;thisAudio($index)" ng-mouseleave="showGif=false;pauseAudio($index)">
       <div class="snippets-li-img background" style="background-image: url('{{s.image}}')" ng-hide="showGif"></div>
       <div class="snippets-li-gif background" style="background-image: url('{{s.gif}}')" ng-show="showGif"></div>
     </li>
   </ul>
+
+
+  <audio class="snippets-audio" src="{{audio_snippets | trustUrl}}" controls autoplay>
+
+  </audio>
 
 </div>
