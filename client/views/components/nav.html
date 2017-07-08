@@ -1,14 +1,13 @@
-<nav class="nav" ng-controller="navCtrl" ng-init="showNav=false" ng-if="!isOpener">
+<nav class="nav" ng-controller="navCtrl" ng-if="!isOpener">
   <!-- ng-show="isNav" -->
   <table>
     <tr>
       <td>
-
       <div class="nav-content">
-        <div class="nav-logo" ng-click="showNav=!showNav">
+        <div class="nav-logo" ng-click="isNavOpen=!isNavOpen">
           <img src="https://s3-us-west-2.amazonaws.com/asset.goodtime/image/Pepe_AcidDrop.png" alt="goodtime" />
         </div>
-        <div class="nav-list" ng-hide="!isMobile && showNav">
+        <div class="nav-list" ng-show="!isMobile && isNavOpen">
           <a class="nav-a unicorn" ng-class="{'active': isActive('/synopsis')}" ng-click="anchorScroll('anchor_synopsis')">
             <b>s</b><b>y</b><b>n</b><b>o</b><b>p</b><b>s</b><b>y</b><b>s</b>
           </a>
@@ -30,7 +29,7 @@
 
 
 
-  <div class="nav-mobile-list" ng-show="isMobile && showNav">
+  <!-- <div class="nav-mobile-list" ng-show="isMobile && showNav">
     <table>
       <tr>
         <td>
@@ -39,7 +38,7 @@
         </td>
       </tr>
     </table>
-  </div>
+  </div> -->
 
 
 </nav>

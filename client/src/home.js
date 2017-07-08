@@ -4,7 +4,6 @@ angular.module('myApp')
 
 
 $rootScope.anchorScroll=(id)=>{
-  console.log(id);
   anchorSmoothScroll.scrollTo(id);
 }
 

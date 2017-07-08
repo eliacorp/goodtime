@@ -437,7 +437,8 @@ table {
   position: relative;
   margin: 0;
   display: block;
-  width: 100vw; }
+  width: 100vw;
+  overflow-x: hidden; }
 
 .open {
   width: 100vw;
@@ -448,6 +449,38 @@ table {
   width: 100vw;
   height: 100vh;
   position: fixed; }
+
+.open-logo {
+  width: 100vw;
+  height: 100vh;
+  position: fixed; }
+  .open-logo svg {
+    display: block;
+    width: 80vw;
+    margin: auto;
+    overflow: visible; }
+
+.open_logo_good {
+  fill: #C70D15;
+  transform: translateX(50%) !important;
+  -ms-transform: translateX(50%) !important;
+  /* IE 9 */
+  -webkit-transform: translateX(50%) !important;
+  /* Safari */
+  transform-origin: 0 0; }
+
+.open_logo_time {
+  fill: #C70D15;
+  transform: translateX(-50%) !important;
+  -ms-transform: translateX(-50%) !important;
+  /* IE 9 */
+  -webkit-transform: translateX(-50%) !important;
+  /* Safari */
+  transform-origin: 0 0; }
+
+.open_logo_time.glow {
+  fill: #FFFFFF;
+  opacity: 0; }
 
 .quote {
   display: block;
@@ -507,6 +540,64 @@ table {
   height: auto;
   display: block;
   z-index: 4; }
+
+.quote-text {
+  position: absolute;
+  color: #FF0000;
+  z-index: 9;
+  font-family: 'Pill_Semibd';
+  text-transform: uppercase; }
+
+.quote-text-span {
+  position: absolute;
+  color: #FFFFFF;
+  font-family: 'Pill_Bold';
+  font-size: 40px; }
+
+.quote-text#vivid {
+  top: 5vh;
+  font-size: 5em;
+  line-height: 1em; }
+
+.quote-text-span#variety {
+  left: -50px;
+  bottom: -30px; }
+
+.quote-text#pleasure {
+  bottom: -5vh;
+  font-size: 8em;
+  line-height: 80px;
+  font-family: 'Pill_Bold'; }
+
+.quote-text-span#nytimes {
+  left: 22%;
+  bottom: -12%; }
+
+.quote-text#suspense {
+  top: 15vh;
+  font-size: 2.5em;
+  line-height: 40px;
+  font-family: 'Pill_Bold';
+  text-transform: none; }
+
+.quote-text-span#indiewire {
+  right: 0%;
+  bottom: -5%;
+  font-size: 60px;
+  text-transform: uppercase; }
+
+.quote-text#robert {
+  bottom: 15vh;
+  font-size: 4em;
+  line-height: 50px;
+  font-family: 'Pill_Regular';
+  text-transform: none; }
+
+.quote-text-span#timeout {
+  right: 0%;
+  bottom: -80%;
+  font-size: 60px;
+  text-transform: none; }
 
 .trailer {
   width: 100vw;
@@ -610,7 +701,7 @@ table {
     /*  @if $media == large-desktop {
         @media only screen and (min-width: $break-large-desktop + 1) and (max-width: $break-infinite) { @content; }
       }*/
-    color: #FF0000;
+    color: #C70D15;
     width: 100%;
     text-align: center;
     text-transform: uppercase; }

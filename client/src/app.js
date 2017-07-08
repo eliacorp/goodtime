@@ -304,6 +304,17 @@ $scope.isWrong = false;
   };
 })
 
+.directive('goodtimeLogoDirective', function() {
+  return {
+    restrict: 'E',
+    templateUrl: 'views/components/icon/goodtime_logo.html',
+    replace: true,
+    link: function(scope, elem, attrs) {
+
+    }
+  };
+})
+
 
 .directive('logoDirective', function($rootScope, $location, $window, $timeout) {
   return {

@@ -262,6 +262,13 @@ _angular2.default.module('myApp', ["ngRoute", "ngAnimate", "ngResource"]).run(['
     replace: true,
     link: function link(scope, elem, attrs) {}
   };
+}).directive('goodtimeLogoDirective', function () {
+  return {
+    restrict: 'E',
+    templateUrl: 'views/components/icon/goodtime_logo.html',
+    replace: true,
+    link: function link(scope, elem, attrs) {}
+  };
 }).directive('logoDirective', function ($rootScope, $location, $window, $timeout) {
   return {
     restrict: 'E',
@@ -287,7 +294,6 @@ var about = require("./about.js");
 angular.module('myApp').controller('homeCtrl', function ($rootScope, $location, $window, $timeout, $http, anchorSmoothScroll, $scope, $anchorScroll, $interval, check, transformRequestAsFormPost) {
 
   $rootScope.anchorScroll = function (id) {
-    console.log(id);
     anchorSmoothScroll.scrollTo(id);
   };
 
@@ -459,7 +465,6 @@ angular.module('myApp').controller('navCtrl', function ($scope, $location, $root
 angular.module('myApp').controller('openCtrl', function ($rootScope, $location, $window, $timeout, $http, anchorSmoothScroll, $scope, $anchorScroll, $interval, check, transformRequestAsFormPost) {
 
   $rootScope.isOpener = true;
-  console.log("openCtrl");
   // $scope.$on("$viewContentLoaded", function(){
   setTimeout(function () {
     $rootScope.videoslide();
@@ -470,45 +475,49 @@ angular.module('myApp').controller('openCtrl', function ($rootScope, $location, 
   // })
 
   $rootScope.videoslide = function () {
-    console.log("videoslide");
-    var frameNumber = 0,
-        // start video at frame 0
-    // lower numbers = faster playback
-    playbackConst = 400,
-
-    // get page height from video duration
-    setHeight = document.getElementById("open"),
-
-    // select video element
-    vid = document.getElementById('open-video');
-    // var vid = $('#v0')[0]; // jquery option
-
-    // dynamically set the page height according to video length
-    vid.addEventListener('loadedmetadata', function () {
-      setHeight.style.height = Math.floor(vid.duration) * playbackConst + "px";
-      console.log(setHeight.style.height);
-    }, { passive: true });
-
-    // Use requestAnimationFrame for smooth playback
-    // function scrollPlay(){
-    //   var frameNumber  = $window.pageYOffset/playbackConst;
-    //   console.log(frameNumber, playbackConst);
-    //   vid.currentTime  = frameNumber;
-    //   window.requestAnimationFrame(scrollPlay);
+    //   console.log("videoslide");
+    //   var frameNumber = 0, // start video at frame 0
+    //       // lower numbers = faster playback
+    //       playbackConst = 400,
+    //       // get page height from video duration
+    //       setHeight = document.getElementById("open"),
+    //       // select video element
+    //       vid = document.getElementById('open-video');
+    //       // var vid = $('#v0')[0]; // jquery option
+    //
+    //   // dynamically set the page height according to video length
+    //   vid.addEventListener('loadedmetadata', function() {
+    //     setHeight.style.height = Math.floor(vid.duration) * playbackConst + "px";
+    //     console.log(setHeight.style.height);
+    //   }, {passive: true});
+    //
+    //
+    //   // Use requestAnimationFrame for smooth playback
+    //   // function scrollPlay(){
+    //   //   var frameNumber  = $window.pageYOffset/playbackConst;
+    //   //   console.log(frameNumber, playbackConst);
+    //   //   vid.currentTime  = frameNumber;
+    //   //   window.requestAnimationFrame(scrollPlay);
+    //   // }
+    //
+    //   function scrollPlay(timestamp) {
+    //     // console.log(timestamp);
+    //     var frameNumber  = ($window.pageYOffset*2.3)/playbackConst;
+    //     vid.currentTime = frameNumber;
+    //     // console.log(vid.currentTime);
+    //     // $rootScope.$apply();
+    //     window.requestAnimationFrame(scrollPlay);
+    //
     // }
+    //
+    //   window.requestAnimationFrame(scrollPlay);
 
-    function scrollPlay(timestamp) {
-      // console.log(timestamp);
-      var frameNumber = $window.pageYOffset * 2.3 / playbackConst;
-      vid.currentTime = frameNumber;
-      // console.log(vid.currentTime);
-      // $rootScope.$apply();
-      window.requestAnimationFrame(scrollPlay);
-    }
-
-    window.requestAnimationFrame(scrollPlay);
-
+    $scope.logoPercentage = 0;
     var lastScrollPosition = window.pageYOffset;
+    $scope.logoGoodScroll = 50;
+    $scope.logoTimeScroll = -50;
+    $scope.timeRgba = 0;
+    $scope.glowOpacity = 0;
 
     angular.element($window).bind("scroll", function () {
       var goingDown = window.pageYOffset - lastScrollPosition > 0;
@@ -528,13 +537,36 @@ angular.module('myApp').controller('openCtrl', function ($rootScope, $location, 
         // $rootScope.$apply();
         $rootScope.isOpener = true;
       } else {
-        console.log("cancel");
         window.cancelAnimationFrame(requestId);
         $rootScope.isOpener = false;
         // $window.cancelAnimationFrame();
       }
 
+      // console.log(window.pageYOffset);
+      // console.log(window.innerHeight*3);
+
+      $scope.percentage = window.pageYOffset / (window.innerHeight * 1.8) * 100;
+
+      if ($scope.percentage < 100) {
+        $scope.logoPercentage = window.pageYOffset / (window.innerHeight * 2) * 100;
+        $scope.negativePercentage = -$scope.logoPercentage;
+        $scope.logoGoodScroll = $scope.negativePercentage / 2 + 47;
+        $scope.logoTimeScroll = $scope.logoPercentage / 2 - 47;
+        $scope.timeRgba = 0;
+        $scope.glowOpacity = 0;
+
+        if ($scope.percentage > 80 && $scope.percentage < 100) {
+          $scope.timeRgba = Math.round(($scope.percentage - 80) / 20 * 255);
+        }
+      } else {
+        if ($scope.percentage > 100 && $scope.percentage < 120) {
+          $scope.glowOpacity = ($scope.percentage - 100) / 20;
+        }
+        $scope.logoPercentage = 47;
+      }
+
       if (!goingDown && !maximumScrollReached) {
+
         // window.pageYOffset = lastScrollPosition; // Or whatever maximum you want to allow
       }
 
@@ -550,6 +582,34 @@ angular.module('myApp').controller('openCtrl', function ($rootScope, $location, 
 
 angular.module('myApp').controller('quoteCtrl', function ($rootScope, $location, $window, $timeout, $http, anchorSmoothScroll, $scope, $anchorScroll, $interval, check, transformRequestAsFormPost) {
 
+  $scope.quoteText = {
+    'vivid': {
+      left: -200
+    },
+    'variety': {
+      opacity: 0
+    },
+    'pleasure': {
+      right: -200
+    },
+    'nytimes': {
+      opacity: 0
+    },
+    'suspense': {
+      right: -200
+    },
+    'indiewire': {
+      opacity: 0
+    },
+    'robert': {
+      left: -200
+    },
+    'timeout': {
+      opacity: 0
+    }
+
+  };
+
   angular.element($window).bind("scroll.quote", function () {
     var windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
     var body = document.body,
@@ -558,25 +618,83 @@ angular.module('myApp').controller('quoteCtrl', function ($rootScope, $location,
     var windowBottom = windowHeight + window.pageYOffset;
     var element = $rootScope.retrieveElement("anchor_open");
     var quoteHeight = element[0].clientHeight;
+    var quoteScroll = 1 * (window.pageYOffset - windowHeight * 3);
+    var percentScrolled = quoteScroll / windowHeight * 100;
+
+    var quote2Scroll = 1 * (window.pageYOffset - windowHeight * 4);
+    var quote2percent = quote2Scroll / windowHeight * 100;
+
+    // console.log(quoteScroll, percentScrolled);
+
     var requestId = "swjhs";
 
-    console.log(windowBottom);
-    if (windowBottom) {}
+    if (percentScrolled < -40) {
+      $scope.quoteText['vivid'].left = percentScrolled + 55;
+    } else if (percentScrolled > -40) {
+      $scope.quoteText['vivid'].left = 15;
+    }
+
+    if (percentScrolled <= -20) {
+      $scope.quoteText['variety'].opacity = (percentScrolled + 40) / 40;
+    } else if (percentScrolled > -20) {
+      $scope.quoteText['variety'].opacity = 1;
+    }
+
+    if (percentScrolled < 10) {
+      $scope.quoteText['pleasure'].right = percentScrolled;
+    } else if (percentScrolled > 10) {
+      $scope.quoteText['pleasure'].right = 10;
+    }
+
+    if (percentScrolled <= 10) {
+      $scope.quoteText['nytimes'].opacity = (percentScrolled - 10) / 10;
+    } else if (percentScrolled > 10) {
+      $scope.quoteText['nytimes'].opacity = 1;
+    }
+
+    if (quote2percent < -40) {
+      $scope.quoteText['suspense'].right = quote2percent + 55;
+    } else if (quote2percent > -40) {
+      $scope.quoteText['suspense'].right = 15;
+    }
+
+    if (quote2percent <= -20) {
+      $scope.quoteText['indiewire'].opacity = (quote2percent + 40) / 40;
+    } else if (quote2percent > -20) {
+      $scope.quoteText['indiewire'].opacity = 1;
+    }
+
+    // #4
+    if (quote2percent < 10) {
+      $scope.quoteText['robert'].left = quote2percent;
+    } else if (quote2percent > 10) {
+      $scope.quoteText['robert'].left = 10;
+    }
+
+    if (quote2percent <= 10) {
+      $scope.quoteText['timeout'].opacity = (quote2percent - 10) / 10;
+    } else if (quote2percent > 10) {
+      $scope.quoteText['timeout'].opacity = 1;
+    }
 
     $rootScope.$apply();
   });
 
   $scope.imageArray = [];
   $scope.imageN = 1;
+  $scope.quoteImage = {
+    x: 0,
+    y: 0
+  };
 
   $scope.addImage = function (event) {
 
     var element = $rootScope.retrieveElement("anchor_quote");
     var offset = element[0].offsetTop;
-    console.log("offset: ", offset);
-    console.log("window.pageYOffset: ", window.pageYOffset);
     var difference = window.pageYOffset - offset;
-    console.log("difference", difference);
+
+    $scope.quoteImage.x = event.clientX;
+    $scope.quoteImage.y = event.clientY;
 
     var obj = {};
     obj.x = event.clientX - 150; // Get the horizontal coordinate
@@ -584,14 +702,31 @@ angular.module('myApp').controller('quoteCtrl', function ($rootScope, $location,
     obj.src = 'https://s3-us-west-2.amazonaws.com/asset.goodtime/image/images_for_array/A' + $scope.imageN + '.jpg';
     $scope.imageArray.push(obj);
     var imgClass = ".ghost-img";
-    setTimeout(function () {
-      $(imgClass).draggable({ containment: "parent" });
-    }, 500);
+    // setTimeout(function(){
+    //   $(imgClass).draggable({ containment: "parent" });
+    // },500);
     if ($scope.imageN < 68) {
       $scope.imageN++;
     } else {
       $scope.imageN = 1;
     }
+  };
+
+  $scope.mouseIsDown = false;
+  $scope.drawImage = function (event) {
+    if ($scope.mouseIsDown) {
+      if (Math.abs($scope.quoteImage.x - event.clientX) > 10 || Math.abs($scope.quoteImage.y - event.clientY) > 10) {
+        $scope.addImage(event);
+      }
+    }
+  };
+
+  $scope.setFlag = function () {
+    $scope.mouseIsDown = true;
+  };
+
+  $scope.removeFlag = function () {
+    $scope.mouseIsDown = false;
   };
 });
 
@@ -640,7 +775,6 @@ angular.module('myApp').controller('snippetsCtrl', ['$rootScope', '$scope', func
 
   $scope.thisAudio = function (index) {
     $rootScope.audio_snippets = $scope.Snippets[index].audio;
-    console.log(index);
   };
   $scope.pauseAudio = function () {
     var sound = $('.snippets-audio')[0];

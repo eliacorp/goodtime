@@ -72,3 +72,94 @@
   display: block;
   z-index:4;
 }
+
+
+
+
+.quote-text{
+  position: absolute;
+  color:$pure-red;
+  z-index: $z-quote-text;
+  font-family: 'Pill_Semibd';
+  text-transform: uppercase;
+}
+
+.quote-text-span{
+  position: absolute;
+  color:$white;
+  font-family: 'Pill_Bold';
+  font-size:40px;
+}
+
+
+
+
+.quote-text#vivid{
+  top: 5vh;
+  font-size: 5em;
+  line-height:1em;
+}
+
+
+
+.quote-text-span#variety{
+  left:-50px;
+  bottom:-30px;
+}
+
+
+// #2
+.quote-text#pleasure{
+  bottom: -5vh;
+  font-size: 8em;
+  line-height:80px;
+  font-family: 'Pill_Bold';
+}
+
+.quote-text-span#nytimes{
+  left: 22%;
+  bottom: -12%;
+}
+
+
+
+
+
+// #3
+
+
+.quote-text#suspense{
+  top: 15vh;
+  font-size: 2.5em;
+  line-height:40px;
+  font-family: 'Pill_Bold';
+  text-transform:none;
+}
+
+.quote-text-span#indiewire{
+  right: 0%;
+  bottom: -5%;
+  font-size: 60px;
+  text-transform: uppercase;
+}
+
+
+
+
+
+// #4
+
+.quote-text#robert{
+  bottom: 15vh;
+  font-size: 4em;
+  line-height:50px;
+  font-family: 'Pill_Regular';
+  text-transform:none;
+}
+
+.quote-text-span#timeout{
+  right: 0%;
+  bottom: -80%;
+  font-size: 60px;
+  text-transform: none;
+}

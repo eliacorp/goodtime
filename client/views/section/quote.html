@@ -1,17 +1,53 @@
-<div class="quote" id="anchor_quote" ng-controller="quoteCtrl" ng-click="addImage($event)" ng-mousemove="addImage($event)">
-  <img class="ghost-img gost-img-{{$index}}" id="gost-img-{{$index}}" ng-repeat="i in imageArray track by $index" ng-src="{{i.src}}" style="top:{{i.y}}px;left:{{i.x}}px"/>
+<div class="quote" id="anchor_quote" ng-controller="quoteCtrl" ng-click="addImage($event)" ng-mouseup="removeFlag()" ng-mousedown="setFlag()" ng-mousemove="drawImage($event)">
+  <img draggable = "false" class="ghost-img gost-img-{{$index}}" id="gost-img-{{$index}}" ng-repeat="i in imageArray track by $index" ng-src="{{i.src}}" style="top:{{i.y}}px;left:{{i.x}}px"/>
 
   <div class="quote-content">
 
     <div class="quote_1">
+
+      <p class="quote-text" id="vivid" style="left:{{quoteText['vivid'].left}}vw;">
+        “A vivid,<br>nerve-radling<br>heist thriller”
+        <span class="quote-text-span" id="variety" style="opacity:{{quoteText['variety'].opacity}};">VARIETY</span>
+      </p>
+
+      <p class="quote-text" id="pleasure" style="right:{{quoteText['pleasure'].right}}vw;">
+        “Pure</br>cinematic</br>pleasure”
+        <span class="quote-text-span" id="nytimes" style="opacity:{{quoteText['nytimes'].opacity}};">New York Times</span>
+      </p>
+
       <div class="background" id="quote_1_manfalling" style="background-image: url('https://s3-us-west-2.amazonaws.com/asset.goodtime/image/CutForWeb/Fall.jpg')" alt="goodtime man falling"></div>
       <div class="background" id="quote_1_diveshort" style="background-image: url('https://s3-us-west-2.amazonaws.com/asset.goodtime/image/Gif/DIVESHORT.gif')" alt="goodtime diveshort"></div>
       <img id="quote_1_benny" src="https://s3-us-west-2.amazonaws.com/asset.goodtime/image/Screencaps/Benny.jpg" alt="goodtime benny">
     </div>
+
+
+
+
+
     <div class="quote_2">
+
+      <p class="quote-text" id="suspense" style="right:{{quoteText['suspense'].right}}vw;">
+        “There’s simply no other modern</br>filmmakers capable of generating this</br>level of comedy and deep-seated</br>suspense at the same time”</br>
+        <span class="quote-text-span" id="indiewire" style="opacity:{{quoteText['indiewire'].opacity}};">indiewire</span>
+      </p>
+
+      <p class="quote-text" id="robert" style="left:{{quoteText['robert'].left}}vw;">
+        “Robert Pattinson burns up the screen”
+        <span class="quote-text-span" id="timeout" style="opacity:{{quoteText['timeout'].opacity}};">TimeOut NY</span>
+      </p>
+
+
+
       <div class="background" id="quote_2_190" style="background-image: url('https://s3-us-west-2.amazonaws.com/asset.goodtime/image/Film/select-190.jpg')" alt="goodtime diveshort"></div>
       <img id="quote_2_buddyledge" src="https://s3-us-west-2.amazonaws.com/asset.goodtime/image/CutForWeb/BuddyLedge.jpg" alt="goodtime buddy ledge">
     </div>
 
   </div>
+
+
+
+
+
+
+
 </div>

@@ -52,7 +52,6 @@ setTimeout(function(){
 
   $scope.thisAudio=(index)=>{
     $rootScope.audio_snippets=$scope.Snippets[index].audio;
-    console.log(index);
   }
   $scope.pauseAudio=()=>{
     var sound = $('.snippets-audio')[0];

@@ -7,5 +7,33 @@
   width: 100vw;
   height: 100vh;
   position: fixed;
+}
 
+.open-logo{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  svg{
+    display: block;
+    width: 80vw;
+    margin: auto;
+    overflow: visible;
+  }
+}
+
+
+
+.open_logo_good{
+  fill:$red;
+  @include transform-element(translateX(50%)!important);
+}
+
+.open_logo_time{
+  fill:$red;
+  @include transform-element(translateX(-50%)!important);
+}
+
+.open_logo_time.glow{
+  fill:$white;
+  opacity:0;
 }

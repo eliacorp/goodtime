@@ -2,7 +2,6 @@ angular.module('myApp')
 .controller('openCtrl', ($rootScope, $location, $window, $timeout, $http, anchorSmoothScroll, $scope, $anchorScroll, $interval, check, transformRequestAsFormPost)=>{
 
 $rootScope.isOpener = true;
-console.log("openCtrl");
   // $scope.$on("$viewContentLoaded", function(){
     setTimeout(function(){
       $rootScope.videoslide();
@@ -16,44 +15,42 @@ console.log("openCtrl");
 
 
 $rootScope.videoslide=()=>{
-  console.log("videoslide");
-  var frameNumber = 0, // start video at frame 0
-      // lower numbers = faster playback
-      playbackConst = 400,
-      // get page height from video duration
-      setHeight = document.getElementById("open"),
-      // select video element
-      vid = document.getElementById('open-video');
-      // var vid = $('#v0')[0]; // jquery option
-
-  // dynamically set the page height according to video length
-  vid.addEventListener('loadedmetadata', function() {
-    setHeight.style.height = Math.floor(vid.duration) * playbackConst + "px";
-    console.log(setHeight.style.height);
-  }, {passive: true});
-
-
-  // Use requestAnimationFrame for smooth playback
-  // function scrollPlay(){
-  //   var frameNumber  = $window.pageYOffset/playbackConst;
-  //   console.log(frameNumber, playbackConst);
-  //   vid.currentTime  = frameNumber;
-  //   window.requestAnimationFrame(scrollPlay);
-  // }
-
-  function scrollPlay(timestamp) {
-    // console.log(timestamp);
-    var frameNumber  = ($window.pageYOffset*2.3)/playbackConst;
-    vid.currentTime = frameNumber;
-    // console.log(vid.currentTime);
-    // $rootScope.$apply();
-    window.requestAnimationFrame(scrollPlay);
-
-}
-
-  window.requestAnimationFrame(scrollPlay);
-
-
+//   console.log("videoslide");
+//   var frameNumber = 0, // start video at frame 0
+//       // lower numbers = faster playback
+//       playbackConst = 400,
+//       // get page height from video duration
+//       setHeight = document.getElementById("open"),
+//       // select video element
+//       vid = document.getElementById('open-video');
+//       // var vid = $('#v0')[0]; // jquery option
+//
+//   // dynamically set the page height according to video length
+//   vid.addEventListener('loadedmetadata', function() {
+//     setHeight.style.height = Math.floor(vid.duration) * playbackConst + "px";
+//     console.log(setHeight.style.height);
+//   }, {passive: true});
+//
+//
+//   // Use requestAnimationFrame for smooth playback
+//   // function scrollPlay(){
+//   //   var frameNumber  = $window.pageYOffset/playbackConst;
+//   //   console.log(frameNumber, playbackConst);
+//   //   vid.currentTime  = frameNumber;
+//   //   window.requestAnimationFrame(scrollPlay);
+//   // }
+//
+//   function scrollPlay(timestamp) {
+//     // console.log(timestamp);
+//     var frameNumber  = ($window.pageYOffset*2.3)/playbackConst;
+//     vid.currentTime = frameNumber;
+//     // console.log(vid.currentTime);
+//     // $rootScope.$apply();
+//     window.requestAnimationFrame(scrollPlay);
+//
+// }
+//
+//   window.requestAnimationFrame(scrollPlay);
 
 
 
@@ -62,7 +59,13 @@ $rootScope.videoslide=()=>{
 
 
 
+
+$scope.logoPercentage=0;
 var lastScrollPosition = window.pageYOffset;
+$scope.logoGoodScroll = 50;
+$scope.logoTimeScroll = -50;
+$scope.timeRgba=0;
+$scope.glowOpacity=0;
 
   angular.element($window).bind("scroll", function() {
     var goingDown = (window.pageYOffset - lastScrollPosition) > 0;
@@ -81,14 +84,36 @@ var lastScrollPosition = window.pageYOffset;
         // $rootScope.$apply();
         $rootScope.isOpener = true;
       }else{
-        console.log("cancel");
         window.cancelAnimationFrame(requestId);
         $rootScope.isOpener = false;
         // $window.cancelAnimationFrame();
       }
 
+      // console.log(window.pageYOffset);
+      // console.log(window.innerHeight*3);
+
+      $scope.percentage=(window.pageYOffset/(window.innerHeight*1.8)*100);
+
+      if($scope.percentage<100){
+        $scope.logoPercentage = (window.pageYOffset/(window.innerHeight*2)*100);
+        $scope.negativePercentage = -$scope.logoPercentage;
+        $scope.logoGoodScroll = ($scope.negativePercentage/2)+47;
+        $scope.logoTimeScroll = ($scope.logoPercentage/2)-47;
+        $scope.timeRgba=0;
+        $scope.glowOpacity=0;
+
+        if(($scope.percentage>80)&&($scope.percentage<100)){
+          $scope.timeRgba= Math.round(((($scope.percentage-80)/20))*255);
+        }
+      }else{
+        if(($scope.percentage>100)&&($scope.percentage<120)){
+          $scope.glowOpacity= (($scope.percentage-100)/20);
+        }
+        $scope.logoPercentage=47;
+      }
 
       if (!goingDown && !maximumScrollReached) {
+
         // window.pageYOffset = lastScrollPosition; // Or whatever maximum you want to allow
       }
 
@@ -100,8 +125,6 @@ var lastScrollPosition = window.pageYOffset;
   });
 
 }//end video function
-
-
 
 
 
