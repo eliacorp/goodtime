@@ -1,5 +1,4 @@
-<div class="quote" id="anchor_quote" ng-controller="quoteCtrl" ng-click="addImage($event)" ng-mouseup="removeFlag()" ng-mousedown="setFlag()" ng-mousemove="drawImage($event)">
-  <img draggable = "false" class="ghost-img gost-img-{{$index}}" id="gost-img-{{$index}}" ng-repeat="i in imageArray track by $index" ng-src="{{i.src}}" style="top:{{i.y}}px;left:{{i.x}}px"/>
+<div class="quote" id="anchor_quote" ng-controller="quoteCtrl">
 
   <div class="quote-content">
 
@@ -42,6 +41,11 @@
       <img id="quote_2_buddyledge" src="https://s3-us-west-2.amazonaws.com/asset.goodtime/image/CutForWeb/BuddyLedge.jpg" alt="goodtime buddy ledge">
     </div>
 
+    <div class="quote_3" ng-click="addImage($event)" ng-mousemove="drawImage($event)">
+      <img draggable = "false" class="ghost-img gost-img-{{$index}}" id="gost-img-{{$index}}" ng-repeat="i in imageArray track by $index" ng-src="{{i.src}}" style="top:{{i.y}}px;left:{{i.x}}px"/>
+
+    </div>
+<!-- ng-mouseup="removeFlag()" ng-mousedown="setFlag()"  -->
   </div>
 
 

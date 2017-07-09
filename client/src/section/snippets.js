@@ -10,30 +10,30 @@ $scope.Snippets = [
   },
   {
     image: "https://s3-us-west-2.amazonaws.com/asset.goodtime/image/CutForWeb/Collage/Collage_02.jpg",
-    gif:"https://s3-us-west-2.amazonaws.com/asset.goodtime/image/Gif/MONEY.gif",
+    gif:"https://s3-us-west-2.amazonaws.com/asset.goodtime/image/Gif/KICK.gif",
     audio:"https://s3-us-west-2.amazonaws.com/asset.goodtime/audio/GT_AUDIO_02.mp3"
   },
-  {
+  {//3
     image: "https://s3-us-west-2.amazonaws.com/asset.goodtime/image/CutForWeb/Collage/Collage_03.jpg",
     gif:"https://s3-us-west-2.amazonaws.com/asset.goodtime/image/Gif/RED.gif",
     audio:"https://s3-us-west-2.amazonaws.com/asset.goodtime/audio/GT_AUDIO_03.mp3"
   },
-  {
+  {//4
     image: "https://s3-us-west-2.amazonaws.com/asset.goodtime/image/CutForWeb/Collage/Collage_04.jpg",
     gif:"https://s3-us-west-2.amazonaws.com/asset.goodtime/image/Gif/MOUTH.gif",
     audio:"https://s3-us-west-2.amazonaws.com/asset.goodtime/audio/GT_AUDIO_04.mp3"
   },
-  {
+  {//5
     image: "https://s3-us-west-2.amazonaws.com/asset.goodtime/image/CutForWeb/Collage/Collage_05.jpg",
-    gif:"https://s3-us-west-2.amazonaws.com/asset.goodtime/image/Gif/KICK.gif",
+    gif:"https://s3-us-west-2.amazonaws.com/asset.goodtime/image/Gif/CARSKY.gif",
     audio:"https://s3-us-west-2.amazonaws.com/asset.goodtime/audio/GT_AUDIO_05.mp3"
   },
-  {
+  {//6
     image: "https://s3-us-west-2.amazonaws.com/asset.goodtime/image/CutForWeb/Collage/Collage_06.jpg",
-    gif:"https://s3-us-west-2.amazonaws.com/asset.goodtime/image/Gif/KICK.gif",
+    gif:"https://s3-us-west-2.amazonaws.com/asset.goodtime/image/Gif/MONEY.gif",
     audio:"https://s3-us-west-2.amazonaws.com/asset.goodtime/audio/GT_AUDIO_06.mp3"
   },
-  {
+  { //7
     image: "https://s3-us-west-2.amazonaws.com/asset.goodtime/image/CutForWeb/Collage/Collage_07.jpg",
     gif:"https://s3-us-west-2.amazonaws.com/asset.goodtime/image/Gif/KISS.gif",
     audio:"https://s3-us-west-2.amazonaws.com/asset.goodtime/audio/GT_AUDIO_08.mp3"

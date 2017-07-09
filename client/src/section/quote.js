@@ -157,10 +157,10 @@ $scope.quoteText={
 
 
 
-$scope.mouseIsDown = false;
+$scope.mouseIsDown = true;
   $scope.drawImage = function(event){
     if ($scope.mouseIsDown){
-      if((Math.abs($scope.quoteImage.x-event.clientX)>10)||(Math.abs($scope.quoteImage.y-event.clientY)>10)){
+      if((Math.abs($scope.quoteImage.x-event.clientX)>100)||(Math.abs($scope.quoteImage.y-event.clientY)>100)){
         $scope.addImage(event)
       }
 

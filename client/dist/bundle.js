@@ -486,7 +486,7 @@ angular.module('myApp').controller('closeCtrl', function ($rootScope, $location,
     var windowBottom = windowHeight + window.pageYOffset;
     var element = $rootScope.retrieveElement("anchor_open");
     var closeHeight = element[0].clientHeight;
-    var closeScroll = 1 * (window.pageYOffset - windowHeight * 8);
+    var closeScroll = 1 * (window.pageYOffset - windowHeight * 9);
     var closeScrolled = closeScroll / windowHeight * 100;
 
     if (closeScroll > 0) {
@@ -559,7 +559,7 @@ angular.module('myApp').controller('closeCtrl', function ($rootScope, $location,
       if (closeScroll > 450 && closeScroll <= 500) {
         $scope.tens[10].opacity = opacity;
       } else if (closeScroll > 500) {
-        $scope.tens[8].opacity = 1;
+        $scope.tens[10].opacity = 1;
       }
     } else {
       $scope.isClose = false;
@@ -850,10 +850,10 @@ angular.module('myApp').controller('quoteCtrl', function ($rootScope, $location,
     }
   };
 
-  $scope.mouseIsDown = false;
+  $scope.mouseIsDown = true;
   $scope.drawImage = function (event) {
     if ($scope.mouseIsDown) {
-      if (Math.abs($scope.quoteImage.x - event.clientX) > 10 || Math.abs($scope.quoteImage.y - event.clientY) > 10) {
+      if (Math.abs($scope.quoteImage.x - event.clientX) > 100 || Math.abs($scope.quoteImage.y - event.clientY) > 100) {
         $scope.addImage(event);
       }
     }
@@ -879,25 +879,25 @@ angular.module('myApp').controller('snippetsCtrl', ['$rootScope', '$scope', func
     audio: "https://s3-us-west-2.amazonaws.com/asset.goodtime/audio/GT_AUDIO_01.mp3"
   }, {
     image: "https://s3-us-west-2.amazonaws.com/asset.goodtime/image/CutForWeb/Collage/Collage_02.jpg",
-    gif: "https://s3-us-west-2.amazonaws.com/asset.goodtime/image/Gif/MONEY.gif",
+    gif: "https://s3-us-west-2.amazonaws.com/asset.goodtime/image/Gif/KICK.gif",
     audio: "https://s3-us-west-2.amazonaws.com/asset.goodtime/audio/GT_AUDIO_02.mp3"
-  }, {
+  }, { //3
     image: "https://s3-us-west-2.amazonaws.com/asset.goodtime/image/CutForWeb/Collage/Collage_03.jpg",
     gif: "https://s3-us-west-2.amazonaws.com/asset.goodtime/image/Gif/RED.gif",
     audio: "https://s3-us-west-2.amazonaws.com/asset.goodtime/audio/GT_AUDIO_03.mp3"
-  }, {
+  }, { //4
     image: "https://s3-us-west-2.amazonaws.com/asset.goodtime/image/CutForWeb/Collage/Collage_04.jpg",
     gif: "https://s3-us-west-2.amazonaws.com/asset.goodtime/image/Gif/MOUTH.gif",
     audio: "https://s3-us-west-2.amazonaws.com/asset.goodtime/audio/GT_AUDIO_04.mp3"
-  }, {
+  }, { //5
     image: "https://s3-us-west-2.amazonaws.com/asset.goodtime/image/CutForWeb/Collage/Collage_05.jpg",
-    gif: "https://s3-us-west-2.amazonaws.com/asset.goodtime/image/Gif/KICK.gif",
+    gif: "https://s3-us-west-2.amazonaws.com/asset.goodtime/image/Gif/CARSKY.gif",
     audio: "https://s3-us-west-2.amazonaws.com/asset.goodtime/audio/GT_AUDIO_05.mp3"
-  }, {
+  }, { //6
     image: "https://s3-us-west-2.amazonaws.com/asset.goodtime/image/CutForWeb/Collage/Collage_06.jpg",
-    gif: "https://s3-us-west-2.amazonaws.com/asset.goodtime/image/Gif/KICK.gif",
+    gif: "https://s3-us-west-2.amazonaws.com/asset.goodtime/image/Gif/MONEY.gif",
     audio: "https://s3-us-west-2.amazonaws.com/asset.goodtime/audio/GT_AUDIO_06.mp3"
-  }, {
+  }, { //7
     image: "https://s3-us-west-2.amazonaws.com/asset.goodtime/image/CutForWeb/Collage/Collage_07.jpg",
     gif: "https://s3-us-west-2.amazonaws.com/asset.goodtime/image/Gif/KISS.gif",
     audio: "https://s3-us-west-2.amazonaws.com/asset.goodtime/audio/GT_AUDIO_08.mp3"

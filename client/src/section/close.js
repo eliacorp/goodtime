@@ -24,7 +24,7 @@ $scope.tens=[
       var windowBottom = windowHeight + window.pageYOffset;
       var element = $rootScope.retrieveElement("anchor_open");
       var closeHeight = element[0].clientHeight;
-      var closeScroll = (1)*(window.pageYOffset - (windowHeight*8));
+      var closeScroll = (1)*(window.pageYOffset - (windowHeight*9));
       var closeScrolled = (closeScroll/windowHeight)*100;
 
 
