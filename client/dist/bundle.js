@@ -131,6 +131,12 @@ _angular2.default.module('myApp', ["ngRoute", "ngAnimate", "ngResource"]).run(['
     return trusted;
     // }
   };
+}).filter('transformFilter', function ($sce) {
+  return function (n) {
+    var string = 'transform:translateX(' + n + '%);-webkit-transform:translateX(' + n + '%);-moz-transform:translateX(' + n + '%);-o-transform:translateX(' + n + '%);';
+
+    return string;
+  };
 }).controller('appCtrl', function ($rootScope, $location, $window, $timeout, $http, anchorSmoothScroll, $scope, $anchorScroll, $interval, check, transformRequestAsFormPost) {
 
   check.size();
@@ -285,10 +291,11 @@ var nav = require("./nav.js");
 var home = require("./home.js");
 var open = require("./section/open.js");
 var quote = require("./section/quote.js");
+var close = require("./section/close.js");
 var snippets = require("./section/snippets.js");
 var about = require("./about.js");
 
-},{"./about.js":1,"./home.js":3,"./nav.js":4,"./section/open.js":5,"./section/quote.js":6,"./section/snippets.js":7,"./service.js":8,"./vendor/jquery-ui.min.js":9,"angular":17,"angular-animate":11,"angular-resource":13,"angular-route":15,"jquery":30,"prismic.io":38}],3:[function(require,module,exports){
+},{"./about.js":1,"./home.js":3,"./nav.js":4,"./section/close.js":5,"./section/open.js":6,"./section/quote.js":7,"./section/snippets.js":8,"./service.js":9,"./vendor/jquery-ui.min.js":10,"angular":18,"angular-animate":12,"angular-resource":14,"angular-route":16,"jquery":31,"prismic.io":39}],3:[function(require,module,exports){
 'use strict';
 
 angular.module('myApp').controller('homeCtrl', function ($rootScope, $location, $window, $timeout, $http, anchorSmoothScroll, $scope, $anchorScroll, $interval, check, transformRequestAsFormPost) {
@@ -298,7 +305,11 @@ angular.module('myApp').controller('homeCtrl', function ($rootScope, $location, 
   };
 
   setTimeout(function () {
-    $(".synopsis-image").draggable({ containment: "parent" });
+    $('.synopsis-text-p').draggable({ containment: "window" });
+  }, 500);
+
+  setTimeout(function () {
+    $(".synopsis-image").draggable({ containment: "window" });
   }, 900);
 }).directive('openDirective', function ($rootScope, $location, $window, $timeout) {
   return {
@@ -462,6 +473,118 @@ angular.module('myApp').controller('navCtrl', function ($scope, $location, $root
 },{}],5:[function(require,module,exports){
 'use strict';
 
+angular.module('myApp').controller('closeCtrl', function ($rootScope, $location, $window, $timeout, $http, anchorSmoothScroll, $scope, $anchorScroll, $interval) {
+
+  $scope.isClose = false;
+  $scope.tens = [{ opacity: 0 }, { opacity: 0 }, { opacity: 0 }, { opacity: 0 }, { opacity: 0 }, { opacity: 0 }, { opacity: 0 }, { opacity: 0 }, { opacity: 0 }, { opacity: 0 }, { opacity: 0 }];
+
+  angular.element($window).bind("scroll.close", function () {
+    var windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
+    var body = document.body,
+        html = document.documentElement;
+    var docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+    var windowBottom = windowHeight + window.pageYOffset;
+    var element = $rootScope.retrieveElement("anchor_open");
+    var closeHeight = element[0].clientHeight;
+    var closeScroll = 1 * (window.pageYOffset - windowHeight * 8);
+    var closeScrolled = closeScroll / windowHeight * 100;
+
+    if (closeScroll > 0) {
+      $scope.isClose = true;
+      // $scope.tens = (closeScroll*2) % 100;
+      // console.log($scope.tens);
+
+      var opacity = closeScroll * 2 % 100 / 100;
+
+      if (closeScroll > 0 && closeScroll <= 50) {
+        $scope.tens[0].opacity = opacity;
+      } else if (closeScroll > 50) {
+        $scope.tens[0].opacity = 1;
+      }
+
+      if (closeScroll > 50 && closeScroll <= 100) {
+        $scope.tens[1].opacity = opacity;
+      } else if (closeScroll > 100) {
+        $scope.tens[1].opacity = 1;
+      }
+
+      if (closeScroll > 100 && closeScroll <= 150) {
+        $scope.tens[2].opacity = opacity;
+      } else if (closeScroll > 150) {
+        $scope.tens[2].opacity = 1;
+      }
+
+      if (closeScroll > 150 && closeScroll <= 200) {
+        $scope.tens[3].opacity = opacity;
+      } else if (closeScroll > 200) {
+        $scope.tens[3].opacity = 1;
+      }
+
+      if (closeScroll > 200 && closeScroll <= 250) {
+        $scope.tens[4].opacity = opacity;
+      } else if (closeScroll > 250) {
+        $scope.tens[4].opacity = 1;
+      }
+
+      if (closeScroll > 200 && closeScroll <= 250) {
+        $scope.tens[5].opacity = opacity;
+      } else if (closeScroll > 250) {
+        $scope.tens[5].opacity = 1;
+      }
+
+      if (closeScroll > 250 && closeScroll <= 300) {
+        $scope.tens[6].opacity = opacity;
+      } else if (closeScroll > 300) {
+        $scope.tens[6].opacity = 1;
+      }
+
+      if (closeScroll > 300 && closeScroll <= 350) {
+        $scope.tens[7].opacity = opacity;
+      } else if (closeScroll > 350) {
+        $scope.tens[7].opacity = 1;
+      }
+
+      if (closeScroll > 350 && closeScroll <= 400) {
+        $scope.tens[8].opacity = opacity;
+      } else if (closeScroll > 400) {
+        $scope.tens[8].opacity = 1;
+      }
+
+      if (closeScroll > 400 && closeScroll <= 450) {
+        $scope.tens[9].opacity = opacity;
+      } else if (closeScroll > 450) {
+        $scope.tens[9].opacity = 1;
+      }
+
+      if (closeScroll > 450 && closeScroll <= 500) {
+        $scope.tens[10].opacity = opacity;
+      } else if (closeScroll > 500) {
+        $scope.tens[8].opacity = 1;
+      }
+    } else {
+      $scope.isClose = false;
+      $scope.tens[0].opacity = 0;
+      $scope.tens[1].opacity = 0;
+      $scope.tens[2].opacity = 0;
+      $scope.tens[3].opacity = 0;
+      $scope.tens[4].opacity = 0;
+      $scope.tens[5].opacity = 0;
+      $scope.tens[6].opacity = 0;
+      $scope.tens[7].opacity = 0;
+      $scope.tens[8].opacity = 0;
+      $scope.tens[9].opacity = 0;
+      $scope.tens[10].opacity = 0;
+    }
+
+    // console.log(closeScroll);
+
+    $rootScope.$apply();
+  });
+});
+
+},{}],6:[function(require,module,exports){
+'use strict';
+
 angular.module('myApp').controller('openCtrl', function ($rootScope, $location, $window, $timeout, $http, anchorSmoothScroll, $scope, $anchorScroll, $interval, check, transformRequestAsFormPost) {
 
   $rootScope.isOpener = true;
@@ -514,10 +637,11 @@ angular.module('myApp').controller('openCtrl', function ($rootScope, $location, 
 
     $scope.logoPercentage = 0;
     var lastScrollPosition = window.pageYOffset;
-    $scope.logoGoodScroll = 50;
-    $scope.logoTimeScroll = -50;
+    $scope.logoGoodScroll = 47;
+    $scope.logoTimeScroll = -47;
     $scope.timeRgba = 0;
     $scope.glowOpacity = 0;
+    $scope.g1 = 0;
 
     angular.element($window).bind("scroll", function () {
       var goingDown = window.pageYOffset - lastScrollPosition > 0;
@@ -552,6 +676,7 @@ angular.module('myApp').controller('openCtrl', function ($rootScope, $location, 
         $scope.negativePercentage = -$scope.logoPercentage;
         $scope.logoGoodScroll = $scope.negativePercentage / 2 + 47;
         $scope.logoTimeScroll = $scope.logoPercentage / 2 - 47;
+
         $scope.timeRgba = 0;
         $scope.glowOpacity = 0;
 
@@ -565,19 +690,29 @@ angular.module('myApp').controller('openCtrl', function ($rootScope, $location, 
         $scope.logoPercentage = 47;
       }
 
-      if (!goingDown && !maximumScrollReached) {
+      if (!goingDown && !maximumScrollReached) {}
 
-        // window.pageYOffset = lastScrollPosition; // Or whatever maximum you want to allow
+      // window.pageYOffset = lastScrollPosition; // Or whatever maximum you want to allow
+
+
+      // console.log($scope.percentage);
+      if (Math.abs($scope.g1) <= 100) {
+        if ($scope.percentage <= 50) {
+          $scope.g1 = $scope.g1 - 1;
+        } else if ($scope.percentage > 50) {
+          $scope.g1 = $scope.g1 + 1;
+        }
+      } else {
+        $scope.g1 = 0;
       }
 
       lastScrollPosition = window.pageYOffset;
-
       $rootScope.$apply();
     });
   }; //end video function
 });
 
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 'use strict';
 
 angular.module('myApp').controller('quoteCtrl', function ($rootScope, $location, $window, $timeout, $http, anchorSmoothScroll, $scope, $anchorScroll, $interval, check, transformRequestAsFormPost) {
@@ -628,6 +763,7 @@ angular.module('myApp').controller('quoteCtrl', function ($rootScope, $location,
 
     var requestId = "swjhs";
 
+    // #1
     if (percentScrolled < -40) {
       $scope.quoteText['vivid'].left = percentScrolled + 55;
     } else if (percentScrolled > -40) {
@@ -640,6 +776,7 @@ angular.module('myApp').controller('quoteCtrl', function ($rootScope, $location,
       $scope.quoteText['variety'].opacity = 1;
     }
 
+    // #2
     if (percentScrolled < 10) {
       $scope.quoteText['pleasure'].right = percentScrolled;
     } else if (percentScrolled > 10) {
@@ -647,11 +784,12 @@ angular.module('myApp').controller('quoteCtrl', function ($rootScope, $location,
     }
 
     if (percentScrolled <= 10) {
-      $scope.quoteText['nytimes'].opacity = (percentScrolled - 10) / 10;
+      $scope.quoteText['nytimes'].opacity = percentScrolled / 10;
     } else if (percentScrolled > 10) {
       $scope.quoteText['nytimes'].opacity = 1;
     }
 
+    // #3
     if (quote2percent < -40) {
       $scope.quoteText['suspense'].right = quote2percent + 55;
     } else if (quote2percent > -40) {
@@ -671,9 +809,9 @@ angular.module('myApp').controller('quoteCtrl', function ($rootScope, $location,
       $scope.quoteText['robert'].left = 10;
     }
 
-    if (quote2percent <= 10) {
-      $scope.quoteText['timeout'].opacity = (quote2percent - 10) / 10;
-    } else if (quote2percent > 10) {
+    if (quote2percent <= 20) {
+      $scope.quoteText['timeout'].opacity = quote2percent / 20;
+    } else if (quote2percent > 20) {
       $scope.quoteText['timeout'].opacity = 1;
     }
 
@@ -730,7 +868,7 @@ angular.module('myApp').controller('quoteCtrl', function ($rootScope, $location,
   };
 });
 
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 'use strict';
 
 angular.module('myApp').controller('snippetsCtrl', ['$rootScope', '$scope', function ($rootScope, $scope) {
@@ -762,28 +900,32 @@ angular.module('myApp').controller('snippetsCtrl', ['$rootScope', '$scope', func
   }, {
     image: "https://s3-us-west-2.amazonaws.com/asset.goodtime/image/CutForWeb/Collage/Collage_07.jpg",
     gif: "https://s3-us-west-2.amazonaws.com/asset.goodtime/image/Gif/KISS.gif",
-    audio: "https://s3-us-west-2.amazonaws.com/asset.goodtime/audio/GT_AUDIO_07.mp3"
+    audio: "https://s3-us-west-2.amazonaws.com/asset.goodtime/audio/GT_AUDIO_08.mp3"
   }];
 
   $rootScope.audio_snippets = "";
   // $scope.Snippets[0].audio;
 
-  setTimeout(function () {
-    var sound = $('.snippets-audio')[0];
-    sound.volume = 0.6;
-  }, 600);
+  // setTimeout(function(){
+  //   var sound = $('.snippets-audio')[0];
+  //   sound.volume=0.6;
+  // }, 600)
 
   $scope.thisAudio = function (index) {
-    $rootScope.audio_snippets = $scope.Snippets[index].audio;
+    console.log(index);
+    var sound = $('#snippets-audio-' + index)[0];
+    sound.loop = false;
+    sound.play();
+    // $rootScope.audio_snippets=$scope.Snippets[index].audio;
   };
-  $scope.pauseAudio = function () {
-    var sound = $('.snippets-audio')[0];
-    sound.pause();
-    sound.currentTime = 0;
-  };
+  // $scope.pauseAudio=(index)=>{
+  //   var sound = $('.snippets-audio')[0];
+  //   sound.pause();
+  //   sound.currentTime = 0;
+  // }
 }]);
 
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 "use strict";
 
 /* Services */
@@ -1055,7 +1197,7 @@ Service.service('check', function ($location, $rootScope) {
     };
 });
 
-},{}],9:[function(require,module,exports){
+},{}],10:[function(require,module,exports){
 "use strict";
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
@@ -2187,7 +2329,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   }));
 });
 
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 /**
  * @license AngularJS v1.5.7
  * (c) 2010-2016 Google, Inc. http://angularjs.org
@@ -6335,11 +6477,11 @@ angular.module('ngAnimate', [])
 
 })(window, window.angular);
 
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 require('./angular-animate');
 module.exports = 'ngAnimate';
 
-},{"./angular-animate":10}],12:[function(require,module,exports){
+},{"./angular-animate":11}],13:[function(require,module,exports){
 /**
  * @license AngularJS v1.5.7
  * (c) 2010-2016 Google, Inc. http://angularjs.org
@@ -7199,11 +7341,11 @@ angular.module('ngResource', ['ng']).
 
 })(window, window.angular);
 
-},{}],13:[function(require,module,exports){
+},{}],14:[function(require,module,exports){
 require('./angular-resource');
 module.exports = 'ngResource';
 
-},{"./angular-resource":12}],14:[function(require,module,exports){
+},{"./angular-resource":13}],15:[function(require,module,exports){
 /**
  * @license AngularJS v1.5.7
  * (c) 2010-2016 Google, Inc. http://angularjs.org
@@ -8270,11 +8412,11 @@ function ngViewFillContentFactory($compile, $controller, $route) {
 
 })(window, window.angular);
 
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 require('./angular-route');
 module.exports = 'ngRoute';
 
-},{"./angular-route":14}],16:[function(require,module,exports){
+},{"./angular-route":15}],17:[function(require,module,exports){
 /**
  * @license AngularJS v1.5.7
  * (c) 2010-2016 Google, Inc. http://angularjs.org
@@ -39748,11 +39890,11 @@ $provide.value("$locale", {
 })(window);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],17:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":16}],18:[function(require,module,exports){
+},{"./angular":17}],19:[function(require,module,exports){
 var lookup = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 
 ;(function (exports) {
@@ -39878,9 +40020,9 @@ var lookup = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 	exports.fromByteArray = uint8ToBase64
 }(typeof exports === 'undefined' ? (this.base64js = {}) : exports))
 
-},{}],19:[function(require,module,exports){
-
 },{}],20:[function(require,module,exports){
+
+},{}],21:[function(require,module,exports){
 (function (global){
 'use strict';
 
@@ -39992,7 +40134,7 @@ exports.allocUnsafeSlow = function allocUnsafeSlow(size) {
 }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"buffer":21}],21:[function(require,module,exports){
+},{"buffer":22}],22:[function(require,module,exports){
 (function (global){
 /*!
  * The buffer module from node.js, for the browser.
@@ -41544,7 +41686,7 @@ function blitBuffer (src, dst, offset, length) {
 }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"base64-js":18,"ieee754":26,"isarray":29}],22:[function(require,module,exports){
+},{"base64-js":19,"ieee754":27,"isarray":30}],23:[function(require,module,exports){
 module.exports = {
   "100": "Continue",
   "101": "Switching Protocols",
@@ -41609,7 +41751,7 @@ module.exports = {
   "511": "Network Authentication Required"
 }
 
-},{}],23:[function(require,module,exports){
+},{}],24:[function(require,module,exports){
 (function (Buffer){
 // Copyright Joyent, Inc. and other Node contributors.
 //
@@ -41720,7 +41862,7 @@ function objectToString(o) {
 }
 
 }).call(this,{"isBuffer":require("../../is-buffer/index.js")})
-},{"../../is-buffer/index.js":28}],24:[function(require,module,exports){
+},{"../../is-buffer/index.js":29}],25:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -42024,7 +42166,7 @@ function isUndefined(arg) {
   return arg === void 0;
 }
 
-},{}],25:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 var http = require('http');
 
 var https = module.exports;
@@ -42040,7 +42182,7 @@ https.request = function (params, cb) {
     return http.request.call(this, params, cb);
 }
 
-},{"http":47}],26:[function(require,module,exports){
+},{"http":48}],27:[function(require,module,exports){
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
   var e, m
   var eLen = nBytes * 8 - mLen - 1
@@ -42126,7 +42268,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
   buffer[offset + i - d] |= s * 128
 }
 
-},{}],27:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 if (typeof Object.create === 'function') {
   // implementation from standard node.js 'util' module
   module.exports = function inherits(ctor, superCtor) {
@@ -42151,7 +42293,7 @@ if (typeof Object.create === 'function') {
   }
 }
 
-},{}],28:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 /**
  * Determine if an object is Buffer
  *
@@ -42170,14 +42312,14 @@ module.exports = function (obj) {
     ))
 }
 
-},{}],29:[function(require,module,exports){
+},{}],30:[function(require,module,exports){
 var toString = {}.toString;
 
 module.exports = Array.isArray || function (arr) {
   return toString.call(arr) == '[object Array]';
 };
 
-},{}],30:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v3.0.0
  * https://jquery.com/
@@ -52216,7 +52358,7 @@ if ( !noGlobal ) {
 return jQuery;
 } ) );
 
-},{}],31:[function(require,module,exports){
+},{}],32:[function(require,module,exports){
 (function (global){
 'use strict';
 
@@ -53017,7 +53159,7 @@ module.exports = {
 };
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./cache":32,"./documents":33,"./experiments":34,"./predicates":37,"./requests":39}],32:[function(require,module,exports){
+},{"./cache":33,"./documents":34,"./experiments":35,"./predicates":38,"./requests":40}],33:[function(require,module,exports){
 
 "use strict";
 
@@ -53072,7 +53214,7 @@ ApiCache.prototype = {
 
 module.exports = ApiCache;
 
-},{"./lru":36}],33:[function(require,module,exports){
+},{"./lru":37}],34:[function(require,module,exports){
 "use strict";
 
 /**
@@ -53658,7 +53800,7 @@ module.exports = {
   GroupDoc: GroupDoc
 };
 
-},{"./fragments":35}],34:[function(require,module,exports){
+},{"./fragments":36}],35:[function(require,module,exports){
 
 "use strict";
 
@@ -53743,7 +53885,7 @@ module.exports = {
   Variation: Variation
 };
 
-},{}],35:[function(require,module,exports){
+},{}],36:[function(require,module,exports){
 "use strict";
 
 var documents = require('./documents');
@@ -54997,7 +55139,7 @@ module.exports = {
   insertSpans: insertSpans
 };
 
-},{"./documents":33}],36:[function(require,module,exports){
+},{"./documents":34}],37:[function(require,module,exports){
 
 /**
  * A doubly linked list-based Least Recently Used (LRU) cache. Will keep most
@@ -55250,7 +55392,7 @@ LRUCache.prototype.toString = function() {
 
 module.exports = LRUCache;
 
-},{}],37:[function(require,module,exports){
+},{}],38:[function(require,module,exports){
 
 "use strict";
 
@@ -55532,7 +55674,7 @@ module.exports = {
 
 };
 
-},{}],38:[function(require,module,exports){
+},{}],39:[function(require,module,exports){
 "use strict";
 
 var experiments = require('./experiments'),
@@ -55610,7 +55752,7 @@ module.exports = {
 
 module.exports.Prismic = module.exports; // Backward compatibility
 
-},{"./api":31,"./documents":33,"./experiments":34,"./fragments":35,"./predicates":37}],39:[function(require,module,exports){
+},{"./api":32,"./documents":34,"./experiments":35,"./fragments":36,"./predicates":38}],40:[function(require,module,exports){
 (function (process){
 
 "use strict";
@@ -55851,7 +55993,7 @@ module.exports = {
 };
 
 }).call(this,require('_process'))
-},{"../package.json":40,"_process":42,"http":47,"https":25,"url":59}],40:[function(require,module,exports){
+},{"../package.json":41,"_process":43,"http":48,"https":26,"url":60}],41:[function(require,module,exports){
 module.exports={
   "name": "prismic.io",
   "description": "JavaScript development kit for prismic.io",
@@ -55942,7 +56084,7 @@ module.exports={
   "readme": "ERROR: No README data found!"
 }
 
-},{}],41:[function(require,module,exports){
+},{}],42:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -55989,7 +56131,7 @@ function nextTick(fn, arg1, arg2, arg3) {
 }
 
 }).call(this,require('_process'))
-},{"_process":42}],42:[function(require,module,exports){
+},{"_process":43}],43:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -56110,7 +56252,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],43:[function(require,module,exports){
+},{}],44:[function(require,module,exports){
 (function (global){
 /*! https://mths.be/punycode v1.4.1 by @mathias */
 ;(function(root) {
@@ -56647,7 +56789,7 @@ process.umask = function() { return 0; };
 }(this));
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],44:[function(require,module,exports){
+},{}],45:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -56733,7 +56875,7 @@ var isArray = Array.isArray || function (xs) {
   return Object.prototype.toString.call(xs) === '[object Array]';
 };
 
-},{}],45:[function(require,module,exports){
+},{}],46:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -56820,13 +56962,13 @@ var objectKeys = Object.keys || function (obj) {
   return res;
 };
 
-},{}],46:[function(require,module,exports){
+},{}],47:[function(require,module,exports){
 'use strict';
 
 exports.decode = exports.parse = require('./decode');
 exports.encode = exports.stringify = require('./encode');
 
-},{"./decode":44,"./encode":45}],47:[function(require,module,exports){
+},{"./decode":45,"./encode":46}],48:[function(require,module,exports){
 (function (global){
 var ClientRequest = require('./lib/request')
 var extend = require('xtend')
@@ -56908,7 +57050,7 @@ http.METHODS = [
 	'UNSUBSCRIBE'
 ]
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"./lib/request":49,"builtin-status-codes":22,"url":59,"xtend":62}],48:[function(require,module,exports){
+},{"./lib/request":50,"builtin-status-codes":23,"url":60,"xtend":63}],49:[function(require,module,exports){
 (function (global){
 exports.fetch = isFunction(global.fetch) && isFunction(global.ReadableByteStream)
 
@@ -56952,7 +57094,7 @@ function isFunction (value) {
 xhr = null // Help gc
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],49:[function(require,module,exports){
+},{}],50:[function(require,module,exports){
 (function (process,global,Buffer){
 var capability = require('./capability')
 var inherits = require('inherits')
@@ -57233,7 +57375,7 @@ var unsafeHeaders = [
 ]
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer)
-},{"./capability":48,"./response":50,"_process":42,"buffer":21,"inherits":27,"readable-stream":56,"to-arraybuffer":58}],50:[function(require,module,exports){
+},{"./capability":49,"./response":51,"_process":43,"buffer":22,"inherits":28,"readable-stream":57,"to-arraybuffer":59}],51:[function(require,module,exports){
 (function (process,global,Buffer){
 var capability = require('./capability')
 var inherits = require('inherits')
@@ -57417,7 +57559,7 @@ IncomingMessage.prototype._onXHRProgress = function () {
 }
 
 }).call(this,require('_process'),typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},require("buffer").Buffer)
-},{"./capability":48,"_process":42,"buffer":21,"inherits":27,"readable-stream":56}],51:[function(require,module,exports){
+},{"./capability":49,"_process":43,"buffer":22,"inherits":28,"readable-stream":57}],52:[function(require,module,exports){
 // a duplex stream is just a stream that is both readable and writable.
 // Since JS doesn't have multiple prototypal inheritance, this class
 // prototypally inherits from Readable, and then parasitically from
@@ -57493,7 +57635,7 @@ function forEach(xs, f) {
     f(xs[i], i);
   }
 }
-},{"./_stream_readable":53,"./_stream_writable":55,"core-util-is":23,"inherits":27,"process-nextick-args":41}],52:[function(require,module,exports){
+},{"./_stream_readable":54,"./_stream_writable":56,"core-util-is":24,"inherits":28,"process-nextick-args":42}],53:[function(require,module,exports){
 // a passthrough stream.
 // basically just the most minimal sort of Transform stream.
 // Every written chunk gets output as-is.
@@ -57520,7 +57662,7 @@ function PassThrough(options) {
 PassThrough.prototype._transform = function (chunk, encoding, cb) {
   cb(null, chunk);
 };
-},{"./_stream_transform":54,"core-util-is":23,"inherits":27}],53:[function(require,module,exports){
+},{"./_stream_transform":55,"core-util-is":24,"inherits":28}],54:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -58416,7 +58558,7 @@ function indexOf(xs, x) {
   return -1;
 }
 }).call(this,require('_process'))
-},{"./_stream_duplex":51,"_process":42,"buffer":21,"buffer-shims":20,"core-util-is":23,"events":24,"inherits":27,"isarray":29,"process-nextick-args":41,"string_decoder/":57,"util":19}],54:[function(require,module,exports){
+},{"./_stream_duplex":52,"_process":43,"buffer":22,"buffer-shims":21,"core-util-is":24,"events":25,"inherits":28,"isarray":30,"process-nextick-args":42,"string_decoder/":58,"util":20}],55:[function(require,module,exports){
 // a transform stream is a readable/writable stream where you do
 // something with the data.  Sometimes it's called a "filter",
 // but that's not a great name for it, since that implies a thing where
@@ -58597,7 +58739,7 @@ function done(stream, er) {
 
   return stream.push(null);
 }
-},{"./_stream_duplex":51,"core-util-is":23,"inherits":27}],55:[function(require,module,exports){
+},{"./_stream_duplex":52,"core-util-is":24,"inherits":28}],56:[function(require,module,exports){
 (function (process){
 // A bit simpler than readable streams.
 // Implement an async ._write(chunk, encoding, cb), and it'll handle all
@@ -59126,7 +59268,7 @@ function CorkedRequest(state) {
   };
 }
 }).call(this,require('_process'))
-},{"./_stream_duplex":51,"_process":42,"buffer":21,"buffer-shims":20,"core-util-is":23,"events":24,"inherits":27,"process-nextick-args":41,"util-deprecate":61}],56:[function(require,module,exports){
+},{"./_stream_duplex":52,"_process":43,"buffer":22,"buffer-shims":21,"core-util-is":24,"events":25,"inherits":28,"process-nextick-args":42,"util-deprecate":62}],57:[function(require,module,exports){
 (function (process){
 var Stream = (function (){
   try {
@@ -59146,7 +59288,7 @@ if (!process.browser && process.env.READABLE_STREAM === 'disable' && Stream) {
 }
 
 }).call(this,require('_process'))
-},{"./lib/_stream_duplex.js":51,"./lib/_stream_passthrough.js":52,"./lib/_stream_readable.js":53,"./lib/_stream_transform.js":54,"./lib/_stream_writable.js":55,"_process":42}],57:[function(require,module,exports){
+},{"./lib/_stream_duplex.js":52,"./lib/_stream_passthrough.js":53,"./lib/_stream_readable.js":54,"./lib/_stream_transform.js":55,"./lib/_stream_writable.js":56,"_process":43}],58:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -59369,7 +59511,7 @@ function base64DetectIncompleteChar(buffer) {
   this.charLength = this.charReceived ? 3 : 0;
 }
 
-},{"buffer":21}],58:[function(require,module,exports){
+},{"buffer":22}],59:[function(require,module,exports){
 var Buffer = require('buffer').Buffer
 
 module.exports = function (buf) {
@@ -59398,7 +59540,7 @@ module.exports = function (buf) {
 	}
 }
 
-},{"buffer":21}],59:[function(require,module,exports){
+},{"buffer":22}],60:[function(require,module,exports){
 // Copyright Joyent, Inc. and other Node contributors.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a
@@ -60132,7 +60274,7 @@ Url.prototype.parseHost = function() {
   if (host) this.hostname = host;
 };
 
-},{"./util":60,"punycode":43,"querystring":46}],60:[function(require,module,exports){
+},{"./util":61,"punycode":44,"querystring":47}],61:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -60150,7 +60292,7 @@ module.exports = {
   }
 };
 
-},{}],61:[function(require,module,exports){
+},{}],62:[function(require,module,exports){
 (function (global){
 
 /**
@@ -60221,7 +60363,7 @@ function config (name) {
 }
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],62:[function(require,module,exports){
+},{}],63:[function(require,module,exports){
 module.exports = extend
 
 var hasOwnProperty = Object.prototype.hasOwnProperty;

@@ -62,10 +62,11 @@ $rootScope.videoslide=()=>{
 
 $scope.logoPercentage=0;
 var lastScrollPosition = window.pageYOffset;
-$scope.logoGoodScroll = 50;
-$scope.logoTimeScroll = -50;
+$scope.logoGoodScroll = 47;
+$scope.logoTimeScroll = -47;
 $scope.timeRgba=0;
 $scope.glowOpacity=0;
+$scope.g1=0;
 
   angular.element($window).bind("scroll", function() {
     var goingDown = (window.pageYOffset - lastScrollPosition) > 0;
@@ -94,11 +95,13 @@ $scope.glowOpacity=0;
 
       $scope.percentage=(window.pageYOffset/(window.innerHeight*1.8)*100);
 
+
       if($scope.percentage<100){
         $scope.logoPercentage = (window.pageYOffset/(window.innerHeight*2)*100);
         $scope.negativePercentage = -$scope.logoPercentage;
         $scope.logoGoodScroll = ($scope.negativePercentage/2)+47;
         $scope.logoTimeScroll = ($scope.logoPercentage/2)-47;
+
         $scope.timeRgba=0;
         $scope.glowOpacity=0;
 
@@ -117,9 +120,20 @@ $scope.glowOpacity=0;
         // window.pageYOffset = lastScrollPosition; // Or whatever maximum you want to allow
       }
 
+
+// console.log($scope.percentage);
+      if(Math.abs($scope.g1)<=100){
+        if($scope.percentage<=50){
+          $scope.g1=$scope.g1-1
+        }else if($scope.percentage>50){
+          $scope.g1=$scope.g1+1
+        }
+      }else{
+        $scope.g1=0;
+      }
+
+
       lastScrollPosition = window.pageYOffset;
-
-
       $rootScope.$apply();
 
   });

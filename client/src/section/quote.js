@@ -52,6 +52,8 @@ $scope.quoteText={
 
       var requestId = "swjhs";
 
+
+      // #1
         if(percentScrolled<-40){
           $scope.quoteText['vivid'].left=percentScrolled+55;
         }else if(percentScrolled>-40){
@@ -65,7 +67,7 @@ $scope.quoteText={
         }
 
 
-
+      // #2
         if(percentScrolled<10){
           $scope.quoteText['pleasure'].right=percentScrolled;
         }else if(percentScrolled>10){
@@ -73,12 +75,15 @@ $scope.quoteText={
         }
 
         if(percentScrolled<=(10)){
-          $scope.quoteText['nytimes'].opacity=((percentScrolled-10)/10);
+          $scope.quoteText['nytimes'].opacity=((percentScrolled)/10);
         }else if(percentScrolled>10){
           $scope.quoteText['nytimes'].opacity=1;
         }
 
 
+
+
+      // #3
         if(quote2percent<-40){
           $scope.quoteText['suspense'].right=quote2percent+55;
         }else if(quote2percent>-40){
@@ -93,16 +98,16 @@ $scope.quoteText={
 
 
 
-// #4
+    // #4
         if(quote2percent<10){
           $scope.quoteText['robert'].left=quote2percent;
         }else if(quote2percent>10){
           $scope.quoteText['robert'].left=10;
         }
 
-        if(quote2percent<=(10)){
-          $scope.quoteText['timeout'].opacity=((quote2percent-10)/10);
-        }else if(quote2percent>10){
+        if(quote2percent<=(20)){
+          $scope.quoteText['timeout'].opacity=((quote2percent)/20);
+        }else if(quote2percent>20){
           $scope.quoteText['timeout'].opacity=1;
         }
 

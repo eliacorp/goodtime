@@ -1,9 +1,22 @@
 .close{
   display: block;
   width: 100vw;
-  height: 100vh;
-  background-size: auto 200vh;
+  height: 200vh;
   position: relative;
+}
+
+
+
+.close-text-container{
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background-size: auto 200vh;
+}
+.close-text-container.fixed{
+  position: fixed;
+  top:0;
+  left:0;
 }
 
 .close-text{
@@ -14,15 +27,24 @@
   position: relative;
   p{
     @include p();
-    color: $red;
+    color: $pure-red;
     width: 100%;
     text-align: center;
     text-transform: uppercase;
+    margin-top: $margin-top-p;
+    &:nth-child(1){
+      margin-top: 0;
+    }
+    span{
+
+    }
     b{
-      font-family: 'Pill_Semibd';
+      font-family: 'Pill_Bold';
     }
   }
 }
+
+
 
 
 

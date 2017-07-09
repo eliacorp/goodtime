@@ -25,15 +25,20 @@
 
 .open_logo_good{
   fill:$red;
-  @include transform-element(translateX(50%)!important);
+  // @include transform-element(translateX(50%)!important);
 }
 
 .open_logo_time{
   fill:$red;
-  @include transform-element(translateX(-50%)!important);
+  // @include transform-element(translateX(-50%)!important);
 }
 
 .open_logo_time.glow{
   fill:$white;
+  opacity:0;
+}
+
+.open_logo_good.glow{
+  fill:$pure-red;
   opacity:0;
 }

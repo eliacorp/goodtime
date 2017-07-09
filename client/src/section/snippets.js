@@ -36,7 +36,7 @@ $scope.Snippets = [
   {
     image: "https://s3-us-west-2.amazonaws.com/asset.goodtime/image/CutForWeb/Collage/Collage_07.jpg",
     gif:"https://s3-us-west-2.amazonaws.com/asset.goodtime/image/Gif/KISS.gif",
-    audio:"https://s3-us-west-2.amazonaws.com/asset.goodtime/audio/GT_AUDIO_07.mp3"
+    audio:"https://s3-us-west-2.amazonaws.com/asset.goodtime/audio/GT_AUDIO_08.mp3"
   }
 
 ];
@@ -45,19 +45,23 @@ $scope.Snippets = [
 $rootScope.audio_snippets="";
 // $scope.Snippets[0].audio;
 
-setTimeout(function(){
-  var sound = $('.snippets-audio')[0];
-  sound.volume=0.6;
-}, 600)
+// setTimeout(function(){
+//   var sound = $('.snippets-audio')[0];
+//   sound.volume=0.6;
+// }, 600)
 
   $scope.thisAudio=(index)=>{
-    $rootScope.audio_snippets=$scope.Snippets[index].audio;
+    console.log(index);
+    var sound = $('#snippets-audio-'+index)[0];
+    sound.loop = false;
+    sound.play();
+    // $rootScope.audio_snippets=$scope.Snippets[index].audio;
   }
-  $scope.pauseAudio=()=>{
-    var sound = $('.snippets-audio')[0];
-    sound.pause();
-    sound.currentTime = 0;
-  }
+  // $scope.pauseAudio=(index)=>{
+  //   var sound = $('.snippets-audio')[0];
+  //   sound.pause();
+  //   sound.currentTime = 0;
+  // }
 
 
 }]);

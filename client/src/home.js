@@ -7,12 +7,14 @@ $rootScope.anchorScroll=(id)=>{
   anchorSmoothScroll.scrollTo(id);
 }
 
-
+setTimeout(function(){
+  $('.synopsis-text-p').draggable({ containment: "window" });
+},500);
 
 
 
   setTimeout(function(){
-    $( ".synopsis-image" ).draggable({ containment: "parent" });
+    $( ".synopsis-image" ).draggable({ containment: "window" });
   },900);
 
 })

@@ -143,6 +143,18 @@ angular.module('myApp', ["ngRoute", "ngAnimate", "ngResource"])
 
 
 
+.filter('transformFilter', function ($sce) {
+  return function(n) {
+      var string = 'transform:translateX('+n+'%);-webkit-transform:translateX('+n+'%);-moz-transform:translateX('+n+'%);-o-transform:translateX('+n+'%);';
+
+      return string;
+
+  };
+})
+
+
+
+
 .controller('appCtrl', ($rootScope, $location, $window, $timeout, $http, anchorSmoothScroll, $scope, $anchorScroll, $interval, check, transformRequestAsFormPost)=>{
 
   check.size();
@@ -336,5 +348,6 @@ var nav = require("./nav.js");
 var home = require("./home.js");
 var open = require("./section/open.js");
 var quote = require("./section/quote.js");
+var close = require("./section/close.js");
 var snippets = require("./section/snippets.js");
 var about = require("./about.js");

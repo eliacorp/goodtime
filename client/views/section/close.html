@@ -1,42 +1,47 @@
-<div class="close background" style="background-image: url('https://s3-us-west-2.amazonaws.com/asset.goodtime/image/Gif/NEONROB.gif')" id="anchor_close">
+<div class="close" id="anchor_close" ng-controller="closeCtrl">
 
-<table>
-  <tr>
-    <td>
-      <div class="close-text">
-        <p>an <b>A24</b> release <b>RHEA FILMS</b> presents an <b>ELARA PICTURE</b></p>
-        <p>
-          <b>ROBERT PATTINSON BENNY SAFDIE BUDDY DURESS</b></br>
-          introducing <b>TALIAH LENNICE WEBSTER</b> with <b>BARKHAD ABDI</b> and <b>JENNIFER JASON LEIGH</b></br>
-          Casting by <b>JENNIFER VENDITTI</b> Original Score by <b>ONEOHTRIX POINT NEVER</b></br>
-          Costume Designer <b>MIYAKO BELLIZZI & MORDECHAI RUBINSTEIN</b></br>
-          Production Designer <b>SAM LISENCO</b> Edited by <b>RONALD BRONSTEIN & BENNY SAFDIE</b></br>
-          Director of Photography <b>SEAN PRICE WILLIAMS</b> Co-Producer <b>BRENDAN McHUGH</b></br>
-          Co-Executive Producers <b>STEPHANIE MEURER ALEXIS VAROUXAKIS</b></br>
-          Executive Producer <b>JEAN-LUC DE FANTI</b> Produced By <b>PARIS KASIDOKOSTAS LATSIS TERRY DOUGAS SEBASTIAN BEAR-McCLARD OSCAR BOYSON</b></br>
-          Written By <b>RONALD BRONSTEIN & JOSH SAFDIE</b> Directed By <b>JOSH & BENNY SAFDIE</b></br>
-        </p>
-        <p>© 2017 HERCULES FILM INVESTMENTS SARL</p>
-      </div>
 
-      <div class="close-branding">
-        <div class="close-branding-logo">
-          <rhealogo-directive></rhealogo-directive>
+
+<div class="close-text-container background" ng-class="{'fixed':isClose}" style="background-image: url('https://s3-us-west-2.amazonaws.com/asset.goodtime/image/Gif/NEONROB.gif')">
+
+
+  <table>
+    <tr>
+      <td>
+        <div class="close-text">
+          <p style="opacity:{{tens[0].opacity}};">an <b>A24</b> release <b>RHEA FILMS</b> presents an <b>ELARA PICTURE</b></p>
+          <p>
+            <span style="opacity:{{tens[1].opacity}};"><b>ROBERT PATTINSON BENNY SAFDIE BUDDY DURESS</b></br></span>
+            <span style="opacity:{{tens[2].opacity}};">introducing <b>TALIAH LENNICE WEBSTER</b> with <b>BARKHAD ABDI</b> and <b>JENNIFER JASON LEIGH</b></br></span>
+            <span style="opacity:{{tens[3].opacity}};">Casting by <b>JENNIFER VENDITTI</b> Original Score by <b>ONEOHTRIX POINT NEVER</b></br></span>
+            <span style="opacity:{{tens[4].opacity}};">Costume Designer <b>MIYAKO BELLIZZI & MORDECHAI RUBINSTEIN</b></br></span>
+            <span style="opacity:{{tens[5].opacity}};">Production Designer <b>SAM LISENCO</b> Edited by <b>RONALD BRONSTEIN & BENNY SAFDIE</b></br></span>
+            <span style="opacity:{{tens[6].opacity}};">Director of Photography <b>SEAN PRICE WILLIAMS</b> Co-Producer <b>BRENDAN McHUGH</b></br></span>
+            <span style="opacity:{{tens[7].opacity}};">Co-Executive Producers <b>STEPHANIE MEURER ALEXIS VAROUXAKIS</b></br></span>
+            <span style="opacity:{{tens[8].opacity}};">Executive Producer <b>JEAN-LUC DE FANTI</b> Produced By <b>PARIS KASIDOKOSTAS LATSIS TERRY DOUGAS SEBASTIAN BEAR-McCLARD OSCAR BOYSON</b></br></span>
+            <span style="opacity:{{tens[9].opacity}};">Written By <b>RONALD BRONSTEIN & JOSH SAFDIE</b> Directed By <b>JOSH & BENNY SAFDIE</b></br></span>
+          </p>
+          <p style="opacity:{{tens[10].opacity}};">© 2017 HERCULES FILM INVESTMENTS SARL</p>
         </div>
-        <div class="close-branding-logo">
-          <elaralogo-directive></elaralogo-directive>
+
+        <div class="close-branding">
+          <div class="close-branding-logo">
+            <rhealogo-directive></rhealogo-directive>
+          </div>
+          <div class="close-branding-logo">
+            <elaralogo-directive></elaralogo-directive>
+          </div>
+          <div class="close-branding-logo">
+            <a24logo-directive></a24logo-directive>
+          </div>
         </div>
-        <div class="close-branding-logo">
-          <a24logo-directive></a24logo-directive>
-        </div>
-      </div>
 
-    </td>
-  </tr>
-</table>
+      </td>
+    </tr>
+  </table>
 
 
-
+</div>
 
 
 

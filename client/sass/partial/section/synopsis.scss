@@ -11,3 +11,23 @@
   width: 300px;
   display: block;
 }
+
+
+
+.synopsis-text{
+  width: 50vw;
+  height: auto;
+  position: absolute;
+  top:10vh;
+  left:10vw;
+  .synopsis-text-p{
+    display: block;
+    position: relative;
+    display: block;
+    @include p();
+    color: $pure-green;
+    margin-top: $margin-top-p;
+    mix-blend-mode: difference;
+
+  }
+}
