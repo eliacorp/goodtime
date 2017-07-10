@@ -1,14 +1,14 @@
-<div class="synopsis background" id="anchor_synopsis" style="background-image: url('https://s3-us-west-2.amazonaws.com/asset.goodtime/image/CutForWeb/BuddySprite.jpg')" ng-init="showVideoSynopsis=false">
+<div class="synopsis background" id="anchor_synopsis" ng-controller="synopsisCtrl" style="background-image: url('https://s3-us-west-2.amazonaws.com/asset.goodtime/image/CutForWeb/BuddySprite.jpg')">
 
-  <div class="synopsis-float" ng-mouseover="showVideoSynopsis=true" ng-mouseleave="showVideoSynopsis=false">
-    <img class="synopsis-float-image" src="https://s3-us-west-2.amazonaws.com/asset.goodtime/image/CutForWeb/AdventureLand.jpg" alt=" goodtime adventure land" ng-show="!showVideoSynopsis">
-    <video class="synopsis-float-video" src="https://s3-us-west-2.amazonaws.com/asset.goodtime/video/FLOATVIDEO.mp4" autoplay ng-if="showVideoSynopsis" loop>
+  <div class="synopsis-float" ng-mouseenter="playSynopsisVideo()" ng-mouseleave="pauseSynopsisVideo()">
 
+    <video class="synopsis-float-video" id="synopsis-float-video" src="https://s3-us-west-2.amazonaws.com/asset.goodtime/video/FLOATVIDEO.mp4" loop>
     </video>
+    <img class="synopsis-float-image" src="https://s3-us-west-2.amazonaws.com/asset.goodtime/image/CutForWeb/AdventureLand.jpg" alt=" goodtime adventure land" ng-class="{'hide-image': showVideoSynopsis}">
+
     <!-- <img class="synopsis-float-gif" src="https://s3-us-west-2.amazonaws.com/asset.goodtime/video/CutForWeb/AdventureLand.jpg" alt=" goodtime adventure land"> -->
   </div>
 
-<div class="synopsis-text">
   <p class="synopsis-text-p" id="synopsis-text-p-1">
     Following the mind-bending HEAVEN KNOWS WHAT, celebrated filmmakers Josh and Ben Safdie return to the mean streets of New York City with GOOD TIME, a hypnotic crime thriller that explores with bracing immediacy the tragic sway of family and fate.
   </p>
@@ -18,7 +18,6 @@
   <p class="synopsis-text-p" id="synopsis-text-p-3">
     Anchored by a career-defining performance from Robert Pattinson, GOOD TIME is a psychotic symphony of propulsive intensity crafted by two of the most exciting young directors working today. Josh and Ben Safdie’s transcendent vision is an intoxicating portrait of desperation and destruction that will not be soon forgotten.
   </p>
-</div>
 
 
 

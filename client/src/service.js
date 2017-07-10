@@ -57,7 +57,7 @@ Service.factory(
 
 
 
-Service.service('anchorSmoothScroll', function($location, $rootScope){
+Service.service('anchorSmoothScroll',['$location', '$rootScope',  function($location, $rootScope){
 
     this.scrollTo = function(eID) {
 
@@ -212,14 +212,14 @@ Service.service('anchorSmoothScroll', function($location, $rootScope){
 
 
 
-});
+}]);
 
 
 
 
 
 
-Service.service('check', function($location, $rootScope){
+Service.service('check', ['$location', '$rootScope', function($location, $rootScope){
   this.size = function() {
 
 
@@ -320,4 +320,4 @@ Service.service('check', function($location, $rootScope){
           }
         $rootScope.landscapeFunction();
     };
-})
+}])

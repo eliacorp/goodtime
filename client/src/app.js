@@ -112,11 +112,6 @@ angular.module('myApp', ["ngRoute", "ngAnimate", "ngResource"])
       controller: 'stylingCtrl'
     })
 
-    .when('/about', {
-      templateUrl: 'views/about.html',
-      controller: 'aboutCtrl'
-    })
-
     .when('/contact', {
       templateUrl: 'views/contact.html'
     })
@@ -131,19 +126,19 @@ angular.module('myApp', ["ngRoute", "ngAnimate", "ngResource"])
 }]) //config
 
 
-.filter('trustUrl', function ($sce) {
+.filter('trustUrl', ['$sce', function ($sce) {
   return function(url) {
     // if (url){
       var trusted = $sce.trustAsResourceUrl(url);
       return trusted;
     // }
   };
-})
+}])
 
 
 
 
-.filter('transformFilter', function ($sce) {
+.filter('transformFilter', function () {
   return function(n) {
       var string = 'transform:translateX('+n+'%);-webkit-transform:translateX('+n+'%);-moz-transform:translateX('+n+'%);-o-transform:translateX('+n+'%);';
 
@@ -155,7 +150,7 @@ angular.module('myApp', ["ngRoute", "ngAnimate", "ngResource"])
 
 
 
-.controller('appCtrl', ($rootScope, $location, $window, $timeout, $http, anchorSmoothScroll, $scope, $anchorScroll, $interval, check, transformRequestAsFormPost)=>{
+.controller('appCtrl', ['$rootScope', '$location', '$window', '$timeout', '$http', 'anchorSmoothScroll', '$scope', '$anchorScroll', '$interval', 'check', 'transformRequestAsFormPost', ($rootScope, $location, $window, $timeout, $http, anchorSmoothScroll, $scope, $anchorScroll, $interval, check, transformRequestAsFormPost)=>{
 
   check.size();
 
@@ -282,7 +277,7 @@ $scope.isWrong = false;
 
 
 
-})// end of appCtrl
+}])// end of appCtrl
 
 .directive('a24logoDirective', function() {
   return {
@@ -348,6 +343,7 @@ var nav = require("./nav.js");
 var home = require("./home.js");
 var open = require("./section/open.js");
 var quote = require("./section/quote.js");
+var synopsis = require("./section/synopsis.js");
 var close = require("./section/close.js");
+
 var snippets = require("./section/snippets.js");
-var about = require("./about.js");

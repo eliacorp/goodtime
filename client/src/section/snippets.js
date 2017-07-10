@@ -1,5 +1,5 @@
 angular.module('myApp')
-.controller('snippetsCtrl', ['$rootScope', '$scope', ($rootScope, $scope)=>{
+.controller('snippetsCtrl', ['$rootScope', '$scope','$window', ($rootScope, $scope, $window)=>{
 
 
 $scope.Snippets = [

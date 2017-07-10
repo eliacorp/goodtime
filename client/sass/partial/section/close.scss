@@ -1,7 +1,7 @@
 .close{
   display: block;
   width: 100vw;
-  height: 250vh;
+  height: 300vh;
   position: relative;
 }
 
@@ -84,4 +84,10 @@
     height: auto;
     display: block;
   }
+}
+
+
+#anchor_close{
+  position: relative;
+  padding-top: 200vh;
 }

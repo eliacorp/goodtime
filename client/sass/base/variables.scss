@@ -60,7 +60,7 @@ $pure-green: #00FF00;
 
 
 // ........................................................MARGINS
-$margin-sides: 15px;
+$margin-sides: 25px;
 $margin-bottom: 35px;
 $margin-top: 200px;
 $margin-sides-mobile:10px;
@@ -80,14 +80,15 @@ $transition-fast: .2s;
 // ........................................................Z-INDEXES
 $z-loader:15;
 $z-logo:11;
-$z-cart: 13;
 $z-clickOut: 12;
+$z-nav:11;
+$z-trailer:10;
 $z-quote-text:9;
 
 $z-close-text:5;
 $z-close-image:4;
 
-$z-nav:5;
+
 
 
 /*....................................................................................*/

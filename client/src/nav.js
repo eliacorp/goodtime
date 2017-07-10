@@ -1,7 +1,7 @@
 angular.module('myApp')
 
 
-.controller('navCtrl', function($scope, $location, $rootScope, $routeParams, $timeout,	$http){
+.controller('navCtrl', ['$scope', '$location', '$rootScope', '$routeParams', function($scope, $location, $rootScope, $routeParams){
 
   $rootScope.isNavOpen = false;
 
@@ -97,11 +97,11 @@ angular.module('myApp')
 
 
 
-})
+}])
 
 
 
-.directive('navDirective', function($rootScope, $location, $window, $routeParams, $timeout) {
+.directive('navDirective', function() {
   return {
     restrict: 'E',
     templateUrl: 'views/components/nav.html',

@@ -14,32 +14,37 @@
     width: 100%;
     height: auto;
     display: block;
-
+    position: relative;
+    &.hide-image{
+      opacity:0;
+    }
   }
   .synopsis-float-video{
     width: 100%;
     height: auto;
     display: block;
+    position: absolute;
+    top:0;
+    left: 0;
   }
 }
 
 
 
-.synopsis-text{
+.synopsis-text-p{
   width: 50vw;
-  height: auto;
-  position: absolute;
-  top:10vh;
+  display: block;
+  position: relative;
+  display: block;
+  @include p();
+  color: $pure-green;
+  padding-top: $margin-top-p;
+  mix-blend-mode: difference;
+  cursor: -webkit-grab;
   left:10vw;
-  .synopsis-text-p{
-    display: block;
-    position: relative;
-    display: block;
-    @include p();
-    color: $pure-green;
-    margin-top: $margin-top-p;
-    mix-blend-mode: difference;
-    cursor: -webkit-grab;
+}
 
-  }
+
+#synopsis-text-p-1{
+  padding-top: 10vh;
 }

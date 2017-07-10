@@ -1,5 +1,5 @@
 angular.module('myApp')
-.controller('openCtrl', ($rootScope, $location, $window, $timeout, $http, anchorSmoothScroll, $scope, $anchorScroll, $interval, check, transformRequestAsFormPost)=>{
+.controller('openCtrl', ['$rootScope', '$scope','$window', ($rootScope, $scope, $window)=>{
 
 $rootScope.isOpener = true;
   // $scope.$on("$viewContentLoaded", function(){
@@ -149,4 +149,4 @@ $scope.g1=0;
 
 
 
-});
+}]);

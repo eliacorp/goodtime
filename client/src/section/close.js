@@ -1,5 +1,5 @@
 angular.module('myApp')
-.controller('closeCtrl', ($rootScope, $location, $window, $timeout, $http, anchorSmoothScroll, $scope, $anchorScroll, $interval)=>{
+.controller('closeCtrl',['$rootScope', '$scope','$window', ($rootScope, $scope, $window)=>{
 
 
 $scope.isClose = false;
@@ -26,6 +26,9 @@ $scope.tens=[
       var closeHeight = element[0].clientHeight;
       var closeScroll = (1)*(window.pageYOffset - (windowHeight*9));
       var closeScrolled = (closeScroll/windowHeight)*100;
+
+
+      console.log(closeScroll);
 
 
 
@@ -138,4 +141,4 @@ $scope.tens=[
 
 
 
-});
+}]);

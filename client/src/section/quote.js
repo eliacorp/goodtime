@@ -1,5 +1,5 @@
 angular.module('myApp')
-.controller('quoteCtrl', ($rootScope, $location, $window, $timeout, $http, anchorSmoothScroll, $scope, $anchorScroll, $interval, check, transformRequestAsFormPost)=>{
+.controller('quoteCtrl', ['$rootScope', '$scope','$window', ($rootScope, $scope, $window)=>{
 
 
 
@@ -179,4 +179,4 @@ $scope.mouseIsDown = true;
 
 
 
-});
+}]);
