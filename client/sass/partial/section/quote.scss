@@ -98,6 +98,9 @@
   color:$white;
   font-family: 'Pill_Bold';
   font-size:40px;
+  @include respond-to(phone){
+    font-size: 30px;
+  }
 }
 
 
@@ -107,6 +110,10 @@
   top: 5vh;
   font-size: 5em;
   line-height:1em;
+  @include respond-to(phone){
+    font-size: 3em;
+    line-height:1em;
+  }
 }
 .quote-text-span#variety{
   left:-50px;
@@ -120,6 +127,10 @@
   font-size: 8em;
   line-height:80px;
   font-family: 'Pill_Bold';
+  @include respond-to(phone){
+    font-size: 5em;
+    line-height:1em;
+  }
 }
 
 .quote-text-span#nytimes{
@@ -138,6 +149,10 @@
   line-height:40px;
   font-family: 'Pill_Bold';
   text-transform:none;
+  @include respond-to(phone){
+    font-size: 1.5em;
+    line-height:1em;
+  }
 }
 
 .quote-text-span#indiewire{
@@ -145,6 +160,9 @@
   bottom: -5%;
   font-size: 60px;
   text-transform: uppercase;
+  @include respond-to(phone){
+    bottom: -10%;
+  }
 }
 
 
@@ -165,4 +183,7 @@
   bottom: -80%;
   font-size: 60px;
   text-transform: none;
+  @include respond-to(phone){
+    bottom: -40%;
+  }
 }

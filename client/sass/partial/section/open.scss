@@ -2,17 +2,26 @@
   width: 100vw;
   height: 300vh;
   background-color: $black;
+  @include respond-to(phone){
+    height: 300vh;
+  }
 }
 .open-video{
   width: 100vw;
   height: 100vh;
   position: fixed;
+  @include respond-to(phone){
+    // position: relative;
+  }
 }
 
 .open-logo{
   width: 100vw;
   height: 100vh;
   position: fixed;
+  @include respond-to(phone){
+    // position: a;
+  }
   svg{
     position: absolute;
     top:50%;

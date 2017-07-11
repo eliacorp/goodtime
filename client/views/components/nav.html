@@ -29,16 +29,26 @@
 
 
 
-  <!-- <div class="nav-mobile-list" ng-show="isMobile && showNav">
+  <div class="nav-mobile-list gradient2" ng-show="isMobile && isNavOpen">
     <table>
       <tr>
         <td>
-          <a href="/trailer" class="nav-a" ng-class="{'active': isActive('/trailer')}" ng-click="showNavMobile=false">trailer</a>
-
+          <a class="nav-a unicorn" ng-class="{'active': isActive('/synopsis')}" ng-click="anchorScroll('anchor_synopsis');isNavOpen=false;">
+            <b>s</b><b>y</b><b>n</b><b>o</b><b>p</b><b>s</b><b>y</b><b>s</b>
+          </a>
+          <a class="nav-a unicorn" ng-class="{'active': isActive('/trailer')}" ng-click="anchorScroll('anchor_trailer');isNavOpen=false;">
+            <b>t</b><b>r</b><b>a</b><b>i</b><b>l</b><b>e</b><b>r</b>
+          </a>
+          <a class="nav-a unicorn" ng-class="{'active': isActive('/snippets')}" ng-click="anchorScroll('anchor_snippets');isNavOpen=false;">
+            <b>s</b><b>n</b><b>i</b><b>p</b><b>p</b><b>e</b><b>t</b><b>s</b>
+          </a>
+          <a class="nav-a unicorn" ng-class="{'active': isActive('/close')}" ng-click="anchorScroll('anchor_close');isNavOpen=false;">
+            <b>c</b><b>l</b><b>o</b><b>s</b><b>e</b>
+          </a>
         </td>
       </tr>
     </table>
-  </div> -->
+  </div>
 
 
 </nav>

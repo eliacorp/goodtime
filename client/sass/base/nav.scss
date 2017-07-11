@@ -17,6 +17,8 @@
   width: 50px;
   height: auto;
   display: block;
+  z-index: $z-pop;
+  position: absolute;
   img{
     width:50px;
   }
@@ -41,10 +43,57 @@
 }
 
 .nav-mobile-list{
+  width: 100vw;
+  height: 100vh;
+  background-color: #00FF00;
+  .nav-a{
+    width: 100%;
+    clear: both;
+    display: block;
+    text-align: center;
+    font-size: 50px;
+    line-height: 60px;
+  }
 
+}
+/* Background Gradient for Analagous Colors */
+.gradient2
+{
+    background-color: rgba(102, 255, 0, 0.8);
+    /* For WebKit (Safari, Chrome, etc) */
+    background: rgba(102, 255, 0, 0.8) -webkit-gradient(linear, left top, left bottom, from(rgba(230, 255, 0,0.7)), to(rgba(102, 255, 0, 0.7))) no-repeat;
+    /* Mozilla,Firefox/Gecko */
+    background: rgba(102, 255, 0, 0.8) -moz-linear-gradient(top, rgba(230, 255, 0,0.7), rgba(102, 255, 0, 0.7)) no-repeat;
+    /* IE 5.5 - 7 */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#3CFF00, endColorstr=#E6FF00) no-repeat;
+    /* IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=rgba(102, 255, 0, 0.7), rgba(230, 255, 0,0.7))" no-repeat;
 }
 
 
+$animation-speed: 0.6s;
+
+.nav-mobile-list{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top:0;
+  left:0;
+  z-index:$z-nav-mobile;
+  -webkit-animation: shiftUpPop $animation-speed ease;
+  -moz-animation: shiftUpPop $animation-speed ease;
+  -ms-animation: shiftUpPop $animation-speed ease;
+  -o-animation: shiftUpPop $animation-speed ease;
+  animation: shiftUpPop $animation-speed ease;
+}
+
+.nav-mobile-list.ng-hide{
+  -webkit-animation: shiftDownPop $animation-speed ease;
+  -moz-animation: shiftDownPop $animation-speed ease;
+  -ms-animation: shiftDownPop $animation-speed ease;
+  -o-animation: shiftDownPop $animation-speed ease;
+  animation: shiftDownPop $animation-speed ease;
+}
 
 
 
@@ -59,6 +108,12 @@
     -moz-animation-play-state: paused;
     -o-animation-play-state: paused;
     animation-play-state: paused;
+    @include respond-to(phone){
+      -webkit-animation-play-state: running;
+      -moz-animation-play-state: running;
+      -o-animation-play-state: running;
+      animation-play-state: running;
+    }
 }
 .unicorn:hover b {
     -webkit-animation-play-state: running;
@@ -157,4 +212,122 @@
     to {
         color: rgb(255, 0, 0);
     }
+}
+
+
+
+
+
+
+@keyframes shiftDownPop {
+  from {
+    transform: translateY(0%);
+    -webkit-transform: translateY(0%);
+   }
+  to {
+    transform: translateY(100%);
+    -webkit-transform: translateY(100%);
+  }
+}
+
+@-webkit-keyframes shiftDownPop {
+  from {
+    transform: translateY(0%);
+    -webkit-transform: translateY(0%);
+   }
+  to {
+    transform: translateY(100%);
+    -webkit-transform: translateY(100%);
+  }
+}
+
+@-moz-keyframes shiftDownPop {
+  from {
+    transform: translateY(0%);
+    -webkit-transform: translateY(0%);
+   }
+  to {
+    transform: translateY(100%);
+    -webkit-transform: translateY(100%);
+  }
+}
+
+@-ms-keyframes shiftDownPop {
+  from {
+    transform: translateY(0%);
+    -webkit-transform: translateY(0%);
+   }
+  to {
+    transform: translateY(100%);
+    -webkit-transform: translateY(100%);
+  }
+}
+
+@-o-keyframes shiftDownPop {
+  from {
+    transform: translateY(0%);
+    -webkit-transform: translateY(0%);
+   }
+  to {
+    transform: translateY(100%);
+    -webkit-transform: translateY(100%);
+  }
+}
+
+
+
+//shift up keyframe
+@keyframes shiftUpPop {
+  from {
+     transform: translateY(100%);
+     -webkit-transform: translateY(100%);
+   }
+  to {
+    transform: translateY(0%);
+    -webkit-transform: translateY(0%);
+  }
+}
+
+@-webkit-keyframes shiftUpPop {
+  from {
+    transform: translateY(100%);
+    -webkit-transform: translateY(100%);
+   }
+  to {
+    transform: translateY(0%);
+    -webkit-transform: translateY(0%);
+  }
+}
+
+@-moz-keyframes shiftUpPop {
+  from {
+    transform: translateY(100%);
+    -webkit-transform: translateY(100%);
+   }
+  to {
+    transform: translateY(0%);
+    -webkit-transform: translateY(0%);
+  }
+}
+
+@-ms-keyframes shiftUpPop {
+  from {
+    transform: translateY(100%);
+    -webkit-transform: translateY(100%);
+   }
+  to {
+    transform: translateY(0%);
+    -webkit-transform: translateY(0%);
+  }
+}
+
+@-o-keyframes shiftUpPop {
+  from {
+    transform: translateY(100%);
+    -webkit-transform: translateY(100%);
+   }
+  to {
+    transform: translateY(0%);
+    -webkit-transform: translateY(0%);
+  }
 }
