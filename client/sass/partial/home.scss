@@ -4,4 +4,7 @@
   display: block;
   width:100vw;
   overflow-x: hidden;
+  // @include respond-to(phone){
+  //   overflow: auto;
+  // }
 }

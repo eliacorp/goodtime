@@ -100,7 +100,6 @@ Service.service('anchorSmoothScroll',['$location', '$rootScope',  function($loca
         function elmYPosition(eID) {
             var elm = document.getElementById(eID);
             var y = elm.offsetTop;
-            console.log(y);
             var node = elm;
             while (node.offsetParent && node.offsetParent != document.body) {
                 node = node.offsetParent;

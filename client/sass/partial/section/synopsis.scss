@@ -42,6 +42,9 @@
   mix-blend-mode: difference;
   cursor: -webkit-grab;
   left:10vw;
+  @include respond-to(phone){
+    width:70vw;
+  }
 }
 
 

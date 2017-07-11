@@ -22,10 +22,8 @@ angular.module('myApp')
 
 
   $scope.$on('$routeChangeSuccess', function(){
-    console.log($location.path());
     if($location.path() != '/'){
-      console.log('not home');
-        $rootScope.pageLoading = false;
+      $rootScope.pageLoading = false;
     }
     setTimeout(function(){
       $rootScope.pageLoading = false;
