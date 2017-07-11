@@ -1,5 +1,5 @@
 angular.module('myApp')
-.controller('homeCtrl',['$rootScope', '$scope',  ($rootScope,$scope)=>{
+.controller('homeCtrl',['$rootScope', '$scope','anchorSmoothScroll', ($rootScope,$scope, anchorSmoothScroll)=>{
 
 
 

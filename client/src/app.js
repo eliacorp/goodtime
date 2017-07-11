@@ -10,6 +10,11 @@ import Prismic from 'prismic.io'
 angular.module('myApp', ["ngRoute", "ngAnimate", "ngResource"])
 .run(['$rootScope', '$location','$route', '$templateCache',($rootScope, $location, $route, $templateCache)=>{
 
+  $rootScope.isOpener = true;
+  $rootScope.logoGoodScroll = 0;
+  $rootScope.logoTimeScroll = 0;
+
+
     var original = $location.path;
     $location.path = function (path, reload) {
         if (reload === false) {
@@ -140,7 +145,7 @@ angular.module('myApp', ["ngRoute", "ngAnimate", "ngResource"])
 
 .filter('transformFilter', function () {
   return function(n) {
-      var string = 'transform:translateX('+n+'%);-webkit-transform:translateX('+n+'%);-moz-transform:translateX('+n+'%);-o-transform:translateX('+n+'%);';
+      var string = 'transform:translateX('+n+'%)!important;-webkit-transform:translateX('+n+'%)!important;-moz-transform:translateX('+n+'%);-o-transform:translateX('+n+'%);';
 
       return string;
 

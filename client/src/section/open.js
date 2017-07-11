@@ -7,7 +7,8 @@ $rootScope.isOpener = true;
       $rootScope.videoslide();
       // var vid = document.getElementById("open-video");
       // vid.volume = 0.0;
-    }, 100);
+      $rootScope.$apply();
+    }, 1000);
 
   // })
 
@@ -62,8 +63,8 @@ $rootScope.videoslide=()=>{
 
 $scope.logoPercentage=0;
 var lastScrollPosition = window.pageYOffset;
-$scope.logoGoodScroll = 47;
-$scope.logoTimeScroll = -47;
+$rootScope.logoGoodScroll = 0;
+$rootScope.logoTimeScroll = 0;
 $scope.timeRgba=0;
 $scope.glowOpacity=0;
 $scope.g1=0;
@@ -99,8 +100,10 @@ $scope.g1=0;
       if($scope.percentage<100){
         $scope.logoPercentage = (window.pageYOffset/(window.innerHeight*2)*100);
         $scope.negativePercentage = -$scope.logoPercentage;
-        $scope.logoGoodScroll = ($scope.negativePercentage/2)+47;
-        $scope.logoTimeScroll = ($scope.logoPercentage/2)-47;
+        $rootScope.logoGoodScroll = ($scope.negativePercentage/2)
+        // -45;
+        $rootScope.logoTimeScroll = ($scope.logoPercentage/2)
+        // +47;
 
         $scope.timeRgba=0;
         $scope.glowOpacity=0;
