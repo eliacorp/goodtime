@@ -1,17 +1,19 @@
 <div class="open" id="anchor_open" ng-controller="openCtrl">
 
+  <video class="open-video" ng-show="isOpener" muted paused id="open-video" src="https://s3-us-west-2.amazonaws.com/asset.goodtime/video/OPENINGTITLE.mov" poster="">
+  </video>
   <div class="open-logo">
     <table>
       <tr>
         <td>
-          <goodtime-logo-directive></goodtime-logo-directive>
+
+          <!-- <goodtime-logo-directive></goodtime-logo-directive> -->
         </td>
       </tr>
     </table>
 
   </div>
-  <!-- <video class="open-video" ng-show="isOpener" muted paused id="open-video" src="https://s3-us-west-2.amazonaws.com/asset.goodtime/video/OPENINGTITLE.mov" poster="">
-  </video> -->
+
   <!-- style="opacity:{{openerOpacity}};" -->
 
 </div>

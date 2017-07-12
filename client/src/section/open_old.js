@@ -91,6 +91,48 @@ $scope.g1=0;
         // $window.cancelAnimationFrame();
       }
 
+      // console.log(window.pageYOffset);
+      // console.log(window.innerHeight*3);
+
+      // $scope.percentage=(window.pageYOffset/(window.innerHeight*1.8)*100);
+      // if($scope.percentage<100){
+      //   $scope.logoPercentage = (window.pageYOffset/(window.innerHeight*2)*100);
+      //   $scope.negativePercentage = -$scope.logoPercentage;
+      //   $rootScope.logoGoodScroll = ($scope.negativePercentage/2)
+      //   // -45;
+      //   $rootScope.logoTimeScroll = ($scope.logoPercentage/2)
+      //   // +47;
+      //
+      //   $scope.timeRgba=0;
+      //   $scope.glowOpacity=0;
+      //
+      //   if(($scope.percentage>80)&&($scope.percentage<100)){
+      //     $scope.timeRgba= Math.round(((($scope.percentage-80)/20))*255);
+      //   }
+      // }else{
+      //   if(($scope.percentage>100)&&($scope.percentage<120)){
+      //     $scope.glowOpacity= (($scope.percentage-100)/20);
+      //   }
+      //   $scope.logoPercentage=47;
+      // }
+
+      // if (!goingDown && !maximumScrollReached) {
+      //
+      //   // window.pageYOffset = lastScrollPosition; // Or whatever maximum you want to allow
+      // }
+
+
+// console.log($scope.percentage);
+      // if(Math.abs($scope.g1)<=100){
+      //   if($scope.percentage<=50){
+      //     $scope.g1=$scope.g1-1
+      //   }else if($scope.percentage>50){
+      //     $scope.g1=$scope.g1+1
+      //   }
+      // }else{
+      //   $scope.g1=0;
+      // }
+
 
       lastScrollPosition = window.pageYOffset;
       $rootScope.$apply();

@@ -116,13 +116,8 @@ Service.service('anchorSmoothScroll',['$location', '$rootScope',  function($loca
   this.scrollHorizontally = function(section) {
 
        var element = $rootScope.retrieveElement("weare-slider");
-
        var toElement = $rootScope.retrieveElement(section);
-
        var number = toElement[0].offsetLeft;
-
-       console.log(toElement);
-       console.log(number);
 
       // event.preventDefault();
 
