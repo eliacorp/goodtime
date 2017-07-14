@@ -10,8 +10,19 @@
   width: 100vw;
   height: 100vh;
   position: fixed;
-  @include respond-to(phone){
-    position: relative;
+  .open-video-element{
+    position: absolute;
+    overflow: hidden;
+    width: 130vw;
+    height: 130vh;
+    top:50%;
+    left: 50%;
+    margin-top: -65vh;
+    margin-left: -65vw;
+
+    @include respond-to(phone){
+      position: relative;
+    }
   }
 }
 
