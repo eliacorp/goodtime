@@ -21,7 +21,7 @@ $rootScope.videoslide=()=>{
   console.log("videoslide");
   var frameNumber = 0, // start video at frame 0
       // lower numbers = faster playback
-      playbackConst = 400,
+      playbackConst = 300,
       // get page height from video duration
       setHeight = document.getElementById("open"),
       // select video element
@@ -46,7 +46,7 @@ $rootScope.videoslide=()=>{
 
   function scrollPlay(timestamp) {
     // console.log(timestamp);
-    var frameNumber  = (($window.pageYOffset*2.3)/playbackConst)+2;
+    var frameNumber  = (($window.pageYOffset*2.3)/playbackConst)+1.8;
     vid.currentTime = frameNumber;
     // console.log(vid.currentTime);
     // $rootScope.$apply();

@@ -6,14 +6,16 @@
 /*.....................TEXT MARK STYLES......................*/
 
 ::-moz-selection {
-    background: transparent;
+    background: $red;
     text-shadow: none;
+    color:$black;
 }
 
 
 ::selection {
-    background: transparent;
+    background: $red;
     text-shadow: none;
+    color:$black;
 }
 
 

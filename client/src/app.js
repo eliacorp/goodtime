@@ -314,6 +314,17 @@ setTimeout(function(){
   };
 })
 
+.directive('a24logoRainbowDirective', function() {
+  return {
+    restrict: 'E',
+    templateUrl: 'views/components/icon/a24_rainbow_logo.html',
+    replace: true,
+    link: function(scope, elem, attrs) {
+
+    }
+  };
+})
+
 
 .directive('elaralogoDirective', function() {
   return {

@@ -11,6 +11,17 @@ setTimeout(function(){
   $('.synopsis-text-p').draggable({ containment: "window" });
 },500);
 
+$rootScope.backgroundN=1;
+
+$rootScope.changeBackgrounds=()=>{
+  if($rootScope.backgroundN<10){
+    $rootScope.backgroundN++
+  }else{
+    $rootScope.backgroundN=1;
+  }
+
+}
+
 
 
   setTimeout(function(){
