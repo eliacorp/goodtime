@@ -42,10 +42,23 @@
 
 
     <nav-directive></nav-directive>
+    <support-directive ng-hide="isOpener"></support-directive>
 
 
+    <div class="loader" ng-hide="pageLoaded">
+      <table>
+        <tr>
+          <td>
+            <div class="loader-sprite">
+              <img src="https://s3-us-west-2.amazonaws.com/asset.goodtime/image/Gif/PEPELOAD.gif" alt="pepe load">
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
 
-    <main ng-view class='main page' ng-hide="pageLoading">
+
+    <main ng-view class='main page'>
     </main>
 
 

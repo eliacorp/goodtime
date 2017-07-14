@@ -4,6 +4,7 @@ angular.module('myApp')
 .controller('navCtrl', ['$scope', '$location', '$rootScope', '$routeParams', function($scope, $location, $rootScope, $routeParams){
 
   $rootScope.isNavOpen = false;
+  $rootScope.groundSoundEL=true;
 
   $scope.openNav = function(){
     $rootScope.isNavOpen = !$rootScope.isNavOpen;
@@ -88,6 +89,29 @@ angular.module('myApp')
 
 
 
+setTimeout(function(){
+  $rootScope.groundSoundEL = $('#support-audio')[0];
+  $rootScope.groundSoundEL.loop = true;
+}, 600);
+
+
+$rootScope.groundSound=()=>{
+  if($rootScope.isGroundSound){
+    $rootScope.groundSoundEL.pause();
+    $rootScope.isGroundSound=false;
+    console.log(false);
+  }else{
+    $rootScope.groundSoundEL.play();
+    $rootScope.isGroundSound=true;
+    console.log(true);
+  }
+
+
+
+  // $rootScope.aud
+
+}
+
 
 
 
@@ -97,7 +121,13 @@ angular.module('myApp')
 
 }])
 
-
+.directive('supportDirective', function() {
+  return {
+    restrict: 'E',
+    templateUrl: 'views/components/support.html',
+    replace: true
+  };
+})
 
 .directive('navDirective', function() {
   return {

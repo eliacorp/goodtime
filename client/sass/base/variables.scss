@@ -10,7 +10,7 @@ $font-weight-heavy: 900;
 // ........................................................FONT SIZES
 $font-size-h1:50px;
 $font-size-h2:25px;
-$font-size-h3:11px;
+$font-size-h3:15px;
 $font-size-p: 20px;
 
 $font-size-h1-mobile: 25px;
@@ -21,11 +21,11 @@ $font-size-p-mobile: 12px;
 // ........................................................FONT FAMILIES
 // 'Playfair Display SC', serif
 // font-family: 'Prata', serif;
-$font-family-h1: "futura_std_heavy";
+$font-family-h1: "futura_std_bold";
 $font-family-h2: "futura_std_bold";
-$font-family-h3: 'Pill_Semibd';
-$font-family-p: 'Pill_Regular';
-
+$font-family-h3: 'franklin_std_condensed';
+$font-family-p: 'franklin_std_demi';
+$font-family-p2: 'franklin_std_condensed';
 
 
 // ........................................................FONT LINEHEIGHTS
@@ -43,7 +43,7 @@ $line-height-p-mobile: 17px;
 $letter-spacing: 2px;
 $letter-spacing-h1: 2px;
 $letter-spacing-h2: 1px;
-$letter-spacing-h3: 2px;
+$letter-spacing-h3: 1px;
 $letter-spacing-paragraph:2px;
 
 
@@ -52,8 +52,7 @@ $black: #000000;
 $white: #FFFFFF;
 $yellow: #ede611;
 $green: #00FF00;
-$pure-red: #FF0000;
-$red:#C70D15;
+$red:#c52026;
 $pink:#f7c0cd;
 $grey:#a8a8a8;
 $pure-green: #00FF00;

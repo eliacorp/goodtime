@@ -1,6 +1,6 @@
 .open{
   width: 100vw;
-  height: 300vh;
+  height: 200vh;
   background-color: $black;
   @include respond-to(phone){
     height: 100vh;
@@ -15,39 +15,100 @@
   }
 }
 
-.open-logo{
-  width: 100vw;
+
+
+.open-text{
+  width: 50vw;
   height: 100vh;
   position: fixed;
+  left:$margin-sides;
+  top:$margin-sides;
   @include respond-to(phone){
     position: absolute;
   }
-  svg{
-    position: absolute;
-    top:50%;
-    left:50%;
+  .open-text-ul{
+    width:70vw;
     display: block;
-    width: 90vw;
-    height:90vw;
-    margin-top: -45vw;
-    margin-left: -45vw;
-    overflow: visible;
-    g{
-      overflow: visible;
+    .open-text-li{
+      height: auto;
+      width: auto;
+      display: block;
+      opacity: 0;
+      margin-top: $margin-top-p;
+      &:nth-child(1){
+        margin-top: 0;
+      }
+      svg{
+        width:auto;
+        height: 100%;
+        display: block;
+      }
+      p{
+        color: $red;
+      }
     }
   }
 }
 
+#open-text-1{
+  height: 50px;
+}
+#open-text-2{
+  p{
+    @include h2();
+  }
+}
+
+#open-text-3{
+  height: 100px;
+}
+
+#open-text-4{
+  p{
+    @include h1();
+  }
+}
+
+#open-text-5{
+  height: 50px;
+  svg>g>.st0_a24logo{
+    fill:$white;
+  }
+}
+
+// .open-logo{
+//   width: 100vw;
+//   height: 100vh;
+//   position: fixed;
+//   @include respond-to(phone){
+//     position: absolute;
+//   }
+//   svg{
+//     position: absolute;
+//     top:50%;
+//     left:50%;
+//     display: block;
+//     width: 90vw;
+//     height:90vw;
+//     margin-top: -45vw;
+//     margin-left: -45vw;
+//     overflow: visible;
+//     g{
+//       overflow: visible;
+//     }
+//   }
+// }
+
 
 
 .open_logo_good{
-  fill:$pure-red;
+  fill:$red;
   transform-origin: 50% 50%;
   @include transform-element(translateX(50%));
 }
 
 .open_logo_time{
-  fill:$pure-red;
+  fill:$red;
   transform-origin: 50% 50%;
   @include transform-element(translateX(-50%));
 }
@@ -58,6 +119,6 @@
 }
 
 .open_logo_good.glow{
-  fill:$pure-red;
+  fill:$red;
   opacity:0;
 }

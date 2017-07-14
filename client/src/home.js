@@ -59,6 +59,14 @@ setTimeout(function(){
   };
 })
 
+.directive('playDirective', function() {
+  return {
+    restrict: 'E',
+    templateUrl: 'views/section/play.html',
+    replace: true
+  };
+})
+
 
 .directive('closeDirective', function() {
   return {

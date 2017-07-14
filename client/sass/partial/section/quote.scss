@@ -10,6 +10,13 @@
   height: auto;
 }
 
+
+.background{
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .quote_1{
   display: block;
   height: 100vh;
@@ -58,46 +65,23 @@
 
 
 
-.quote_3{
-  display: block;
-  height: 100vh;
-  width: 100vw;
-  background-color: $black;
-}
-
-
-.background{
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-
-
-.ghost-img{
-  position: absolute;
-  width: 200px;
-  height: auto;
-  display: block;
-  z-index:4;
-}
-
 
 
 
 .quote-text{
   position: absolute;
-  color:$pure-red;
+  color:$red;
   z-index: $z-quote-text;
-  font-family: 'Pill_Semibd';
+  font-family: $font-family-h3;
   text-transform: uppercase;
+  text-align: center;
 }
 
 .quote-text-span{
   position: absolute;
-  color:$white;
-  font-family: 'Pill_Bold';
-  font-size:40px;
+  color:$red;
+  font-family: $font-family-h3;
+  font-size:22px;
   @include respond-to(phone){
     font-size: 30px;
   }
@@ -108,7 +92,7 @@
 // #1
 .quote-text#vivid{
   top: 5vh;
-  font-size: 5em;
+  font-size: 4.7em;
   line-height:1em;
   @include respond-to(phone){
     font-size: 3em;
@@ -116,7 +100,7 @@
   }
 }
 .quote-text-span#variety{
-  left:-50px;
+  left:50%;
   bottom:-30px;
 }
 
@@ -124,9 +108,9 @@
 // #2
 .quote-text#pleasure{
   bottom: -5vh;
-  font-size: 8em;
+  font-size: 5em;
   line-height:80px;
-  font-family: 'Pill_Bold';
+  font-family: $font-family-h3;
   @include respond-to(phone){
     font-size: 5em;
     line-height:1em;
@@ -134,8 +118,9 @@
 }
 
 .quote-text-span#nytimes{
-  left: 22%;
-  bottom: -12%;
+  left: -10%;
+  bottom: -19%;
+  width: 500px;
 }
 
 
@@ -147,8 +132,7 @@
   top: 15vh;
   font-size: 2.5em;
   line-height:40px;
-  font-family: 'Pill_Bold';
-  text-transform:none;
+  font-family: $font-family-h3;
   @include respond-to(phone){
     font-size: 1.5em;
     line-height:1em;
@@ -159,7 +143,6 @@
   right: 0%;
   bottom: -5%;
   font-size: 60px;
-  text-transform: uppercase;
   @include respond-to(phone){
     bottom: -10%;
   }
@@ -171,18 +154,17 @@
 
 // #4
 .quote-text#robert{
+  width: 500px;
   bottom: 15vh;
-  font-size: 4em;
+  font-size: 3.5em;
   line-height:50px;
-  font-family: 'Pill_Regular';
-  text-transform:none;
+  font-family: $font-family-h3;
 }
 
 .quote-text-span#timeout{
   right: 0%;
   bottom: -80%;
   font-size: 60px;
-  text-transform: none;
   @include respond-to(phone){
     bottom: -40%;
   }

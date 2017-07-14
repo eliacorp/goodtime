@@ -1,0 +1,21 @@
+
+.play{
+  display: block;
+  height: 100vh;
+  width: 100vw;
+  background-color: $black;
+  z-index:4;
+  position: relative;
+}
+
+
+
+
+
+.ghost-img{
+  position: absolute;
+  width: 200px;
+  height: auto;
+  display: block;
+  z-index:4;
+}

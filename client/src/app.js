@@ -13,6 +13,7 @@ angular.module('myApp', ["ngRoute", "ngAnimate", "ngResource"])
   $rootScope.isOpener = true;
   $rootScope.logoGoodScroll = 0;
   $rootScope.logoTimeScroll = 0;
+  $rootScope.pageLoaded = false;
 
 
     var original = $location.path;
@@ -170,6 +171,13 @@ $scope.isWrong = false;
 
 
 
+setTimeout(function(){
+    $rootScope.pageLoaded = true;
+    $rootScope.$apply();
+}, 2000);
+
+
+
 
   //MOBILE
   $rootScope.windowHeight= $window.innerHeight;
@@ -295,6 +303,17 @@ $scope.isWrong = false;
   };
 })
 
+.directive('a24logoNomarginDirective', function() {
+  return {
+    restrict: 'E',
+    templateUrl: 'views/components/icon/a24_nomargin_logo.html',
+    replace: true,
+    link: function(scope, elem, attrs) {
+
+    }
+  };
+})
+
 
 .directive('elaralogoDirective', function() {
   return {
@@ -327,15 +346,40 @@ $scope.isWrong = false;
   };
 })
 
+.directive('spriteDirective', function() {
+  return {
+    restrict: 'E',
+    templateUrl: 'views/components/icon/sprite.html',
+    replace: true,
+    link: function(scope, elem, attrs) {
+
+    }
+  };
+})
+
+.directive('logoStaticDirective', function() {
+  return {
+    restrict: 'E',
+    templateUrl: 'views/components/icon/goodtime_logo_static.html',
+    replace: true
+  };
+})
+
+
+.directive('cannesDirective', function() {
+  return {
+    restrict: 'E',
+    templateUrl: 'views/components/icon/cannes_logo.html',
+    replace: true
+  };
+})
+
 
 .directive('logoDirective', function($rootScope, $location, $window, $timeout) {
   return {
     restrict: 'E',
     templateUrl: 'views/components/logo.html',
-    replace: true,
-    link: function(scope, elem, attrs) {
-
-    }
+    replace: true
   };
 });
 
@@ -349,6 +393,7 @@ var home = require("./home.js");
 var open = require("./section/open.js");
 var quote = require("./section/quote.js");
 var synopsis = require("./section/synopsis.js");
+var play = require("./section/play.js");
 var close = require("./section/close.js");
 
 var snippets = require("./section/snippets.js");

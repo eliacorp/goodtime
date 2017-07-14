@@ -6,6 +6,12 @@
 }
 
 
+.close.close_scrolled{
+  height: 100vh;
+}
+
+
+
 
 .close-text-container{
   width: 100vw;
@@ -28,7 +34,7 @@
   position: relative;
   p{
     @include p();
-    color: $pure-red;
+    color: $red;
     width: 100%;
     text-align: center;
     text-transform: uppercase;
@@ -40,7 +46,7 @@
 
     }
     b{
-      font-family: 'Pill_Bold';
+      font-family:$font-family-p2;
     }
   }
 }
@@ -90,4 +96,8 @@
 #anchor_close{
   position: relative;
   padding-top: 200vh;
+}
+#anchor_close.close_scrolled{
+  height: 0;
+  padding: 0;
 }

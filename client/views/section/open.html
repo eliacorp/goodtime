@@ -1,18 +1,27 @@
 <div class="open" id="anchor_open" ng-controller="openCtrl">
 
-  <video class="open-video" ng-show="isOpener" muted paused id="open-video" src="https://s3-us-west-2.amazonaws.com/asset.goodtime/video/OPENINGTITLE.mov" poster="">
+  <video class="open-video" ng-show="isOpener" muted autoplay id="open-video" src="https://s3-us-west-2.amazonaws.com/asset.goodtime/video/ROBRUN.mp4" poster="">
   </video>
-  <div class="open-logo">
+
+  <div class="open-text">
+
+    <ul class="open-text-ul">
+      <li class="open-text-li" id="open-text-1" style="opacity:{{opentextA[0].opacity}};"><cannes-directive></cannes-directive></li>
+      <li class="open-text-li" id="open-text-2" style="opacity:{{opentextA[1].opacity}};"><p>DIRECTED BY THE SAFDIE BROTHERS</p></li>
+      <li class="open-text-li" id="open-text-3" style="opacity:{{opentextA[2].opacity}};"><logo-static-directive></logo-static-directive></li>
+      <li class="open-text-li" id="open-text-4" style="opacity:{{opentextA[3].opacity}};"><p>In THEATRES AUGUST 11th</p></li>
+      <li class="open-text-li" id="open-text-5" style="opacity:{{opentextA[4].opacity}};"><a24logo-directive></a24logo-directive></li>
+    </ul>
+
+    </div>
+  <!-- <div class="open-logo">
     <table>
       <tr>
         <td>
-
-          <!-- <goodtime-logo-directive></goodtime-logo-directive> -->
         </td>
       </tr>
     </table>
-
-  </div>
+  </div> -->
 
   <!-- style="opacity:{{openerOpacity}};" -->
 

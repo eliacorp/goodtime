@@ -2,13 +2,15 @@ angular.module('myApp')
 .controller('openCtrl', ['$rootScope', '$scope','$window', ($rootScope, $scope, $window)=>{
 
 $rootScope.isOpener = true;
+$scope.openerScrolled=false;
+
   // $scope.$on("$viewContentLoaded", function(){
     setTimeout(function(){
       $rootScope.videoslide();
       // var vid = document.getElementById("open-video");
       // vid.volume = 0.0;
       $rootScope.$apply();
-    }, 1000);
+    }, 2000);
 
   // })
 
@@ -24,6 +26,7 @@ $rootScope.videoslide=()=>{
       setHeight = document.getElementById("open"),
       // select video element
       vid = document.getElementById('open-video');
+      vid.play();
       // var vid = $('#v0')[0]; // jquery option
 
   // dynamically set the page height according to video length
@@ -43,19 +46,20 @@ $rootScope.videoslide=()=>{
 
   function scrollPlay(timestamp) {
     // console.log(timestamp);
-    var frameNumber  = ($window.pageYOffset*2.3)/playbackConst;
+    var frameNumber  = (($window.pageYOffset*2.3)/playbackConst)+2;
     vid.currentTime = frameNumber;
     // console.log(vid.currentTime);
     // $rootScope.$apply();
     window.requestAnimationFrame(scrollPlay);
 
 }
-
-  window.requestAnimationFrame(scrollPlay);
-
+window.requestAnimationFrame(scrollPlay);
 
 
-
+//
+// setTimeout(function(){
+//   vid.pause();
+// },2000);
 
 
 
@@ -63,11 +67,15 @@ $rootScope.videoslide=()=>{
 
 $scope.logoPercentage=0;
 var lastScrollPosition = window.pageYOffset;
-$rootScope.logoGoodScroll = 0;
-$rootScope.logoTimeScroll = 0;
-$scope.timeRgba=0;
-$scope.glowOpacity=0;
-$scope.g1=0;
+
+
+$scope.opentextA=[
+    {opacity:0,point:0},
+    {opacity:0,point:100},
+    {opacity:0,point:200},
+    {opacity:0,point:300},
+    {opacity:0,point:400}
+  ]
 
   angular.element($window).bind("scroll", function() {
     var goingDown = (window.pageYOffset - lastScrollPosition) > 0;
@@ -88,8 +96,39 @@ $scope.g1=0;
       }else{
         window.cancelAnimationFrame(requestId);
         $rootScope.isOpener = false;
+        $scope.openerScrolled=true;
         // $window.cancelAnimationFrame();
       }
+
+
+
+
+
+  //fade in text animation
+
+if(!$scope.openerScrolled){
+  if (window.pageYOffset < openHeight) {
+    var opacity = ((window.pageYOffset*1) % 100)/100;
+
+    console.log(opacity);
+
+    for (var i in $scope.opentextA){
+      if((window.pageYOffset>$scope.opentextA[i].point)&&(window.pageYOffset<($scope.opentextA[i].point+100))){
+        $scope.opentextA[i].opacity = opacity;
+      }else if(window.pageYOffset>=($scope.opentextA[i].point+100)){
+        $scope.opentextA[i].opacity=1;
+      }
+    }
+
+
+  }
+}
+
+
+
+
+
+
 
 
       lastScrollPosition = window.pageYOffset;

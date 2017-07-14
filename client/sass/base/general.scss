@@ -227,6 +227,30 @@ $fade-in: 1s;
 
 
 
+.loader{
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100vw;
+  height: 100vh;
+  background-color: $black;
+  z-index: $z-loader;
+
+  .loader-sprite{
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    img{
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+  }
+
+}
+
+
+
 
 /*.............................NG-CLOAK............................*/
 

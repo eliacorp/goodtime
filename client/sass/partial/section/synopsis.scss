@@ -42,10 +42,15 @@
   display: block;
   @include p();
   color: $pure-green;
-  padding-top: $margin-top-p;
   mix-blend-mode: difference;
   cursor: -webkit-grab;
-  left:10vw;
+  // left:10vw;
+  margin: auto;
+  text-transform: uppercase;
+  text-align: center;
+  &:nth-child(2){
+    color: $red;
+  }
   @include respond-to(phone){
     width:70vw;
   }

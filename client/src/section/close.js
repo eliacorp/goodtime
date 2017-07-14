@@ -3,6 +3,7 @@ angular.module('myApp')
 
 
 $scope.isClose = false;
+$scope.scrolledTroughClose=false;
 $scope.tens=[
   {opacity:0},
   {opacity:0},
@@ -24,19 +25,29 @@ $scope.tens=[
       var windowBottom = windowHeight + window.pageYOffset;
       var element = $rootScope.retrieveElement("anchor_open");
       var closeHeight = element[0].clientHeight;
-      var closeScroll = (1)*(window.pageYOffset - (windowHeight*9));
+      var closeScroll = (1)*(window.pageYOffset - (windowHeight*8));
       var closeScrolled = (closeScroll/windowHeight)*100;
 
 
-      console.log(closeScroll);
+
+
+      if($scope.scrolledTroughClose){
+        for(var i in $scope.tens){
+          $scope.tens[i].opacity=1;
+        }
+        $scope.isClose = false;
+      }else{
+        if((closeScroll)>0){
+          $scope.isClose = true;
+        }else{
+          $scope.isClose = false;
+        }
+      }
 
 
 
-
-      if((closeScroll)>0){
-        $scope.isClose = true;
-        // $scope.tens = (closeScroll*2) % 100;
-        // console.log($scope.tens);
+    if(!$scope.scrolledTroughClose){
+      if((closeScroll>0)){
 
         var opacity = ((closeScroll*2) % 100)/100;
 
@@ -105,15 +116,10 @@ $scope.tens=[
           $scope.tens[10].opacity = opacity;
         }else if(closeScroll>500){
           $scope.tens[10].opacity = 1;
+          $scope.scrolledTroughClose=true;
         }
 
-
-
-
-
-
       }else{
-        $scope.isClose = false;
         $scope.tens[0].opacity = 0;
         $scope.tens[1].opacity = 0;
         $scope.tens[2].opacity = 0;
@@ -125,10 +131,8 @@ $scope.tens=[
         $scope.tens[8].opacity = 0;
         $scope.tens[9].opacity = 0;
         $scope.tens[10].opacity = 0;
-
       }
-
-      // console.log(closeScroll);
+    }
 
 
         $rootScope.$apply();

@@ -45,11 +45,6 @@ $scope.quoteText={
 
       var quote2Scroll = (1)*(window.pageYOffset - (windowHeight*4));
       var quote2percent = (quote2Scroll/windowHeight)*100;
-
-
-
-      // console.log(quoteScroll, percentScrolled);
-
       var requestId = "swjhs";
 
 
@@ -99,10 +94,10 @@ $scope.quoteText={
 
 
     // #4
-        if(quote2percent<10){
+        if(quote2percent<35){
           $scope.quoteText['robert'].left=quote2percent;
-        }else if(quote2percent>10){
-          $scope.quoteText['robert'].left=10;
+        }else if(quote2percent>35){
+          $scope.quoteText['robert'].left=35;
         }
 
         if(quote2percent<=(20)){
@@ -119,61 +114,6 @@ $scope.quoteText={
   });
 
 
-  $scope.imageArray=[];
-  $scope.imageN=1;
-  $scope.quoteImage={
-    x:0,
-    y:0
-  }
-
-  $scope.addImage=(event)=>{
-
-    var element = $rootScope.retrieveElement("anchor_quote");
-    var offset = element[0].offsetTop;
-    var difference = window.pageYOffset-offset;
-
-    $scope.quoteImage.x = event.clientX;
-    $scope.quoteImage.y = event.clientY;
-
-    var obj = {};
-    obj.x = event.clientX - 150;     // Get the horizontal coordinate
-    obj.y = event.clientY + difference;
-    obj.src= 'https://s3-us-west-2.amazonaws.com/asset.goodtime/image/images_for_array/A'+$scope.imageN+'.jpg';
-    $scope.imageArray.push(obj);
-    var imgClass=".ghost-img";
-    // setTimeout(function(){
-    //   $(imgClass).draggable({ containment: "parent" });
-    // },500);
-    if($scope.imageN<68){
-      $scope.imageN++;
-    }else{
-      $scope.imageN=1;
-    }
-
-
-  }
-
-
-
-
-
-$scope.mouseIsDown = true;
-  $scope.drawImage = function(event){
-    if ($scope.mouseIsDown){
-      if((Math.abs($scope.quoteImage.x-event.clientX)>100)||(Math.abs($scope.quoteImage.y-event.clientY)>100)){
-        $scope.addImage(event)
-      }
-
-    }
-  }
-
-  $scope.setFlag = function(){
-     $scope.mouseIsDown = true;
-  }
-
-  $scope.removeFlag = function(){
-     $scope.mouseIsDown = false;
-  }
 
 
 
