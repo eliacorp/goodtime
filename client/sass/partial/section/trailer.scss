@@ -19,10 +19,10 @@
   left:50%;
   display: block;
   z-index:2;
-  width: 800px;
-  height: 500px;
-  margin-left: -400px;
-  margin-top: -250px;
+  width: 896px;
+  height: 504px;
+  margin-left: -448px;
+  margin-top: -252px;
 
   @include respond-to(tablet-landscape){
     width: 600px;

@@ -5,6 +5,8 @@ angular.module('myApp')
 
   $rootScope.isNavOpen = false;
   $rootScope.groundSoundEL=true;
+  $rootScope.isGroundSound=true;
+
 
   $scope.openNav = function(){
     $rootScope.isNavOpen = !$rootScope.isNavOpen;

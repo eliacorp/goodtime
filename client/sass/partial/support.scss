@@ -16,12 +16,16 @@
   position: absolute;
   bottom:0;
   right:0;
-  svg{
-    width: 40px;
-    height: auto;
+  a{
     display: block;
-    float: right;
+    svg{
+      width: 40px;
+      height: auto;
+      display: block;
+      float: right;
+    }
   }
+
 
   svg>g>.st0_a24logo{
     fill:$white;
@@ -41,7 +45,7 @@
     height: 70px;
     width: auto;
     float:left;
-    margin-left: $margin-left-paragraph;
+    margin-left: $margin-left-h2;
     &:nth-child(1){
       margin-left: 0;
     }

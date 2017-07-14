@@ -174,7 +174,7 @@ $scope.isWrong = false;
 setTimeout(function(){
     $rootScope.pageLoaded = true;
     $rootScope.$apply();
-}, 2000);
+}, 1000);
 
 
 

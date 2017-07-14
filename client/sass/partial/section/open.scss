@@ -21,8 +21,8 @@
   width: 50vw;
   height: 100vh;
   position: fixed;
-  left:$margin-sides;
-  top:$margin-sides;
+  left:50px;
+  top:50px;
   @include respond-to(phone){
     position: absolute;
   }
@@ -34,7 +34,7 @@
       width: auto;
       display: block;
       opacity: 0;
-      margin-top: $margin-top-p;
+      margin-top: $margin-top-h2;
       &:nth-child(1){
         margin-top: 0;
       }
@@ -55,7 +55,8 @@
 }
 #open-text-2{
   p{
-    @include h2();
+    @include h3();
+    line-height: 10px;
   }
 }
 
@@ -65,12 +66,12 @@
 
 #open-text-4{
   p{
-    @include h1();
+    @include h2();
   }
 }
 
 #open-text-5{
-  height: 50px;
+  height: 30px;
   svg>g>.st0_a24logo{
     fill:$white;
   }

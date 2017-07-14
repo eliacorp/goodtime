@@ -39,14 +39,20 @@
     text-align: center;
     text-transform: uppercase;
     margin-top: $margin-top-p;
+    font-family:$font-family-p2;
+    font-size: $font-size-p2;
     &:nth-child(1){
+      margin-top: 0;
+    }
+    &:nth-child(2){
       margin-top: 0;
     }
     span{
 
     }
     b{
-      font-family:$font-family-p2;
+      font-family:$font-family-p;
+      font-size: $font-size-p;
     }
   }
 }
@@ -58,10 +64,10 @@
 .close-branding{
   display: block;
   margin: auto;
-  width: 210px;
+  width: 250px;
   height: 70px;
   white-space: nowrap;
-  margin-top: $margin-top-block;
+  margin-top: $margin-top-p;
   position: relative;
   z-index:$z-close-text;
   .close-branding-logo{
@@ -70,6 +76,10 @@
     height: 70px;
     vertical-align: top;
     overflow: hidden;
+    margin-left: 20px;
+    &:nth-child(1){
+      margin-left: 0;
+    }
     svg{
       height: 100%;
       width: 100%;

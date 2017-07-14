@@ -72,7 +72,7 @@
   position: absolute;
   color:$red;
   z-index: $z-quote-text;
-  font-family: $font-family-h3;
+  @include h1();
   text-transform: uppercase;
   text-align: center;
 }
@@ -80,8 +80,8 @@
 .quote-text-span{
   position: absolute;
   color:$red;
-  font-family: $font-family-h3;
-  font-size:22px;
+  @include h2();
+  // font-size:22px;
   @include respond-to(phone){
     font-size: 30px;
   }
@@ -119,8 +119,8 @@
 
 .quote-text-span#nytimes{
   left: -10%;
-  bottom: -19%;
-  width: 500px;
+  bottom: -12%;
+  width: 600px;
 }
 
 
@@ -132,17 +132,19 @@
   top: 15vh;
   font-size: 2.5em;
   line-height:40px;
-  font-family: $font-family-h3;
+  font-family: $font-family-h2;
   @include respond-to(phone){
     font-size: 1.5em;
     line-height:1em;
   }
 }
 
-.quote-text-span#indiewire{
-  right: 0%;
-  bottom: -5%;
-  font-size: 60px;
+.quote-text-span#hollywood{
+  left: 50%;
+  width: 500px;
+  margin-left: -250px;
+  bottom: -37%;
+  font-size: 20px;
   @include respond-to(phone){
     bottom: -10%;
   }
@@ -154,7 +156,7 @@
 
 // #4
 .quote-text#robert{
-  width: 500px;
+  width: 700px;
   bottom: 15vh;
   font-size: 3.5em;
   line-height:50px;
@@ -162,9 +164,11 @@
 }
 
 .quote-text-span#timeout{
-  right: 0%;
-  bottom: -80%;
-  font-size: 60px;
+  left: 50%;
+  width: 500px;
+  margin-left: -250px;
+  bottom: -37%;
+  font-size: 29px;
   @include respond-to(phone){
     bottom: -40%;
   }

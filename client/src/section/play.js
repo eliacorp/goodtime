@@ -25,7 +25,7 @@ angular.module('myApp')
     // setTimeout(function(){
     //   $(imgClass).draggable({ containment: "parent" });
     // },500);
-    if($scope.imageN<68){
+    if($scope.imageN<40){
       $scope.imageN++;
     }else{
       $scope.imageN=1;
@@ -42,7 +42,7 @@ angular.module('myApp')
 $scope.mouseIsDown = true;
   $scope.drawImage = function(event){
     if ($scope.mouseIsDown){
-      if((Math.abs($scope.quoteImage.x-event.clientX)>50)||(Math.abs($scope.quoteImage.y-event.clientY)>50)){
+      if((Math.abs($scope.quoteImage.x-event.clientX)>70)||(Math.abs($scope.quoteImage.y-event.clientY)>70)){
         $scope.addImage(event)
       }
 

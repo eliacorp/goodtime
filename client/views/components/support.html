@@ -8,7 +8,7 @@
       <p>IN THEATRES AUGUST 11TH</p>
     </li>
     <li class="support-info-li" id="support-info-sound" ng-click="groundSound()">
-      <div id="bars" ng-class="{'stoped_sound':isGroundSound}">
+      <div id="bars" ng-class="{'stoped_sound':!isGroundSound}">
           <div class="bar"></div>
           <div class="bar"></div>
           <div class="bar"></div>
@@ -25,10 +25,10 @@
   </ul>
 
   <div class="support-logo">
-    <a24logo-nomargin-directive></a24logo-nomargin-directive>
+    <a href="https://a24films.com/" target="_blank"><a24logo-nomargin-directive></a24logo-nomargin-directive></a>
   </div>
 
-  <audio id="support-audio" src="https://s3-us-west-2.amazonaws.com/asset.goodtime/audio/GT_AUDIO_09.mp3">
+  <audio id="support-audio" autoplay src="https://s3-us-west-2.amazonaws.com/asset.goodtime/audio/Background.mp3">
 
   </audio>
 

@@ -100,9 +100,9 @@ $scope.quoteText={
           $scope.quoteText['robert'].left=35;
         }
 
-        if(quote2percent<=(20)){
-          $scope.quoteText['timeout'].opacity=((quote2percent)/20);
-        }else if(quote2percent>20){
+        if(quote2percent<=(30)){
+          $scope.quoteText['timeout'].opacity=((quote2percent)/30);
+        }else if(quote2percent>30){
           $scope.quoteText['timeout'].opacity=1;
         }
 

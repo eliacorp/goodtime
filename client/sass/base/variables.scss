@@ -9,9 +9,11 @@ $font-weight-heavy: 900;
 
 // ........................................................FONT SIZES
 $font-size-h1:50px;
-$font-size-h2:25px;
+$font-size-h2:30px;
 $font-size-h3:15px;
-$font-size-p: 20px;
+$font-size-p: 18px;
+$font-size-p2: 13px;
+
 
 $font-size-h1-mobile: 25px;
 $font-size-h2-mobile: 20px;
@@ -21,18 +23,19 @@ $font-size-p-mobile: 12px;
 // ........................................................FONT FAMILIES
 // 'Playfair Display SC', serif
 // font-family: 'Prata', serif;
-$font-family-h1: "futura_std_bold";
-$font-family-h2: "futura_std_bold";
+$font-family-h1: "franklin_std_condensed";
+$font-family-h2: "franklin_std_condensed";
 $font-family-h3: 'franklin_std_condensed';
-$font-family-p: 'franklin_std_demi';
-$font-family-p2: 'franklin_std_condensed';
-
+$font-family-p: 'franklin_std_condensed';
+$font-family-p2: 'franklin_std_demi';
+// $font-family-h1: "futura_std_bold";
+// $font-family-h2: "futura_std_bold";
 
 // ........................................................FONT LINEHEIGHTS
 $line-height-h1: 50px;
 $line-height-h2: 30px;
 $line-height-h3: 30px;
-$line-height-p: 25px;
+$line-height-p: 22px;
 
 $line-height-h1-mobile: 40px;
 $line-height-h2-mobile: 30px;
@@ -41,9 +44,9 @@ $line-height-p-mobile: 17px;
 
 
 $letter-spacing: 2px;
-$letter-spacing-h1: 2px;
-$letter-spacing-h2: 1px;
-$letter-spacing-h3: 1px;
+$letter-spacing-h1: 11px;
+$letter-spacing-h2: 3px;
+$letter-spacing-h3: 3px;
 $letter-spacing-paragraph:2px;
 
 
@@ -64,7 +67,9 @@ $margin-bottom: 35px;
 $margin-top: 200px;
 $margin-sides-mobile:10px;
 $margin-left-paragraph:5px;
-$margin-top-p:20px;
+$margin-left-h2:15px;
+$margin-top-p:30px;
+$margin-top-h2:12px;
 $margin-top-block:100px;
 $margin-top-li:50px;
 

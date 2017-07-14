@@ -41,15 +41,23 @@
   position: relative;
   display: block;
   @include p();
-  color: $pure-green;
+  color: $red;
   mix-blend-mode: difference;
   cursor: -webkit-grab;
   // left:10vw;
   margin: auto;
   text-transform: uppercase;
   text-align: center;
+  margin-top: $margin-top-p;
+  &:nth-child(1){
+    color: $red;
+    margin-top: 0;
+  }
   &:nth-child(2){
     color: $red;
+  }
+  &:hover{
+    mix-blend-mode: normal;
   }
   @include respond-to(phone){
     width:70vw;
@@ -57,6 +65,6 @@
 }
 
 
-#synopsis-text-p-1{
-  padding-top: 10vh;
-}
+// #synopsis-text-p-1{
+//   padding-top: 10vh;
+// }
