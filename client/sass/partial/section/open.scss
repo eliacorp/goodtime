@@ -20,8 +20,49 @@
     margin-top: -65vh;
     margin-left: -65vw;
 
+
+
+
+    @include respond-to(laptop-large){
+      width: 130vw;
+      height: 130vh;
+      margin-top: -65vh;
+      margin-left: -65vw;
+    }
+
+    @include respond-to(laptop-medium){
+      width: 120vw;
+      height: 120vh;
+      margin-top: -60vh;
+      margin-left: -60vw;
+    }
+
+    @include respond-to(laptop-small){
+      width: 140vw;
+      height: 140vh;
+      margin-top: -70vh;
+      margin-left: -70vw;
+    }
+
+    @include respond-to(tablet-portrait){
+      width: 160vw;
+      height: 160vh;
+      margin-top: -80vh;
+      margin-left: -80vw;
+    }
+
+    @include respond-to(tablet-landscape){
+      width: 160vw;
+      height: 160vh;
+      margin-top: -80vh;
+      margin-left: -80vw;
+    }
+
     @include respond-to(phone){
-      position: relative;
+      width: 180vw;
+      height: 180vh;
+      margin-top: -90vh;
+      margin-left: -90vw;
     }
   }
 }
