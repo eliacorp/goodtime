@@ -7,9 +7,18 @@ $rootScope.anchorScroll=(id)=>{
   anchorSmoothScroll.scrollTo(id);
 }
 
+
+
+  // setTimeout(function(){
+  //   $( ".synopsis-float" ).draggable({ containment: "window" });
+  // },900);
+
 setTimeout(function(){
-  $('.synopsis-text-p').draggable({ containment: "window" });
-},500);
+  // Setter
+  $( ".synopsis-text-p" ).draggable({
+    containment: "document"
+  });
+},600);
 
 $rootScope.backgroundN=1;
 
@@ -24,9 +33,6 @@ $rootScope.changeBackgrounds=()=>{
 
 
 
-  setTimeout(function(){
-    $( ".synopsis-float" ).draggable({ containment: "window" });
-  },900);
 
 }])
 

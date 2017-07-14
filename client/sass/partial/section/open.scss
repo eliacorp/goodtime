@@ -59,10 +59,10 @@
     }
 
     @include respond-to(phone){
-      width: 180vw;
+      width: 250vw;
       height: 180vh;
       margin-top: -90vh;
-      margin-left: -90vw;
+      margin-left: -125vw;
     }
   }
 }

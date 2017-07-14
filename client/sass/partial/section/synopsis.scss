@@ -33,10 +33,16 @@
   }
 }
 
-
+.synopsis-text{
+  width: 50vw;
+  display: block;
+  position: relative;
+  display: block;
+  margin: auto;
+}
 
 .synopsis-text-p{
-  width: 50vw;
+  width: 100%;
   display: block;
   position: relative;
   display: block;
@@ -45,7 +51,7 @@
   mix-blend-mode: difference;
   cursor: -webkit-grab;
   // left:10vw;
-  margin: auto;
+  margin: 0;
   text-transform: uppercase;
   text-align: center;
   margin-top: $margin-top-p;
