@@ -1,25 +1,20 @@
 angular.module('myApp')
 .controller('synopsisCtrl', ['$rootScope', '$scope','$window', ($rootScope, $scope, $window)=>{
 
-$scope.showVideoSynopsis=false;
-
-setTimeout(function(){
-
-}, 600);
-
-$scope.playSynopsisVideo = ()=>{
-  $scope.showVideoSynopsis=true;
-  var vid = $('#synopsis-float-video')[0];
-  // vid.loop = true;
-  vid.play();
-}
-
-
-$scope.pauseSynopsisVideo = ()=>{
   $scope.showVideoSynopsis=false;
-  var vid = $('#synopsis-float-video')[0];
-  vid.pause();
-}
+
+  $scope.playSynopsisVideo = ()=>{
+    $scope.showVideoSynopsis=true;
+    var vid = $('#synopsis-float-video')[0];
+    // vid.loop = true;
+    vid.play();
+  }
+
+  $scope.pauseSynopsisVideo = ()=>{
+    $scope.showVideoSynopsis=false;
+    var vid = $('#synopsis-float-video')[0];
+    vid.pause();
+  }
 
 
 

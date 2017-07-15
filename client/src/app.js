@@ -385,6 +385,14 @@ setTimeout(function(){
   };
 })
 
+.directive('playIconDirective', function() {
+  return {
+    restrict: 'E',
+    templateUrl: 'views/components/icon/play_icon.html',
+    replace: true
+  };
+})
+
 
 .directive('logoDirective', function($rootScope, $location, $window, $timeout) {
   return {
@@ -402,6 +410,7 @@ var service = require("./service.js");
 var nav = require("./nav.js");
 var home = require("./home.js");
 var open = require("./section/open.js");
+var trailer = require("./section/trailer.js");
 var quote = require("./section/quote.js");
 var synopsis = require("./section/synopsis.js");
 var play = require("./section/play.js");

@@ -2,6 +2,7 @@ angular.module('myApp')
 .controller('playCtrl', ['$rootScope', '$scope','$window', ($rootScope, $scope, $window)=>{
   $scope.imageArray=[];
   $scope.imageN=1;
+  $scope.imageZIndex=4;
   $scope.quoteImage={
     x:0,
     y:0
@@ -31,6 +32,8 @@ angular.module('myApp')
       $scope.imageN=1;
     }
     $scope.imageArray[$scope.imageN]=obj;
+    $scope.imageArray[$scope.imageN].zindex=$scope.imageZIndex++;
+
 
 
   }

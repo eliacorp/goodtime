@@ -13,24 +13,23 @@
   // opacity: 0.9;
   z-index:1;
 }
-.trailer-iframe{
+
+
+
+.trailer-video{
   position: absolute;
-  top:50%;
-  left:50%;
-  display: block;
-  z-index:2;
   width: 896px;
   height: 504px;
   margin-left: -448px;
   margin-top: -252px;
-
+  top:50%;
+  left:50%;
   @include respond-to(tablet-landscape){
     width: 600px;
     height: 350px;
     margin-left: -300px;
     margin-top: -175px;
   }
-
   @include respond-to(tablet-portait){
     width: 600px;
     height: 350px;
@@ -43,7 +42,72 @@
     height: 30vh;
     margin-left: -40vw;
     margin-top: -15vh;
-    // left:0;
-    // top:0;
   }
+  .trailer-video-poster{
+    z-index:4;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    .trailer-video-button{
+      position: absolute;
+      top:50%;
+      left: 50%;
+      width: 70px;
+      height: 70px;
+      margin-left: -35px;
+      margin-top: -35px;
+      svg{
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+.ng-click-active-trailer.trailer-video-button{
+  svg{
+    path{
+      fill:$white!important;
+    }
+  }
+}
+
+
+
+.trailer-video-poster{
+  opacity: 1;
+}
+.trailer-video-poster.ng-hide{
+  opacity: 0;
+}
+
+.trailer-video-poster.ng-hide-remove.ng-hide-remove-active{
+  transition: opacity $transition-medium ease;
+  -webkit-transition: opacity $transition-medium ease;
+  -moz-transition: opacity $transition-medium ease;
+  -ms-transition: opacity $transition-medium ease;
+  -o-transition: opacity $transition-medium ease;
+}
+
+.trailer-video-poster.ng-hide-add.ng-hide-add-active{
+  transition: opacity $transition-medium ease;
+  -webkit-transition: opacity $transition-medium ease;
+  -moz-transition: opacity $transition-medium ease;
+  -ms-transition: opacity $transition-medium ease;
+  -o-transition: opacity $transition-medium ease;
+}
+
+
+
+
+
+#player_trailer{
+  display: block;
+  z-index:2;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top:0;
+  left: 0;
 }
