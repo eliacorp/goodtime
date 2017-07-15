@@ -62,8 +62,40 @@
   }
 }
 
+.support-unicorn b {
+  // outline:0;
+  //   -webkit-animation: colorRotate 4s linear 0s infinite;
+  //   -moz-animation: colorRotate 4s linear 0s infinite;
+  //   -o-animation: colorRotate 4s linear 0s infinite;
+  //   animation: colorRotate 4s linear 0s infinite;
+    //
+    // -webkit-animation-play-state: paused;
+    // -moz-animation-play-state: paused;
+    // -o-animation-play-state: paused;
+    // animation-play-state: paused;
+    // @include respond-to(phone){
+    //   -webkit-animation-play-state: running;
+    //   -moz-animation-play-state: running;
+    //   -o-animation-play-state: running;
+    //   animation-play-state: running;
+    // }
+}
+.support-unicorn:hover b {
+  -webkit-animation: colorRotate 4s linear 0s infinite;
+  -moz-animation: colorRotate 4s linear 0s infinite;
+  -o-animation: colorRotate 4s linear 0s infinite;
+  animation: colorRotate 4s linear 0s infinite;
+}
+
 #support-info-buy{
   a{
+    color: $white;
+    b{
+      margin: 0;
+      padding: 0;
+      color: $white;
+    }
+
   }
 }
 #support-info-theatres{

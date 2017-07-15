@@ -102,6 +102,7 @@ $animation-speed: 0.6s;
 
 
 .unicorn.animate b {
+  outline:0;
     -webkit-animation: colorRotate 4s linear 0s infinite;
     -moz-animation: colorRotate 4s linear 0s infinite;
     -o-animation: colorRotate 4s linear 0s infinite;
@@ -125,9 +126,7 @@ $animation-speed: 0.6s;
     animation-play-state: running;
 }
 
-.support-unicorn b {
-  color:$white;
-}
+
 
 @-webkit-keyframes colorRotate {
     from {
