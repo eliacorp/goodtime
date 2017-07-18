@@ -4,6 +4,7 @@
   background-color: $black;
   @include respond-to(phone){
     height: 100vh;
+    position: relative;
   }
 }
 .open-video{

@@ -13,12 +13,21 @@ $rootScope.anchorScroll=(id)=>{
   //   $( ".synopsis-float" ).draggable({ containment: "window" });
   // },900);
 
-setTimeout(function(){
-  // Setter
-  $( ".synopsis-text-p" ).draggable({
-    containment: "document"
-  });
-},600);
+
+    if($rootScope.isMobile){
+
+    }else{
+      setTimeout(function(){
+        // Setter
+        $( ".synopsis-text-p" ).draggable({
+          containment: "document"
+        });
+      },600);
+
+    }
+
+
+
 
 $rootScope.backgroundN=1;
 

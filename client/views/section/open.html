@@ -1,13 +1,15 @@
 <div class="open" id="anchor_open" ng-controller="openCtrl">
 
 <div class="open-video">
-  <video class="open-video-element" ng-show="isOpener" muted autoplay id="open-video" src="https://s3-us-west-2.amazonaws.com/asset.goodtime/video/ROBRUN.mp4" poster="">
+  <video class="open-video-element" ng-show="isOpener" muted autoplay id="open-video" src="https://s3-us-west-2.amazonaws.com/asset.goodtime/video/ROBRUN.mp4" poster="" ng-if="!isMobile">
   </video>
+  <div class="open-video-element-mobile background" ng-if="isMobile" >
+<!-- style="background-image:url('')" -->
+  </div>
 </div>
 
 
   <div class="open-text">
-
     <ul class="open-text-ul">
       <li class="open-text-li" id="open-text-1" style="opacity:{{opentextA[0].opacity}};"><cannes-directive></cannes-directive></li>
       <li class="open-text-li" id="open-text-2" style="opacity:{{opentextA[1].opacity}};"><p>DIRECTED BY THE SAFDIE BROTHERS</p></li>
@@ -15,8 +17,7 @@
       <li class="open-text-li" id="open-text-4" style="opacity:{{opentextA[3].opacity}};"><p>IN THEATRES AUGUST 11TH</p></li>
       <li class="open-text-li" id="open-text-5" style="opacity:{{opentextA[4].opacity}};"><a24logo-nomargin-directive></a24logo-nomargin-directive></li>
     </ul>
-
-    </div>
+  </div>
   <!-- <div class="open-logo">
     <table>
       <tr>

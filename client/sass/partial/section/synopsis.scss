@@ -39,6 +39,9 @@
   position: relative;
   display: block;
   margin: auto;
+  @include respond-to(phone){
+    width: 85vw;
+  }
 }
 
 .synopsis-text-p{
@@ -55,6 +58,7 @@
   text-transform: uppercase;
   text-align: center;
   margin-top: $margin-top-p;
+
   &:nth-child(1){
     color: $red;
     margin-top: 0;
@@ -64,9 +68,6 @@
   }
   &:hover{
     mix-blend-mode: normal;
-  }
-  @include respond-to(phone){
-    width:70vw;
   }
 }
 

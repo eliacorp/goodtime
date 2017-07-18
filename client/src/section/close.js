@@ -18,6 +18,9 @@ $scope.tens=[
   {opacity:0}
 ]
 
+
+$scope.closeScroll =()=>{
+
   angular.element($window).bind("scroll.close", function() {
       var windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
       var body = document.body, html = document.documentElement;
@@ -134,10 +137,21 @@ $scope.tens=[
       }
     }
 
-
         $rootScope.$apply();
-
     });
+
+}
+
+
+if($rootScope.isMobile){
+  $scope.tens=[{opacity:1},{opacity:1},{opacity:1},{opacity:1},{opacity:1},{opacity:1},{opacity:1},{opacity:1},{opacity:1},{opacity:1},{opacity:1}]
+}else{
+  $scope.closeScroll();
+}
+
+
+
+
 
 
 

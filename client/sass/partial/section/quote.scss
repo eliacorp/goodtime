@@ -103,8 +103,9 @@
   font-size: 4.7em;
   line-height:1em;
   @include respond-to(phone){
-    font-size: 3em;
-    line-height:1em;
+    font-size: 2em;
+    line-height:0.8em;
+
   }
 }
 .quote-text-span#variety{
@@ -120,8 +121,9 @@
   line-height:80px;
   font-family: $font-family-h3;
   @include respond-to(phone){
-    font-size: 5em;
+    font-size: 3em;
     line-height:1em;
+    line-height: 40px;
   }
 }
 
@@ -155,6 +157,8 @@
   font-size: 20px;
   @include respond-to(phone){
     bottom: -10%;
+    width: 90vw;
+    margin-left: -45vw;
   }
 }
 
@@ -169,6 +173,11 @@
   font-size: 3.5em;
   line-height:50px;
   font-family: $font-family-h3;
+  @include respond-to(phone){
+    font-size: 2.0em;
+    width: 80vw;
+    line-height: 40px;
+  }
 }
 
 .quote-text-span#timeout{
@@ -179,5 +188,7 @@
   font-size: 29px;
   @include respond-to(phone){
     bottom: -40%;
+    width: 80vw;
+    margin-left: -40vw;
   }
 }

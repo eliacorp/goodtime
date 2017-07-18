@@ -3,13 +3,28 @@ angular.module('myApp')
 
 $rootScope.isOpener = true;
 $scope.openerScrolled=false;
+$scope.opentextA=[
+    {opacity:0,point:0},
+    {opacity:0,point:100},
+    {opacity:0,point:200},
+    {opacity:0,point:300},
+    {opacity:0,point:400}
+  ]
 
   // $scope.$on("$viewContentLoaded", function(){
     setTimeout(function(){
-      $rootScope.videoslide();
-      // var vid = document.getElementById("open-video");
-      // vid.volume = 0.0;
+      if (!$rootScope.isMobile){
+        $rootScope.videoslide();
+      }else{
+        $rootScope.isOpener = false;
+        console.log("isMobile");
+        for (var i in $scope.opentextA){
+            $scope.opentextA[i].opacity=1;
+            console.log($scope.opentextA[i]);
+        }
+      }
       $rootScope.$apply();
+
     }, 2000);
 
   // })
@@ -69,72 +84,53 @@ $scope.logoPercentage=0;
 var lastScrollPosition = window.pageYOffset;
 
 
-$scope.opentextA=[
-    {opacity:0,point:0},
-    {opacity:0,point:100},
-    {opacity:0,point:200},
-    {opacity:0,point:300},
-    {opacity:0,point:400}
-  ]
-
-  angular.element($window).bind("scroll", function() {
-    var goingDown = (window.pageYOffset - lastScrollPosition) > 0;
-    var maximumScrollReached = (window.pageYOffset > window.innerHeight);
-
-    var windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
-    var body = document.body, html = document.documentElement;
-    var docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
-    var windowBottom = windowHeight + window.pageYOffset;
-    var element = $rootScope.retrieveElement("anchor_open");
-    var openHeight = element[0].clientHeight;
-    var requestId = "swjhs";
-
-      if (window.pageYOffset < openHeight) {
-        // scrollPlay();
-        // $rootScope.$apply();
-        $rootScope.isOpener = true;
-      }else{
-        window.cancelAnimationFrame(requestId);
-        $rootScope.isOpener = false;
-        $scope.openerScrolled=true;
-        // $window.cancelAnimationFrame();
-      }
 
 
 
+          angular.element($window).bind("scroll", function() {
+            var goingDown = (window.pageYOffset - lastScrollPosition) > 0;
+            var maximumScrollReached = (window.pageYOffset > window.innerHeight);
 
+            var windowHeight = "innerHeight" in window ? window.innerHeight : document.documentElement.offsetHeight;
+            var body = document.body, html = document.documentElement;
+            var docHeight = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight,  html.scrollHeight, html.offsetHeight);
+            var windowBottom = windowHeight + window.pageYOffset;
+            var element = $rootScope.retrieveElement("anchor_open");
+            var openHeight = element[0].clientHeight;
+            var requestId = "swjhs";
 
-  //fade in text animation
-
-if(!$scope.openerScrolled){
-  if (window.pageYOffset < openHeight) {
-    var opacity = ((window.pageYOffset*1) % 100)/100;
-
-    console.log(opacity);
-
-    for (var i in $scope.opentextA){
-      if((window.pageYOffset>$scope.opentextA[i].point)&&(window.pageYOffset<($scope.opentextA[i].point+100))){
-        $scope.opentextA[i].opacity = opacity;
-      }else if(window.pageYOffset>=($scope.opentextA[i].point+100)){
-        $scope.opentextA[i].opacity=1;
-      }
-    }
-
-
-  }
-}
-
-
-
-
+              if (window.pageYOffset < openHeight) {
+                // scrollPlay();
+                // $rootScope.$apply();
+                $rootScope.isOpener = true;
+              }else{
+                window.cancelAnimationFrame(requestId);
+                $rootScope.isOpener = false;
+                $scope.openerScrolled=true;
+                // $window.cancelAnimationFrame();
+              }
 
 
 
+              //fade in text animation
+                if(!$scope.openerScrolled){
+                  if (window.pageYOffset < openHeight) {
+                    var opacity = ((window.pageYOffset*1) % 100)/100;
+                    for (var i in $scope.opentextA){
+                      if((window.pageYOffset>$scope.opentextA[i].point)&&(window.pageYOffset<($scope.opentextA[i].point+100))){
+                        $scope.opentextA[i].opacity = opacity;
+                      }else if(window.pageYOffset>=($scope.opentextA[i].point+100)){
+                        $scope.opentextA[i].opacity=1;
+                      }
+                    }
+                  }
+                }
 
-      lastScrollPosition = window.pageYOffset;
-      $rootScope.$apply();
+              lastScrollPosition = window.pageYOffset;
+              $rootScope.$apply();
 
-  });
+          });
+
 
 }//end video function
 
