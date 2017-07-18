@@ -55,7 +55,7 @@
   cursor: -webkit-grab;
   // left:10vw;
   margin: 0;
-  text-transform: uppercase;
+  text-transform: none;
   text-align: center;
   margin-top: $margin-top-p;
   @include respond-to(phone){

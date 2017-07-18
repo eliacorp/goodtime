@@ -49,10 +49,12 @@ angular.module('myApp')
           //  && !done
           // setTimeout(, 6000);
           $scope.trailerActive = true;
+          $rootScope.groundSound();
 
           // done = true;
         }else{
           $scope.trailerActive = false;
+          $rootScope.groundSound();
         }
         $rootScope.$apply();
       }
