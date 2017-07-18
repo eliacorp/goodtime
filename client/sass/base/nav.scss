@@ -6,6 +6,10 @@
   top:$margin-sides;
   z-index:$z-nav;
   width: auto;
+  @include respond-to(phone){
+    top: auto;
+    bottom: 65px
+  }
 }
 
 
@@ -58,6 +62,7 @@
     line-height: 50px;
     font-family:'futura_std_bold';
     letter-spacing: 4px;
+    color: $white;
   }
 
 }

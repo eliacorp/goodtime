@@ -49,14 +49,12 @@
     width: 90vw;
   }
   p{
-    @include p();
     color: $red;
     width: 100%;
     text-align: center;
     text-transform: uppercase;
+    @include p2();
     margin-top: $margin-top-p;
-    font-family:$font-family-p2;
-    font-size: $font-size-p2;
     &:nth-child(1){
       margin-top: 0;
     }
@@ -69,6 +67,7 @@
     b{
       font-family:$font-family-p;
       font-size: $font-size-p;
+      @include p();
     }
   }
 }
