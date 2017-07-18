@@ -85,11 +85,13 @@ angular.module('myApp')
       $(this).addClass('animate');
   });
 
+
   $('.support-unicorn').find('b').each(function (i) {
       for (var j = 0; j < numPrefixes; j++) {
           $(this).css(prefixes[j] + 'animation-delay', (animTime * ((i * hueChange) % 360) / 360) - animTime + 's');
       }
   });
+
 
   // needed to avoid Chrome bug:
   $('.support-unicorn').one('mouseover',function(){

@@ -5,6 +5,9 @@
   right: $margin-sides;
   bottom: $margin-sides;
   z-index:$z-nav;
+  @include respond-to(phone){
+    width: 50px;
+  }
 }
 
 
@@ -16,6 +19,9 @@
   position: absolute;
   bottom:0;
   right:0;
+  @include respond-to(phone){
+    right:-10px;
+  }
   a{
     display: block;
     svg{
@@ -23,6 +29,9 @@
       height: auto;
       display: block;
       float: right;
+      @include respond-to(phone){
+        height: 40px;
+      }
     }
   }
 

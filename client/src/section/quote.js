@@ -126,15 +126,14 @@ $scope.quoteText={
   if($rootScope.isMobile){
     $scope.quoteText={
       'vivid':{left:0},
-      'variety':{opacity:0},
+      'variety':{opacity:1},
       'pleasure':{right:0},
-      'nytimes':{opacity:0},
+      'nytimes':{opacity:1},
       'suspense':{right:0},
-      'indiewire':{opacity:0},
+      'indiewire':{opacity:1},
       'robert':{left:0},
-      'timeout':{opacity:0}
-  }
-
+      'timeout':{opacity:1}
+    }
   }else{
     $scope.quoteScrollFN();
   }

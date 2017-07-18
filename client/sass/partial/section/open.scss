@@ -7,6 +7,13 @@
     position: relative;
   }
 }
+
+
+
+
+
+
+
 .open-video{
   width: 100vw;
   height: 100vh;
@@ -20,22 +27,18 @@
     left: 50%;
     margin-top: -65vh;
     margin-left: -65vw;
-
-
-
-
     @include respond-to(laptop-large){
-      width: 130vw;
-      height: 130vh;
-      margin-top: -65vh;
-      margin-left: -65vw;
+      width: 170vw;
+      height: 170vh;
+      margin-top: -85vh;
+      margin-left: -85vw;
     }
 
     @include respond-to(laptop-medium){
-      width: 120vw;
-      height: 120vh;
-      margin-top: -60vh;
-      margin-left: -60vw;
+      width: 140vw;
+      height: 140vh;
+      margin-top: -70vh;
+      margin-left: -70vw;
     }
 
     @include respond-to(laptop-small){
@@ -66,6 +69,16 @@
       margin-left: -125vw;
     }
   }
+  .open-video-element-mobile {
+    position: absolute;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    top:0%;
+    left: 0%;
+    margin-top: auto;
+    margin-left: auto;
+  }
 }
 
 
@@ -75,18 +88,21 @@
   height: 100vh;
   position: fixed;
   left:50px;
-  top:50px;
+  top:150px;
   @include respond-to(phone){
     position: absolute;
   }
   .open-text-ul{
     width:70vw;
     display: block;
+    @include respond-to(phone){
+      width:80vw;
+    }
     .open-text-li{
       height: auto;
       width: auto;
       display: block;
-      opacity: 0;
+      // opacity: 0;
       margin-top: $margin-top-h2;
       &:nth-child(1){
         margin-top: 0;
@@ -95,6 +111,9 @@
         width:auto;
         height: 100%;
         display: block;
+        @include respond-to(phone){
+          width: 200px;
+        }
       }
       p{
         color: $red;
@@ -105,30 +124,76 @@
 
 #open-text-1{
   height: 50px;
+  transition-delay:0s;
+  svg{
+    @include respond-to(phone){
+      width: 70px;
+    }
+  }
 }
 #open-text-2{
+  transition-delay:0.5s;
   p{
     @include h3();
     line-height: 10px;
+    @include respond-to(phone){
+      font-size:12px;
+    }
   }
 }
 
 #open-text-3{
+  transition-delay:1s;
   height: 100px;
+  @include respond-to(phone){
+    height: 50px;
+  }
+  svg{
+    @include respond-to(phone){
+      width: 260px;
+    }
+  }
+
 }
 
 #open-text-4{
+  transition-delay:2s;
   p{
     @include h2();
   }
 }
 
 #open-text-5{
-  height: 30px;
+  transition-delay:2.5s;
+  height: 35px;
   svg>g>.st0_a24logo{
     fill:$white;
   }
+  svg{
+    @include respond-to(phone){
+      height: 50px;
+      width:50px;
+      display: block;
+    }
+  }
 }
+
+
+.open-text-li{
+  opacity: 1;
+}
+.open-text-li.ng-hide{
+  opacity: 0;
+}
+$animation_speed_medium:2s;
+.open-text-li.ng-hide-remove.ng-hide-remove-active{
+  -webkit-transition: opacity $animation_speed_medium ease;
+  -moz-transition: opacity $animation_speed_medium ease;
+  -ms-transition: opacity $animation_speed_medium ease;
+  -o-transition: opacity $animation_speed_medium ease;
+  transition: opacity $animation_speed_medium ease;
+}
+
 
 // .open-logo{
 //   width: 100vw;

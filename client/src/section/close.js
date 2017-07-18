@@ -15,7 +15,9 @@ $scope.tens=[
   {opacity:0},
   {opacity:0},
   {opacity:0},
-  {opacity:0}
+  {opacity:0},
+  {opacity:0},
+  {opacity:1}
 ]
 
 
@@ -122,6 +124,13 @@ $scope.closeScroll =()=>{
           $scope.scrolledTroughClose=true;
         }
 
+        if((closeScroll>500)&&(closeScroll<=550)){
+          $scope.tens[11].opacity = opacity;
+        }else if(closeScroll>550){
+          $scope.tens[11].opacity = 1;
+          $scope.scrolledTroughClose=true;
+        }
+
       }else{
         $scope.tens[0].opacity = 0;
         $scope.tens[1].opacity = 0;
@@ -134,6 +143,7 @@ $scope.closeScroll =()=>{
         $scope.tens[8].opacity = 0;
         $scope.tens[9].opacity = 0;
         $scope.tens[10].opacity = 0;
+        $scope.tens[11].opacity = 0;
       }
     }
 
@@ -144,7 +154,7 @@ $scope.closeScroll =()=>{
 
 
 if($rootScope.isMobile){
-  $scope.tens=[{opacity:1},{opacity:1},{opacity:1},{opacity:1},{opacity:1},{opacity:1},{opacity:1},{opacity:1},{opacity:1},{opacity:1},{opacity:1}]
+  $scope.tens=[{opacity:1},{opacity:1},{opacity:1},{opacity:1},{opacity:1},{opacity:1},{opacity:1},{opacity:1},{opacity:1},{opacity:1},{opacity:1},{opacity:1}, {opacity:1}]
 }else{
   $scope.closeScroll();
 }
