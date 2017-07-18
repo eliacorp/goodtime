@@ -393,6 +393,13 @@ setTimeout(function(){
   };
 })
 
+.directive('clickIconDirective', function() {
+  return {
+    restrict: 'E',
+    templateUrl: 'views/components/icon/click_icon.html',
+    replace: true
+  };
+})
 
 .directive('logoDirective', function($rootScope, $location, $window, $timeout) {
   return {
