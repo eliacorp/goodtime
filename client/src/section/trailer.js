@@ -49,12 +49,9 @@ angular.module('myApp')
           //  && !done
           // setTimeout(, 6000);
           $scope.trailerActive = true;
-          $rootScope.groundSound();
-
           // done = true;
         }else{
           $scope.trailerActive = false;
-          $rootScope.groundSound();
         }
         $rootScope.$apply();
       }
@@ -65,10 +62,13 @@ angular.module('myApp')
       $scope.toggleVideo=()=> {
         if(!$scope.trailerActive){
           player.playVideo();
+          $rootScope.stopSound();
         }else{
           player.stopVideo();
+          $rootScope.groundSound();
         }
       }
+
   };
 
 

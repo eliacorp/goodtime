@@ -28,38 +28,38 @@
     margin-top: -65vh;
     margin-left: -65vw;
     @include respond-to(laptop-large){
-      width: 170vw;
-      height: 170vh;
-      margin-top: -85vh;
-      margin-left: -85vw;
+      width: 200vw;
+      height: 200vh;
+      margin-top: -100vh;
+      margin-left: -100vw;
     }
 
     @include respond-to(laptop-medium){
-      width: 140vw;
-      height: 140vh;
-      margin-top: -70vh;
-      margin-left: -70vw;
+      width: 160vw;
+      height: 160vh;
+      margin-top: -80vh;
+      margin-left: -80vw;
     }
 
     @include respond-to(laptop-small){
-      width: 140vw;
-      height: 140vh;
-      margin-top: -70vh;
-      margin-left: -70vw;
+      width: 190vw;
+      height: 160vh;
+      margin-top: -80vh;
+      margin-left: -85vw;
     }
 
     @include respond-to(tablet-portrait){
-      width: 160vw;
+      width: 190vw;
       height: 160vh;
       margin-top: -80vh;
-      margin-left: -80vw;
+      margin-left: -85vw;
     }
 
     @include respond-to(tablet-landscape){
-      width: 160vw;
-      height: 160vh;
-      margin-top: -80vh;
-      margin-left: -80vw;
+      width: 220vw;
+      height: 180vh;
+      margin-top: -90vh;
+      margin-left: -110vw;
     }
 
     @include respond-to(phone){
@@ -127,7 +127,7 @@
   transition-delay:0s;
   svg{
     @include respond-to(phone){
-      width: 70px;
+      width: 120px;
     }
   }
 }
@@ -160,6 +160,8 @@
   transition-delay:2s;
   p{
     @include h2();
+    letter-spacing: $letter-spacing-h2-mobile !important;
+    line-height: 20px!important;
   }
 }
 

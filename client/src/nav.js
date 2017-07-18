@@ -129,6 +129,12 @@ $rootScope.groundSound=()=>{
 }
 
 
+$rootScope.stopSound=()=>{
+  $rootScope.groundSoundEL.pause();
+  $rootScope.isGroundSound=false;
+}
+
+
 
 
 
