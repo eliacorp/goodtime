@@ -58,6 +58,9 @@
   text-transform: uppercase;
   text-align: center;
   margin-top: $margin-top-p;
+  @include respond-to(phone){
+    font-size: $font-size-p2-mobile;
+  }
 
   &:nth-child(1){
     color: $red;
