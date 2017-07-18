@@ -106,7 +106,9 @@ angular.module('myApp')
 
 
 
-
+if($rootScope.isMobile){
+ $rootScope.isGroundSound=false;
+}
 
 setTimeout(function(){
   $rootScope.groundSoundEL = $('#support-audio')[0];
@@ -124,11 +126,6 @@ $rootScope.groundSound=()=>{
     $rootScope.isGroundSound=true;
     console.log(true);
   }
-
-
-
-  // $rootScope.aud
-
 }
 
 
