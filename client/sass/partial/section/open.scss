@@ -27,6 +27,12 @@
     left: 50%;
     margin-top: -65vh;
     margin-left: -65vw;
+    @include respond-to(desktop){
+      width: 200vw;
+      height: 200vh;
+      margin-top: -100vh;
+      margin-left: -100vw;
+    }
     @include respond-to(laptop-large){
       width: 200vw;
       height: 200vh;
