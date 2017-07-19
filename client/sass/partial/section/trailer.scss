@@ -24,6 +24,12 @@
   margin-top: -252px;
   top:50%;
   left:50%;
+  @include respond-to(desktop){
+    width: 900px;
+    height: 525px;
+    margin-left: -450px;
+    margin-top: -262.5px;
+  }
   @include respond-to(tablet-landscape){
     width: 600px;
     height: 350px;
