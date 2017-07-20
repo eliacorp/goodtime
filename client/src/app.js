@@ -401,6 +401,22 @@ setTimeout(function(){
   };
 })
 
+.directive('godownIconDirective', function() {
+  return {
+    restrict: 'E',
+    templateUrl: 'views/components/icon/godown_icon.html',
+    replace: true
+  };
+})
+
+.directive('moveIconDirective', function() {
+  return {
+    restrict: 'E',
+    templateUrl: 'views/components/icon/move_icon.html',
+    replace: true
+  };
+})
+
 .directive('logoDirective', function($rootScope, $location, $window, $timeout) {
   return {
     restrict: 'E',
