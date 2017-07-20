@@ -1,18 +1,13 @@
 angular.module('myApp')
 .controller('homeCtrl',['$rootScope', '$scope','anchorSmoothScroll', ($rootScope,$scope, anchorSmoothScroll)=>{
 
-
-
-$rootScope.anchorScroll=(id)=>{
-  anchorSmoothScroll.scrollTo(id);
-}
-
-
+  $rootScope.anchorScroll=(id)=>{
+    anchorSmoothScroll.scrollTo(id);
+  }
 
   // setTimeout(function(){
   //   $( ".synopsis-float" ).draggable({ containment: "window" });
   // },900);
-
 
     if($rootScope.isMobile){
 
@@ -23,22 +18,20 @@ $rootScope.anchorScroll=(id)=>{
           containment: "document"
         });
       },600);
-
     }
 
 
 
 
-$rootScope.backgroundN=1;
+  $rootScope.backgroundN=1;
 
-$rootScope.changeBackgrounds=()=>{
-  if($rootScope.backgroundN<10){
-    $rootScope.backgroundN++
-  }else{
-    $rootScope.backgroundN=1;
+  $rootScope.changeBackgrounds=()=>{
+    if($rootScope.backgroundN<10){
+      $rootScope.backgroundN++
+    }else{
+      $rootScope.backgroundN=1;
+    }
   }
-
-}
 
 
 
