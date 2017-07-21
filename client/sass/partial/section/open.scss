@@ -145,6 +145,7 @@
   height: 70px;
   transition-delay:0s;
   svg{
+    width: 120px;
     @include respond-to(phone){
       width: 120px;
     }
@@ -168,6 +169,7 @@
     height: 50px;
   }
   svg{
+    width: 590px;
     @include respond-to(phone){
       width: 260px;
     }
